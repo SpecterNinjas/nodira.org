@@ -1,0 +1,354 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+.bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Exceptions</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_pip' %}" target="_blank"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_urllib' %}"
+                                          target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: <strong>Python Exceptions</strong> Overview</div>
+        <p class="p-color p-size pl-3">In Python, there're <strong>2</strong> types of Error mostly used : <span
+                class="text-danger font-weight-bold font-italic">Syntax errors</span> and <span
+                class="text-danger font-weight-bold font-italic ">Exceptions</span></p>
+        <p class="p-color p-size pl-3">
+            <span class="font-italic font-weight-bold text-dark">Syntax errors</span> occur during invalid syntax, in
+            most cases compiler will underline them.
+        </p>
+        <p class="p-color p-size pl-3">
+            <span class="font-italic font-weight-bold text-dark">Exceptions</span> occur during <em>execution time</em>,
+            where
+            you might have <em>logical error</em>.
+        </p>
+
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.1</strong>: <strong>Syntax Errors</strong></div>
+        <p class="p-color p-size pl-3"><span class="font-italic font-weight-bold text-dark">Syntax errors</span> are
+            perhaps the most common kind of error you get while learning Python. <br> They occur
+            during <span class="text-danger">invalid syntax</span> and in most cases your compiler will <u>underline</u>
+            them.</p>
+
+        <p class="command p-size text-dark my-3">
+            <span class="text-danger">print</span> <span class="text-info"> &nbsp;  "Hello World"</span> <span
+                class="text-secondary font-italic pl-4"># &nbsp;&nbsp;&nbsp;Ignoring parentheses <u>intentionally</u>  </span><br>
+            <span class="text-secondary font-italic pl-1">#&nbsp;&nbsp; Output:</span><br>
+            >>> &nbsp;<span class="text-danger">SyntaxError</span>: Missing parentheses in call to 'print'. Did you mean
+            print("Hello World")?
+        </p>
+        <p class="p-color p-size my-3 pl-3">
+            Similarly, <em><strong>wrong indentation</strong></em> might cause to an <span
+                class="text-danger">error</span>:
+        </p>
+        <p class="command p-size text-dark my-3">
+
+            <span class="text-danger">while</span> <span class="text-dark"> &nbsp;&nbsp;True</span> : <br>
+            &nbsp;&nbsp;&nbsp; <span class="text-danger">print</span> (<span class="text-info"> "Hello World" </span>)
+            <span
+                    class="text-secondary font-italic pl-4"># &nbsp;&nbsp;&nbsp;Wrong indenting <u>intentionally</u>  </span><br>
+            <span class="text-secondary font-italic pl-1">#&nbsp;&nbsp; Output:</span><br>
+            >>> &nbsp;<span class="text-danger">IndentationError</span>: unexpected indent
+        </p>
+
+
+        <hr>
+
+        <div class="h5 text-info mb-3"><strong>Section 2.2</strong>: <strong>Python Exceptions</strong></div>
+        <p class="p-color p-size pl-3"><span class="font-italic font-weight-bold text-dark">Python Exceptions</span>
+            consist of <strong>3</strong> main blocks:</p>
+        <ul class="ml-3">
+            <li><p class="p-color p-size pl-2"><span class="text-danger font-weight-bold">try</span> <strong>-</strong>
+                tries to execute a set of code.</p></li>
+            <li><p class="p-color p-size pl-2"><span class="text-danger font-weight-bold">except</span>
+                <strong>-</strong> what to do in case of Error.</p></li>
+            <li><p class="p-color p-size pl-2"><span class="text-danger font-weight-bold">finally <span
+                    class="text-dark font-italic">(optional)</span></span> <strong>-</strong> mandatory executes even if
+                error occurs.</p></li>
+
+        </ul>
+
+        <p class="command p-size text-dark">
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;simple usage of "try-except-finally" block </span><br>
+
+            <span class="text-danger">try</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name &nbsp;=&nbsp; <span class="text-danger">str</span> ( <span class="text-info">input</span>
+            ( " Enter your name: " ) ) <br>
+            <span class="text-danger">except</span> &nbsp;&nbsp;<span class="text-success">ValueError</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ( " Only string allowed " ) <br>
+            <span class="text-danger">finally</span> : <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;regardless of try/except, I'll be shown </span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ( " I'll be shown no matter happens! " ) <br>
+
+        </p>
+        <ul>
+            <li style="list-style-type: square">
+                <p class="p-color p-size my-3">
+                    <span class="font-italic font-weight-bold text-info pl-3">Catching Multiple Errors</span> can be
+                    done by simply adding <em><strong>commas :</strong></em>
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size text-dark">
+            <span class="text-danger">try</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; . . . <br>
+            <span class="text-danger">except</span> ( &nbsp;<span class="text-success">ValueError</span> , &nbsp;<span
+                class="text-success">TypeError</span> , &nbsp;<span class="text-success">NameError</span> , &nbsp;<span
+                class="text-success">OSError </span> ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; . . . <br>
+        </p>
+        <ul>
+            <li style="list-style-type: square">
+                <p class="p-color p-size my-3">
+                    <span class="font-italic font-weight-bold text-danger pl-3">as</span> keyword for <em>error
+                    clarification</em> :
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size text-dark">
+            <span class="text-danger">try</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name &nbsp;=&nbsp; <span class="text-danger">str</span> ( <span class="text-info">input</span>
+            ( " Enter your name: " ) ) <br>
+            <span class="text-danger">except</span> &nbsp;&nbsp;<span class="text-success">ValueError</span> &nbsp;&nbsp;<span
+                class="text-danger">as</span> &nbsp;&nbsp;<span class="text-info font-italic">error</span>&nbsp; : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> (&nbsp; " Error occurred by : " &nbsp;,&nbsp;
+            <span
+                    class="text-info font-italic">error</span>&nbsp; ) <br>
+
+        </p>
+        <ul>
+            <li style="list-style-type: square">
+                <p class="p-color p-size my-3">
+                    <span class="font-italic font-weight-bold text-dark pl-3">Without knowing Error Name</span> <strong>-</strong>
+                    we can declare <span class="text-danger font-weight-bold">except</span> block, even without knowing
+                    its name :
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size text-dark">
+            <span class="text-danger">try</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name &nbsp;=&nbsp; <span class="text-danger">str</span> ( <span class="text-info">input</span>
+            ( " Enter your name: " ) ) <br>
+            <span class="text-danger">except</span> &nbsp;&nbsp;<span class="text-success">A</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ( " Error occurred! " ) <br>
+
+        </p>
+        <br>
+        <hr>
+
+        <div class="h5 text-info my-3"><strong>Section 2.3</strong>: <strong>Finally</strong> Block</div>
+        <p class="p-color p-size ml-3"><span class="font-weight-bold text-danger">finally</span>
+            <strong>-</strong> <em>optional block</em>, meaning you can <span
+                    class="font-italic text-dark font-weight-bold">either</span> declare it <span
+                    class="font-italic text-dark font-weight-bold">or</span> not. </p>
+        <p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">finally</span> <strong>-</strong>
+            mandatory executes even if
+            error occurs.</p>
+        <p class="command p-size text-dark">
+
+            <span class="text-danger">try</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name &nbsp;=&nbsp; <span class="text-danger">str</span> ( <span class="text-info">input</span>
+            ( " Enter your name: " ) ) <br>
+            <span class="text-danger">except</span> &nbsp;&nbsp;<span class="text-success">ValueError</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ( " Only string allowed " ) <br>
+            <span class="text-danger">finally</span> : <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;regardless of try/except, I'll be shown </span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ( " I'll be shown no matter happens! " ) <br>
+
+        </p>
+
+        <hr>
+        <p class="command p-size text-dark">
+
+            <span class="text-danger">try</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;. . . <br>
+            <span class="text-danger">except</span> &nbsp;&nbsp;<span class="text-success">A</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;. . . <br>
+            <span class="text-danger">finally</span> : <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;regardless of try/except, I'll be shown </span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ( " Good Bye! " ) <br>
+
+        </p>
+        <br>
+        <hr>
+        <br>
+        <div class="h5 text-info mb-3"><strong>Section 3.1</strong>: <strong>Raise</strong> Statement</div>
+        <p class="p-color p-size pl-4"><span class="font-italic font-weight-bold text-danger">raise</span>
+            <strong>-</strong>
+            keyword is used to <em>raise an exception</em> when specified condition becomes <span
+                    class="text-dark font-weight-bold">True</span>.
+        </p>
+
+        <p class="p-color p-size  font-weight-bold ml-2 text-dark"
+           style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+            <span class="text-success">raise</span> &nbsp;&nbsp; ExceptionName
+        </p>
+        <p class="command p-size text-dark">
+
+            <span class="text-danger">try</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">if</span> &nbsp;&nbsp; x < 0 : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">raise </span>&nbsp;&nbsp;
+            Exception&nbsp;&nbsp; ( <span class="text-info">" Less than zero "</span> )
+            <br>
+            <span class="text-danger">except</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;. . .
+        </p>
+
+        <p class="p-color p-size ml-3 my-3">
+            Let's create a <span class="text-danger font-weight-bold">division function</span> and check denominator for
+            <span class="font-weight-bold font-italic">Zero Division</span> :
+        </p>
+        <p class="command p-size text-dark">
+
+            <span class="text-danger font-weight-bold">def </span>&nbsp; &nbsp;<span class="text-info">Division</span> (
+            a , b ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">if</span> &nbsp;&nbsp; b == 0 : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">raise </span>&nbsp;&nbsp;<span
+                class="text-danger">" Division by zero not allowed! "</span> <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">else</span> &nbsp; : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">return  </span> a/b <br>
+
+        </p>
+        <br>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_pip' %}" target="_blank"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_urllib' %}"
+                                          target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

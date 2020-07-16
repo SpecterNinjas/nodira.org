@@ -1,0 +1,348 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: 0.9em;
+            font-weight: 500;
+
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Networking</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_multithreading' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_http_server' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Networking Overview</div>
+        <p class="p-color p-size pl-3">
+            This section focuses on <span class="text-danger font-weight-bold">Python Networking</span> and how to
+            implement in Python projects.
+        </p>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">Networking </span> is a connection that allows at least 2 <span
+                class="text-dark font-weight-bold">nodes</span> to be linked with each other in order to exchange
+            important files, share resources and build communication bridge among all connected nodes.</p>
+        <p class="p-color p-size pl-3">
+            Let's do some practice and learn about <span
+                class="text-dark font-weight-bold"> Python Networking </span>
+            and how to implement & understand them on a deep level.
+        </p>
+
+        <hr>
+
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Python Networking - Simple Http Server</div>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">Simple Http Server </span>&nbsp; is a built-in module of Python
+            that's used to build simple connection over certain port number.
+        </p>
+        <p class="p-color p-size pl-3">
+            By default, Python provides port number <span class="text-danger font-weight-bold">8000</span> to build
+            simple connection.
+        </p>
+        <p class="command p-size my-3">
+            >>> python3&nbsp; -m&nbsp; <span class="text-info">http.server</span>&nbsp; <span
+                class="text-danger">9090</span>
+        </p>
+        <p class="p-color p-size pl-3">
+            Default port <span class="text-danger font-weight-bold">8000</span> will be used in case you omit to specify
+            port number, but in above example we told to our server to use <span class="text-danger font-weight-bold">9090</span>.
+        </p>
+        <p class="command p-color my-3">
+            <span class="text-danger">import </span> &nbsp;&nbsp;http.server <br>
+            <span class="text-danger">import </span> &nbsp;&nbsp;socketserver <span
+                class="text-secondary pl-4 font-italic">#  &nbsp;&nbsp;used to setup a network serve</span><br>
+            <br>
+            PORT &nbsp;=&nbsp; <span class="text-danger">8000</span> <br><br>
+            handler &nbsp;=&nbsp; http.server.<span class="text-info">SimpleHTTPRequestHandler</span> <br>
+            httpd &nbsp;=&nbsp; socketserver.<span class="text-success">TCPServer</span> ( ( <span
+                class="text-info">" "</span> , PORT ) , handler ) <br>
+            <span class="text-danger">print</span> ( <span class="text-info">"Serving Port "</span> , PORT ) <br>
+            httpd.<span class="text-danger">serve_forever</span> (&nbsp; ) <br>
+        </p>
+        <hr>
+<div class="h5 text-info my-3"><strong>Section 2.2</strong>: Python Networking - Socket Server/Client Example
+        </div>
+        <p class="p-color p-size pl-3">
+            Let's start creating very simple <span class="text-danger font-weight-bold">Socket Server/Client</span>
+            example.
+            Here,
+            we created 2 python files : <span class="text-dark font-weight-bold">client.py</span> and <span
+                class="text-dark font-weight-bold">server.py</span>
+
+        </p>
+        <p class="command p-color my-3 ">
+            <span class="text-secondary"># &nbsp;&nbsp;&nbsp;server.py</span> <br>
+            import&nbsp;&nbsp; <span class="text-danger">socket</span><br>
+            <br>
+
+
+            serversocket &nbsp;=&nbsp; <span class="text-danger">socket</span>.socket ( <span
+                class="text-danger">spcket</span>.AF_INET , <span class="text-danger">socket</span>.SOCK_STREAM ) <br>
+            serversocket.<span class="text-danger">bind</span> ( ( <span class="text-info">'localhost'</span> , <span
+                class="text-danger">9090</span> ) ) <br>
+            serversocket.<span class="text-danger">listen</span> ( <span class="text-danger">3</span> ) <span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; allowing maximum 3 connections</span><br>
+            <br>
+
+            <span class="text-danger">while</span>&nbsp;&nbsp; <span class="text-success">True</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;conn , addr &nbsp;=&nbsp; <span class="text-danger">serversocket</span>.accept (&nbsp;
+            )
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;buffer &nbsp;=&nbsp; connection.recv ( <span class="text-danger">64</span> ) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">if</span>&nbsp;&nbsp;<span
+                class="text-success">len </span> ( buffer ) > <span class="text-danger">0</span> :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( buffer ) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">return</span>
+
+        </p>
+        <p class="p-color p-size pl-3">
+            Next step is to define our <span class="text-dark font-weight-bold">client.py</span> file to handle user
+            connection :
+        </p>
+        <p class="command p-color my-3 ">
+            <span class="text-secondary"># &nbsp;&nbsp;&nbsp;client.py</span> <br>
+            import&nbsp;&nbsp; <span class="text-danger">socket</span> <br>
+            <br>
+
+            clientsocket &nbsp;=&nbsp; socket.<span class="text-danger">socket</span> ( <span
+                class="text-danger">socket</span>.AF_INET , <span class="text-danger">socket</span>.SOCK_STREAM )<br>
+            clientsocket.connect ( ( <span class="text-info">'localhost'</span> , <span class="text-danger">9090</span>
+            ) )<br>
+            clientsocket.send ( <span class="text-success">'Python is cool!'</span> )<br>
+        </p>
+
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 3.1</strong>: Python Networking - TCP Server</div>
+        <p class="p-color p-size pl-3">
+            Let's do some practice and start creating <span class="text-danger font-weight-bold">TCP server</span>.
+            Here,
+            we created 2 python files : <span class="text-dark font-weight-bold">client.py</span> and <span
+                class="text-dark font-weight-bold">server.py</span>
+        </p>
+        <p class="command p-color my-3 ">
+            <span class="text-secondary"># &nbsp;&nbsp;&nbsp;server.py</span> <br>
+            from &nbsp;&nbsp; <span class="text-info">socketserver</span>&nbsp;&nbsp; import&nbsp;&nbsp; <span
+                class="text-danger">ThreadingTCPServer</span> , <span class="text-danger">BaseRequestHandler</span><br>
+            <br>
+            <span class="text-danger">class</span>&nbsp;&nbsp; EchoHandler ( <span class="text-danger">BaseRequestHandler</span>
+            ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; handle ( <span
+                class="text-success">self</span> ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">'Connected : '</span> , <span
+                class="text-success">self</span>.client_address
+            ) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">while</span>&nbsp;&nbsp; True :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg &nbsp;=&nbsp; <span
+                class="text-success">self</span>.request.recv ( <span class="text-info">9090</span> ) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">if &nbsp;&nbsp;not</span>&nbsp;&nbsp;
+            msg : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-danger">break</span> <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-success">self</span>.request.send ( msg ) <br>
+            <br>
+            <span class="text-danger">if</span>&nbsp;&nbsp; <span class="text-info">__name__</span> &nbsp;==&nbsp;
+            '__main__' :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;server &nbsp;=&nbsp; <span class="text-danger">ThreadingTCPServer</span> ( ( <span
+                class="text-info">' '</span> , <span class="text-danger">5000</span> ) , EchoHandler ) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;server.<span class="text-danger">serve_forever</span> ( &nbsp;)
+        </p>
+        <p class="p-color p-size pl-3">
+            Now it's time to define our <span class="text-dark font-weight-bold">client.py</span> file to handle user
+            network
+            connection :
+        </p>
+        <p class="command p-color my-3 ">
+            <span class="text-secondary"># &nbsp;&nbsp;&nbsp;client.py</span> <br>
+            from &nbsp;&nbsp; <span class="text-info">socket</span>&nbsp;&nbsp; import&nbsp;&nbsp; <span
+                class="text-danger">socket</span> , <span class="text-danger">AF_INET</span> , <span
+                class="text-danger">SOCK_STREAM</span> <br>
+            <br>
+            sock &nbsp;=&nbsp; socket ( <span class="text-danger">AF_INET</span> , <span
+                class="text-danger">SOCK_STREAM</span> )<br>
+            sock.connect ( ( <span class="text-info">'localhost'</span> , <span class="text-danger">5000</span> ) )<br>
+            sock.send ( <span class="text-danger">b</span><span class="text-success">'Python is cool!'</span> )<br>
+            sock.recv ( <span class="text-info">9090</span> ) <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;b'Python is cool!'</span><br>
+        </p>
+
+        <hr>
+
+        <div class="h5 text-info my-3"><strong>Section 3.2</strong>: Python Networking - UDP Server</div>
+        <p class="p-color p-size pl-3">
+            Now we are going much deeper and learn how to create <span
+                class="text-danger font-weight-bold">UDP server</span>.
+
+        </p>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">UDP server</span> creation is very similar to <span
+                class="text-dark font-weight-bold">TCP Server</span>, but contains some additional functions.
+        </p>
+        <p class="command p-color my-3 ">
+            <span class="text-secondary"># &nbsp;&nbsp;&nbsp;Simple UDP Server</span> <br>
+            from &nbsp;&nbsp; <span class="text-info">socketserver</span>&nbsp;&nbsp; import&nbsp;&nbsp; <span
+                class="text-danger">BaseRequestHandler</span> , <span class="text-danger">UDPServer</span> <br>
+            import&nbsp;&nbsp; <span class="text-danger">time</span> <br>
+            <br>
+            <span class="text-danger">class</span>&nbsp;&nbsp; CtimeHandler ( <span class="text-danger">BaseRequestHandler</span>
+            ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; handle ( <span
+                class="text-success">self</span> ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">'Connected : '</span> , <span
+                class="text-success">self</span>.client_address
+            ) <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;msg , sock &nbsp;=&nbsp; <span class="text-success">self</span>.request ) <br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;resp &nbsp;=&nbsp; <span class="text-danger">time</span>.ctime (&nbsp; ) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;sock.sendto ( resp.encode ( <span class="text-danger">'ascii'</span> ) , <span
+                class="text-success">self</span>.client_address )
+            <br>
+            <br>
+            <span class="text-danger">if</span>&nbsp;&nbsp; <span class="text-info">__name__</span> &nbsp;==&nbsp;
+            '__main__' :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;server &nbsp;=&nbsp; <span class="text-danger">UDPServer</span> ( ( <span
+                class="text-info">' '</span> , <span class="text-danger">5000</span> ) , CtimeHandler ) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;server.<span class="text-danger">serve_forever</span> ( &nbsp;)
+
+        </p>
+
+       <br>
+          <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_multithreading' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_http_server' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+
+
+    </div>
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

@@ -1,0 +1,330 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Design Patterns</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_attribute_access' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_hashlib' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: <strong>Design Patterns</strong> Overview</div>
+        <p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">Design Pattern</span> is a <em>general
+            and reusable solution</em> to a commonly occurring problem in a sphere of <span
+                class="text-dark font-weight-bold">IT</span>.</p>
+        <p class="p-color p-size pl-3">
+            In this section, we'll more about <span class="text-dark font-weight-bold">Design Patterns</span> on a deep
+            level.
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 1.2</strong>: Design Pattern <strong>Development Life
+            Cycle</strong></div>
+        <p class="p-color p-size pl-3">
+            The <span class="text-dark font-weight-bold">Development Life Cycle</span> of a design pattern begins with
+            object creation in a manner suitable to the situation.
+        </p>
+        <p class="p-color p-size pl-3">Development Life Cycle :</p>
+        <ul>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3">Independent System Mainstream</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3">Evaluate common modeling tasks and key
+                resources in reference implementations</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3">Using the identified resources as key
+                components of the design pattern</p>
+            </li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3">Include design patterns in plug-in
+                projects, associate the plug-in project to a feature project</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3">Test design patterns</p></li>
+        </ul>
+
+
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.1</strong>: <strong>Creational Design Patterns</strong></div>
+        <p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">Creational design patterns </span> are
+            design patterns that deal with <span class="text-dark font-weight-bold">object creation</span> mechanisms,
+            trying to create objects in a manner suitable to the situation.</p>
+        <p class="p-color p-size pl-3">They're composed of <span class="text-dark font-weight-bold">two dominant</span>
+            ideas. One is encapsulating knowledge about which concrete classes the system uses. Another is hiding how
+            instances of these concrete classes are created and combined.</p>
+        <p class="p-color p-size pl-3">Applying <span
+                class="text-info font-weight-bold">Creational Design Patterns</span> when :</p>
+        <ul>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3">Independent System Mainstream</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3">A set of related objects is designed to
+                be used together</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3">Hiding the implementations of a class</p>
+            </li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3">Diverse representation of independent
+                complex objects</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3">Instance should be extensible without
+                being modified</p></li>
+        </ul>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.2</strong>: <strong>Structural Design Patterns</strong></div>
+        <p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">Structural design patterns </span> are
+            used to ease the design by identifying a simple way to realize relationships among entities.</p>
+        <p class="p-color p-size pl-3 font-italic">They're consisted of a number of design patterns :</p>
+
+        <ul>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Adapter_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Adapter pattern</span></a> : &nbsp;Adapts one interface for a class
+                into one that a client expects</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Aggregate_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Aggregate pattern</span></a> : &nbsp;Applying aggregation of children
+            </p>
+            </li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Bridge_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Bridge pattern</span></a> : &nbsp;Abstraction from its implementation
+                so
+                that the two can vary independently</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Composite_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Composite pattern</span></a> : &nbsp;Tree structure of objects where
+                every
+                object has the same interface</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Proxy_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Proxy pattern</span></a> : &nbsp;Class functioning as an interface to
+                another thing</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Flyweight_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Flyweight pattern</span></a> : &nbsp;A large quantity of objects share
+                a
+                common properties object to save space</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Extensibility_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Extensibility pattern</span></a> : &nbsp;Hiding complex code behind a
+                simple interface</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Facade_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Facade pattern</span></a> : &nbsp;Creating simplified interface of an
+                existing interface to ease usage for common tasks</p></li>
+
+        </ul>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.3</strong>: <strong>Behavioral Design Patterns</strong></div>
+        <p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">Behavioral Pattern</span> is a way of
+            identifying common communication patterns among objects and realize these patterns</p>
+        <p class="p-color p-size pl-3">This pattern is concerned with interaction among objects and responsibility of
+            objects.</p>
+        <p class="p-color p-size pl-3 font-italic">They're consisted of a number of design patterns :</p>
+
+        <ul>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Blackboard_design_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Blackboard pattern</span></a> : &nbsp;provides a computational
+                framework for the design and implementation of systems that integrate large and diverse specialized
+                modules</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Command_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Command pattern</span></a> : &nbsp;Command objects encapsulate an
+                action and its parameters
+            </p>
+            </li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Interpreter_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Interpreter pattern</span></a> : &nbsp; Implement a specialized
+                computer language to rapidly solve a specific set of problems</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Mediator_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Mediator pattern</span></a> : &nbsp;Provides a unified interface to a
+                set of interfaces in a subsystem</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Memento_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Memento pattern</span></a> : &nbsp; Provides the ability to restore an
+                object to its previous state</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Observer_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Observer pattern</span></a> : &nbsp;Weak reference pattern</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Protocol_stack" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Protocol pattern</span></a> : &nbsp;Communications are handled by
+                multiple layers, which form an encapsulation hierarchy</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><a
+                    href="https://en.wikipedia.org/wiki/Strategy_pattern" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Learn more"><span
+                    class="text-info font-italic">Strategy pattern</span></a> : &nbsp;Algorithms can be selected on the
+                fly, using composition</p></li>
+
+        </ul>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 3.1</strong>: <strong>Conclusion</strong></div>
+
+        <p class="p-color p-size pl-3"> Python is a powerful language and it gives you all the power you need to produce
+            flexible and reusable code. Design Patterns are really useful for creating reusable across multiple
+            projects, while providing great reliability and dependency.</p>
+        <p class="p-color p-size pl-3"><span class="text-dark font-weight-bold">Design Patterns</span> can be easily
+            created and executed using Python. <span class="text-info font-weight-bold">Happy coding :)</span></p>
+ <br>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_attribute_access' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_hashlib' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+
+    </div>
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

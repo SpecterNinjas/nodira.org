@@ -1,0 +1,486 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+.bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python String Manipulation</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_print_function' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_list' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: <strong>String Manipulation</strong> Overview</div>
+        <p class="p-color p-size pl-3">
+            This section focuses on <span class="text-danger font-weight-bold">strings</span> and applies several
+            functions
+            over them.
+        </p>
+        <p class="p-color p-size pl-3">
+            Let's some practice and learn about fundamental functions on a deep level.
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Changing String Capitalization</div>
+        <p class="p-color p-size pl-3">
+            Python provides <span class="text-dark font-weight-bold">6 types</span> of <span
+                class="text-danger font-weight-bold">Strings Capitalization</span> :
+        </p>
+        <ul class="ml-3">
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">str</span><span
+                    class="text-dark font-weight-bold">.upper ( &nbsp;)</span> <strong>-</strong> method converts all
+                lowercase characters in a string into uppercase characters.</p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">str</span><span
+                    class="text-dark font-weight-bold">.lower ( &nbsp;)</span> <strong>-</strong> method converts all
+                uppercase characters in a string into lowercase characters. </p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">str</span><span
+                    class="text-dark font-weight-bold">.capitalize ( &nbsp;)</span> <strong>-</strong> first letter
+                capitalized and all other characters will be lowercased.</p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">str</span><span
+                    class="text-dark font-weight-bold">.title ( &nbsp;)</span> <strong>-</strong> converts first
+                character of each word to uppercase and remaining to lowercase.</p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">str</span><span
+                    class="text-dark font-weight-bold">.swapcase ( &nbsp;)</span> <strong>-</strong> converts uppercase
+                to lowercase and lowercase to uppercase.</p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">str</span><span
+                    class="text-dark font-weight-bold">.casefold ( &nbsp;)</span> <strong>-</strong> returns a string
+                where all characters are lowercase and used to implement caseless string matching.</p></li>
+
+        </ul>
+        <p class="command p-color text-dark">
+            "this IS an Upper string".<span class="text-danger">upper</span> ( &nbsp;) <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;THIS IS AN UPPER STRING </span><br>
+            "THis IS a LOWER string".<span class="text-danger">lower</span> ( &nbsp;) <span class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;this is a lower string </span><br>
+            "this IS a STRING".<span class="text-danger">capitalize</span> ( &nbsp;) <span class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;This is a string </span><br>
+            "this IS a string".<span class="text-danger">title</span> ( &nbsp;) <span class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;This Is A String </span><br>
+            "this IS a STRING".<span class="text-danger">swapcase</span> ( &nbsp;) <span class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;THIS is A string </span><br>
+            "this IS a XßΣ".<span class="text-danger">casefold</span> ( &nbsp;) <span class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;this is a xssσ </span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3 text-capitalize"><strong>Section 2.2</strong>: concatenating variables</div>
+        <p class="p-color p-size pl-3">
+            Python provides <span class="text-dark font-weight-bold">2 types</span> of method for <span
+                class="text-danger font-weight-bold">concatenating variables</span> :
+        </p>
+        <ul class="ml-3 my-3">
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">str</span><span
+                    class="text-dark font-weight-bold">.format( &nbsp;)</span></p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-dark font-weight-bold"><span
+                    class="text-danger font-weight-bold">f</span> - strings</span></p></li>
+        </ul>
+        <p class="command p-color text-dark">
+            a , b , c &nbsp;=&nbsp; <span class="text-danger">10</span> , <span class="text-danger">10.5</span> ,<span
+                class="text-info">"Python"</span> <br>
+            <br><span class="text-secondary">#&nbsp;&nbsp;&nbsp;&nbsp;str.format</span><br>
+            "5 + 5 will be : <span class="text-info">{}</span>".<span class="text-danger"> format</span> ( a )<span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;5 + 5 will be : 10</span><br>
+            "5 + 5 will be : <span class="text-info">{}</span> , not <span class="text-info">{}</span>".<span
+                class="text-danger"> format</span> ( a , b )<span class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;5 + 5 will be : 10 , not 10.5</span><br>
+            "5 + 5 will be : <span class="text-info">{</span><span class="text-info">answer</span><span
+                class="text-info">}</span> , not <span class="text-info">{</span><span
+                class="text-info">wrong</span><span class="text-info">}</span>".<span class="text-danger"> format</span>
+            ( <span class="text-info">answer</span> &nbsp;=&nbsp; a , <span class="text-info">wrong</span> &nbsp;=&nbsp;
+            b )<span class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;5 + 5 will be : 10 , not 10.5</span><br>
+            <br>
+            <span class="text-secondary">#&nbsp;&nbsp;&nbsp;&nbsp;f-string</span><br>
+            <span class="text-danger">f</span>"5 + 5 will be : <span class="text-info">{a}</span>" <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;5 + 5 will be : 10</span><br>
+            <span class="text-danger">f</span>"<span class="text-info">{c}</span> is cool!" <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;Python is cool!</span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3 text-capitalize"><strong>Section 2.3</strong>: character accessing</div>
+        <p class="p-color p-size pl-3">
+            Python does not support <span class="text-dark font-weight-bold">char</span> data type. Therefore,
+            <span class="text-danger font-weight-bold">stings</span> are a combination <span
+                class="text-dark font-weight-bold">chars</span> representing in <em>unicode format</em>.
+        </p>
+        <p class="p-color p-size pl-3 my-3">
+            <span class="text-danger font-weight-bold">brackets</span> [ &nbsp;] are used for character accessing.
+        </p>
+        <p class="p-color p-size pl-3 my-3">
+            <span class="text-dark font-weight-bold">Minus Indexing</span> will start counting from backside.
+            &nbsp;<strong>E.x:</strong> [ -1 ] is last element.
+        </p>
+
+        <p class="command p-color text-dark">
+            a &nbsp;=&nbsp; <span class="text-info">"Python"</span> <br>
+            <span class="text-secondary">#&nbsp;&nbsp;&nbsp;&nbsp;character accessing</span><br>
+            a [ <span class="text-danger">0</span> ] <span class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;P</span><br>
+            a [ <span class="text-danger">1</span> ] <span class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;y</span><br>
+            a [ <span class="text-danger">-1</span> ] <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;n</span><br>
+            a [ <span class="text-danger">-2</span> ] <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;o</span><br>
+            <br>
+            <span class="text-secondary">#&nbsp;&nbsp;&nbsp;&nbsp;slicing &nbsp;&nbsp;[ from : to ]</span><br>
+            a [ <span class="text-danger">0</span> : <span class="text-danger">2</span> ] <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;Py</span><br>
+            a [ <span class="text-danger">2</span> : <span class="text-danger">4</span> ] <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;th</span><br>
+            a [ <span class="text-danger">1</span> : <span class="text-danger">5</span> ] <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;ytho</span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3 text-capitalize"><strong>Section 2.4</strong>: String Module</div>
+        <p class="p-color p-size pl-3">
+            The <span class="text-danger font-weight-bold">string</span> module provides a collection of <span
+                class="text-dark font-weight-bold">constants</span>.
+        </p>
+        <p class="p-color p-size pl-3 my-3">
+            Python provides <span class="text-dark font-weight-bold">9 types</span> of <span
+                class="text-danger font-weight-bold">constants</span> :
+        </p>
+        <ul class="ml-3">
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">string</span><span
+                    class="text-dark font-weight-bold">.ascii_letters </span> <strong>-</strong> Combination of the
+                ascii_lowercase and ascii_uppercase constants.</p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">string</span><span
+                    class="text-dark font-weight-bold">.ascii_lowercase </span> <strong>-</strong> All ASCII lowercase
+                letters </p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">string</span><span
+                    class="text-dark font-weight-bold">.ascii_uppercase </span> <strong>-</strong> All ASCII uppercase
+                letters </p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">string</span><span
+                    class="text-dark font-weight-bold">.digits </span> <strong>-</strong> All Digits 0-9</p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">string</span><span
+                    class="text-dark font-weight-bold">.hexdigits </span> <strong>-</strong> All Hexadecimal Digits</p>
+            </li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">string</span><span
+                    class="text-dark font-weight-bold">.octdigits</span> <strong>-</strong> All Octal Digits 0-7</p>
+            </li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">string</span><span
+                    class="text-dark font-weight-bold">.punctuation</span> <strong>-</strong> All ASCII characters which
+                are considered punctuation characters</p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">string</span><span
+                    class="text-dark font-weight-bold">.printable</span> <strong>-</strong> All ASCII characters which
+                are considered printable </p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">string</span><span
+                    class="text-dark font-weight-bold">.whitespace</span> <strong>-</strong> All ASCII characters which
+                are considered whitespace </p></li>
+
+        </ul>
+        <p class="command p-color text-dark my-3">
+            <span class="text-danger">import &nbsp;&nbsp;</span> string <br>
+            <span class="text-danger">string</span>.ascii_letters <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br>
+            <span class="text-danger">string</span>.ascii_lowercase <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;abcdefghijklmnopqrstuvwxyz</span><br>
+            <span class="text-danger">string</span>.ascii_uppercase <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br>
+            <span class="text-danger">string</span>.digits <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;0123456789</span><br>
+            <span class="text-danger">string</span>.hexdigits <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;0123456789abcdefABCDEF</span><br>
+            <span class="text-danger">string</span>.octdigits <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;01234567</span><br>
+            <span class="text-danger">string</span>.punctuation <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp;!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~</span><br>
+            <span class="text-danger">string</span>.printable <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp; All ASCII characters which are considered printable</span><br>
+            <span class="text-danger">string</span>.whitespace <span
+                class="text-secondary pl-4">#&nbsp;&nbsp;&nbsp;&nbsp; \t\n\r\x0b\x0c </span><br>
+
+
+        </p>
+        <hr>
+        <div class="h5 text-info my-3 text-capitalize"><strong>Section 2.5</strong>: String Length</div>
+        <p class="p-color p-size pl-3">
+            Python provides <span class="text-danger font-weight-bold">len</span> ( &nbsp;) function to <span
+                class="text-dark font-weight-bold">measure length</span> of a string and all iterables ( like <span
+                class="text-danger font-weight-bold">list</span> , <span
+                class="text-danger font-weight-bold">tuple</span> , <span
+                class="text-danger font-weight-bold">set</span> ).
+        </p>
+
+        <p class="command p-size">
+
+            a &nbsp;=&nbsp; <span class="text-danger">len</span> ( <span class="text-info">"Python!"</span> )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;counts number of characters </span><br>
+            <span class="text-danger">print</span> ( a )<span
+                class="text-secondary pl-3"># &nbsp;&nbsp; 7   </span>
+            <br><br>
+            nums &nbsp;=&nbsp; <span class="text-danger">len</span> ( [ <span class="text-info">1</span> , <span
+                class="text-info">2</span> , <span
+                class="text-info">19</span> , <span class="text-info">34</span> , <span class="text-info">22</span> ] )
+            <span
+                    class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;counts number of items in a list </span><br>
+            <span class="text-danger">print</span> ( nums )
+            <span
+                    class="text-secondary pl-3"># &nbsp;&nbsp; 5   </span>
+            <br><br>
+            chars &nbsp;=&nbsp; <span class="text-danger">len</span> ( { <span class="text-info">"a"</span> , <span
+                class="text-info">2</span> , <span
+                class="text-info">19</span> , <span class="text-info">"b"</span> } )
+            <span
+                    class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;counts number of items in a set </span><br>
+            <span class="text-danger">print</span> ( chars )
+            <span
+                    class="text-secondary pl-3"># &nbsp;&nbsp; 4   </span>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3 text-capitalize"><strong>Section 2.6</strong>: <strong>strip ( )</strong> function
+        </div>
+        <p class="p-color p-size pl-3 my-3">
+            Python provides <span class="text-dark font-weight-bold">3 methods</span> to remove whitespace of a string
+            from left and right sides :
+        </p>
+        <ul class="ml-3">
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">str</span><span
+                    class="text-dark font-weight-bold">.strip ( &nbsp;)</span> <strong>-</strong> method removes <u>whitespace</u>
+                from <span class="text-dark font-weight-bold">left and right sides</span>.</p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">str</span><span
+                    class="text-dark font-weight-bold">.lstrip ( &nbsp;)</span> <strong>-</strong> method removes <u>whitespace</u>
+                from <span class="text-dark font-weight-bold">left side</span>. </p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">str</span><span
+                    class="text-dark font-weight-bold">.rstrip ( &nbsp;)</span> <strong>-</strong> method removes <u>whitespace</u>
+                from <span class="text-dark font-weight-bold">right side</span>.</p></li>
+        </ul>
+        <p class="command p-size">
+
+            a &nbsp;=&nbsp; <span class="text-info">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Python is cool!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</span>
+            <br>
+            a.<span class="text-danger">strip </span> ( ) <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;removes whitespace from left and right sides </span><br>
+            <span class="text-danger">print</span> ( a )
+            <span class="text-secondary pl-3"># &nbsp;&nbsp; "Python is cool!"   </span><br><br>
+            a.<span class="text-danger">lstrip </span> ( ) <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;removes whitespace from left sides </span><br>
+            <span class="text-danger">print</span> ( a )
+            <span class="text-secondary pl-3"># &nbsp;&nbsp; "Python is cool!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"   </span><br><br>
+
+            a.<span class="text-danger">rstrip </span> ( ) <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;removes whitespace from right sides </span><br>
+            <span class="text-danger">print</span> ( a )
+            <span class="text-secondary pl-3"># &nbsp;&nbsp; "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Python is cool!"   </span>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3 text-capitalize"><strong>Section 2.7</strong>: <strong>split ( )</strong> function
+        </div>
+        <p class="p-color p-size pl-3 my-3">
+            The <span class="text-dark font-weight-bold">split ( sep &nbsp;=&nbsp;<span class="text-danger">None</span> ) </span>
+            function takes a string and returns it by
+            dividing into substrings :
+        </p>
+        <p class="command p-size">
+            a &nbsp;=&nbsp; <span class="text-info">"Python is cool!"</span>.<span class="text-danger">split </span> (&nbsp;
+            )
+            <br>
+            <span class="text-danger">print</span> ( a )<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;[ 'Python' , 'is' , 'cool!' ] </span><br><br>
+            b &nbsp;=&nbsp; <span class="text-info">"Selena, Alex, Justin"</span>.<span
+                class="text-danger">split </span> ( ',' )
+            <br>
+            <span class="text-danger">print</span> ( b )<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;[ 'Selena' , 'Alex' , 'Justin' ] </span>
+
+        </p>
+        <hr>
+        <div class="h5 text-info my-3 text-capitalize"><strong>Section 2.8</strong>: <strong>join ( )</strong> function
+        </div>
+        <p class="p-color p-size pl-3 my-3">
+            The <span class="text-dark font-weight-bold">join (&nbsp; ) </span> function takes a list of substrings and
+            returns a string :
+        </p>
+        <p class="command p-size">
+            " ".<span class="span text-danger">join</span> ( [ <span class="text-info">"Python"</span> , <span
+                class="text-info">"is"</span> ,<span class="text-info">"cool!"</span> ] )
+            <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;Python is cool! </span><br><br>
+            "<-->".<span class="span text-danger">join</span> ( [ <span class="text-info">"Python"</span> , <span
+                class="text-info">"is"</span> ,<span class="text-info">"cool!"</span> ] )
+            <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;Python<-->is<-->cool! </span><br><br>
+            "***".<span class="span text-danger">join</span> ( [ <span class="text-info">"Python"</span> , <span
+                class="text-info">"is"</span> ,<span class="text-info">"cool!"</span> ] )
+            <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;Python***is***cool! </span><br>
+
+
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.9</strong>: <strong>in</strong> & <strong>not in</strong>
+        </div>
+        <p class="p-color p-size pl-3 my-3">
+            <span class="text-danger font-weight-bold">in</span> keyword checks a substring <span
+                class="text-dark font-weight-bold">existence</span> , while <span class="text-danger font-weight-bold">not in</span>
+            checks <span class="text-dark font-weight-bold">not existence</span> of a substring :
+        </p>
+        <p class="command p-size">
+            <span class="text-dark">"o"</span> <span class="text-danger"> in </span> <span
+                class="text-dark">"Python"</span><span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;True</span><br>
+            <span class="text-dark">"a"</span> <span class="text-danger"> in </span> <span
+                class="text-dark">"Python"</span><span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;False</span><br><br>
+            <span class="text-dark">"Py"</span> <span class="text-danger"> not in </span> <span class="text-dark">"Python"</span><span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;False</span><br>
+            <span class="text-dark">"a"</span> <span class="text-danger"> not in </span> <span class="text-dark">"Python"</span><span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;True</span>
+
+        </p>
+        <hr>
+        <div class="h5 text-info my-3 text-capitalize"><strong>Section 3.1</strong>: Reverse a string
+        </div>
+        <ul class="ml-3 my-3">
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><span class="text-dark font-weight-bold">' '.</span><span
+                    class="text-danger font-weight-bold">join</span> ( <span class="text-info font-weight-bold  ">reversed</span>
+                ( "Python" ) )</p></li>
+            <li style="list-style-type: square"><p class="p-color p-size pl-3"><span class="text-dark font-weight-bold">[ : : -1 ]</span>
+            </p></li>
+        </ul>
+        <p class="command p-size text-dark">
+            <span class="text-dark font-weight-bold">' '.</span><span
+                class="text-danger font-weight-bold">join</span> ( <span
+                class="text-info font-weight-bold  ">reversed</span> ( "Python" ) )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;nohtyP</span> <br>
+            <span class="text-info">"Python is cool!"</span>[ : : -1 ] <span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;!looc si nohtyP</span> <br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3 text-capitalize"><strong>Section 3.2</strong>: <strong>Replace ( &nbsp;)</strong>
+            Function
+        </div>
+        <p class="p-color p-size pl-3">
+            Python provides <span class="text-danger font-weight-bold">replace</span><span
+                class="text-dark font-weight-bold"> ( old , new )</span> function to replace
+            old substring with new ones.
+        </p>
+        <p class="command p-size text-dark">
+            "Java is so cool!".<span class="span text-danger">replace</span> ( <span class="text-info">"Java"</span> , <span class="text-info">"Python"</span> )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;Python is so cool!</span> <br>
+            "Learn more about String".<span class="span text-danger">replace</span> ( <span class="text-info">"String"</span> , <span class="text-info">"Numbers"</span> )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;Learn more about Numbers</span> <br>
+
+        </p>
+         <br>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_print_function' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_list' %}" target="_blank">Next </a></span></button>
+        </div>
+
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+    </div>
+
+
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

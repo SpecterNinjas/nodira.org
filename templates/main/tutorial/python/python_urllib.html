@@ -1,0 +1,312 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+.bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Urllib</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_exceptions' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_inheritance' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Urllib Overview</div>
+        <p class="p-color p-size pl-3 pt-3 font-italic"><span class="text-danger font-weight-bold">Python urllib</span>
+            is one of
+            the most widely used module for URL handling.
+        </p>
+        <p class="p-color p-size pl-3 font-italic">In this section, we'll learn more about <span
+                class="text-danger font-weight-bold">urllib</span> and how to handle <span
+                class="text-info font-italic">URL path</span> on a deep level.
+        </p>
+        <p class="command p-size font-italic text-dark">
+            >>> &nbsp;&nbsp;<span class="text-danger">pip</span> install urllib
+        </p>
+        <hr>
+        <div class="h5 text-info"><strong>Section 2.1</strong>: Python URL Request</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic font-weight-bold">
+                    HTTP GET Method:
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;HTTP GET Method - used to open URL path</span><br><br>
+            <span class="text-dark">
+         <span class="text-danger">import</span> &nbsp;  urllib.request <span
+                    class="text-danger">&nbsp; as &nbsp;</span> url
+            <br>
+            res &nbsp;=&nbsp; url.<span
+                    class="text-info">urlopen</span> ( <em>"https://www.apple.com/"</em>&nbsp; ) <br>
+                <span class="text-danger">print</span> ( res.<span class="text-danger">code</span> ) <span
+                    class="text-secondary pl-3 font-italic"># &nbsp;&nbsp;200</span><br>
+           <span class="text-danger">print</span> ( res.<span class="text-danger">read</span> ( ) ) <span
+                    class="text-secondary pl-3 font-italic"># &nbsp;&nbsp;opens URL Webpage</span>
+
+
+            </span>
+        </p>
+        <hr>
+        <div class="h5 text-info"><strong>Section 2.2</strong>: Python URL Parse</div>
+
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic font-weight-bold">
+                    HTTP POST Method:
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;HTTP POST Method - for opening URL path</span><br><br>
+            <span class="text-dark">
+         <span class="text-danger">import</span> &nbsp;  urllib.request <span
+                    class="text-danger">&nbsp; as &nbsp;</span> url
+            <br>
+                <span class="text-danger">import</span> &nbsp;  urllib.parse <span
+                    class="text-danger">&nbsp; as &nbsp;</span> parse
+            <br><br>
+                url_json &nbsp;=&nbsp; { <em><span class="text-info">'username'</span> : 'my_username'  , <span
+                    class="text-info">'password'</span> : 'my_pass' </em> &nbsp; } <br>
+
+               url_encode &nbsp;=&nbsp;
+                <span class="text-danger">parse</span>.urlencode ( url_json ) ).encode ( <span
+                    class="text-info">'utf-8'</span> )  <br>
+
+                res &nbsp;=&nbsp;
+                <span class="text-danger">url</span>.urlencode ( <span class="text-info">"https://secure2.store.apple.com/shop/sign_in/"</span> ) <br>
+
+<br>
+
+ <span class="text-danger">print</span> ( res.<span class="text-danger">code</span> ) <span
+                    class="text-secondary pl-3 font-italic"># &nbsp;&nbsp;200</span> <br>
+
+
+           <span class="text-danger">print</span> ( res.<span class="text-danger">read</span> ( ) ) <span
+                    class="text-secondary pl-3 font-italic"># &nbsp;&nbsp;opens URL Webpage</span>
+
+
+            </span>
+        </p>
+
+        <hr>
+        <div class="h5 text-info"><strong>Section 2.3</strong>: Python Urllib Error</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    The <span class="text-danger font-weight-bold">urllib.error</span> module defines the exception
+                    classes for exceptions raised by <em><strong>urllib.request</strong></em>
+                </p>
+            </li>
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    <span class="text-danger font-weight-bold">urllib.error</span> might occur due to: <br>
+                </p>
+            </li>
+            <li class="list-unstyled">
+                <ul>
+                    <li><em>Wrong URL Path</em></li>
+                    <li><em>Wrong URL Path Handling</em></li>
+                    <li><em>Poor Internet Connection</em></li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li><p class="p-color p-size mt-2 font-italic"><span class="text-danger font-weight-bold">Ignoring</span>
+                <strong>URL Error</strong> helps to debug your code:</p></li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Ignoring urllib.error</span><br>
+            <span class="text-dark">
+            <span class="text-danger">try</span> : <br>
+                <span class="text-secondary font-italic"># &nbsp;&nbsp;some coding</span><br>
+            <span class="text-danger">except</span> urllib.error.<span class="text-info">URLError</span> <span
+                    class="text-danger">as</span> e: ResponseData = e.read().decode(<span
+                    class="text-danger">"utf8"</span> , <span class="text-danger">'ignore'</span>)
+       </span>
+        </p>
+        <ul>
+            <li><p class="p-color p-size font-italic my-3">Asking For A <span class="text-danger font-weight-bold">Reason </span>
+                <strong>URL Error</strong> :</p></li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Reasoning urllib.error</span><br>
+            <span class="text-dark">
+            <span class="text-danger">try</span> : <br>
+                <span class="text-secondary font-italic"># &nbsp;&nbsp;some coding</span><br>
+
+                <span class="text-danger">except</span> urllib.error.<span class="text-info">URLError</span> <span
+                    class="text-danger">as</span> e: <span class="text-info">ResponseData</span> = e.reason
+             </span>
+        </p>
+        <hr>
+        <div class="h5 text-info"><strong>Section 2.4</strong>: Python Urllib Robotparser
+
+        </div>
+
+        <ul class="my-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    A Python module containing a single class called <span class="text-dark font-weight-bold">RobotFileParser</span>,
+                    in which you can obtain answers regarding user agent and parameters of URL Web Page that's published
+                    in a <u><a
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="Learn more" href="http://www.robotstxt.org/orig.html">robots.txt</a></u> file.
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size font-italic">
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;urllib.robotparser</span><br><br>
+            <span class="text-dark">
+<span class="text-danger">import </span> &nbsp;urllib.robotparser <span class="text-danger"> as </span>&nbsp; parser<br>
+rp &nbsp;=&nbsp; parser.RobotFileParser ( ) <br>
+                <br>
+                rp.<span class="text-danger">set_url</span> ( <span class="text-info">"http://www.musi-cal.com/robots.txt"</span> ) <br>
+                rp.<span class="text-danger">read</span> ( ) <br>
+                req_rate &nbsp;=&nbsp; rp.<span class="text-danger">request_rate</span> ( <span
+                    class="text-info">"*"</span> )  <span class="text-secondary font-italic pl-3"># &nbsp;&nbsp; ( * ) means everything</span><br>
+                <span class="text-danger">print </span> ( req_rate.requests ) <span
+                    class="text-secondary font-italic pl-3"># &nbsp;&nbsp;3</span> <br>
+                <span class="text-danger">print </span> ( req_rate.seconds ) <span
+                    class="text-secondary font-italic pl-3"># &nbsp;&nbsp;20</span> <br>
+                 <span class="text-danger">print </span> ( rp.crawl_delay ( <span class="text-info">"*"</span> ) ) <span
+                    class="text-secondary font-italic pl-3"># &nbsp;&nbsp;6</span> <br>
+ <span class="text-danger">print </span> ( rp.can_fetch ( <span class="text-info">"*"</span> , <span class="text-info">"http://www.musi-cal.com/cgi-bin/search?city=San+Francisco"</span> ) ) <span
+                    class="text-secondary font-italic pl-3"># &nbsp;&nbsp;False -> crawling disallowed page</span> <br>
+<span class="text-danger">print </span> ( rp.can_fetch ( <span class="text-info">"*"</span> , <span class="text-info">"http://www.musi-cal.com/"</span> ) ) <span
+                    class="text-secondary font-italic pl-3"># &nbsp;&nbsp;True -> crawling allowed page</span> <br>
+
+            </span>
+        </p>
+       <br>
+         <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_exceptions' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_inheritance' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

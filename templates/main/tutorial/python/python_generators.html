@@ -1,0 +1,379 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Generators</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_module_package' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_map_reduce' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: <strong>Generators</strong> Overview</div>
+        <p class="p-color p-size pl-3">The <span class="text-danger font-weight-bold">Generator</span> functions allow
+            you to declare a function that behaves like an iterator.
+        </p>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">Generators</span> is quite simple and straightforward, requiring
+            <em>less memory space</em>.
+        </p>
+        <p class="p-color p-size pl-3">
+            Let's do some exercises and learn about <span class="text-dark font-weight-bold">Python Generators</span> on
+            a deep level.
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 1.2</strong>: <strong>Generator Expressions</strong></div>
+        <p class="p-color p-size pl-3">The <span class="text-danger font-weight-bold">Generator Expressions</span> allow
+            you to declare an expression that behaves like <span class="text-dark font-weight-bold">list</span>, <span
+                    class="text-dark font-weight-bold">tuple</span>, <span class="text-dark font-weight-bold">set</span>.
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="my-3">
+                    <li>
+                        <p class="p-color p-size mt-2 font-italic">
+                            The syntax of <span class="text-dark font-weight-bold">Generator&nbsp; Expressions</span> :
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6"><p class="p-color p-size  font-weight-bold my-3"
+                                     style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+     <span class="text-dark">(  expression &nbsp;&nbsp;
+               <span class="text-danger">for &nbsp;&nbsp;</span> x &nbsp;&nbsp;<span
+                 class="text-danger">in &nbsp;&nbsp; </span> iterator  )
+           </span>
+            </p></div>
+        </div>
+
+
+        <p class="p-color p-size  font-weight-bold my-3 command">
+           <span class="text-dark"> expression &nbsp;=&nbsp;
+               ( x ** <span class="text-danger">2</span>  &nbsp;&nbsp;<span class="text-danger">for &nbsp;&nbsp;</span> x &nbsp;&nbsp;<span
+                       class="text-danger">in &nbsp;&nbsp; </span><span class="text-success">range</span> ( <span
+                       class="text-danger">10</span> ) )
+           </span>
+        </p>
+        <p class="p-color p-size pl-3">The <span class="text-danger font-weight-bold">Generator Functions</span> are
+            similar to <span class="text-dark font-weight-bold font-italic">regular functions</span>, except that they
+            have one or more <span class="text-danger font-weight-bold">yield</span> statements in their
+            body.
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    The syntax of <span class="text-dark font-weight-bold">Generator&nbsp; Functions</span> :
+                </p>
+
+            </li>
+        </ul>
+        <p class="command p-size text-dark my-3">
+            <span class="text-danger">def &nbsp;&nbsp;</span> double ( &nbsp;) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">for &nbsp;&nbsp;</span> i &nbsp;&nbsp;<span
+                class="text-danger">in &nbsp;&nbsp;</span> <span class="text-success">range </span>( <span
+                class="text-danger">10</span> ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">yield &nbsp;&nbsp;</span> i **
+            <span class="text-danger">2</span>
+        </p>
+        <ul>
+            <li style="list-style-type: square">
+                <p class="p-color p-size pl-3 my-3">
+                    This <span class="text-danger font-weight-bold">generator function</span> is equivalent to the
+                    previous <span class="text-dark font-weight-bold">generator expression</span>, it outputs the same.
+                </p>
+            </li>
+        </ul>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 1.3</strong>: <strong>Generator Examples</strong></div>
+        <p class="p-color p-size pl-3">
+            Let's do some practice and solve simple problems :
+        </p>
+        <p class="command p-size text-dark my-3">
+            <span class="text-success">sum</span> ( i&nbsp;&nbsp; <span class="text-danger">for&nbsp;&nbsp;</span> i&nbsp;&nbsp;
+            <span class="text-danger">in</span>&nbsp;&nbsp; <span class="text-success">range</span> ( <span
+                class="text-info">10</span> )&nbsp;&nbsp; <span class="text-danger">if&nbsp;&nbsp;</span> i % <span
+                class="text-info">2</span> == 0 )
+            <span class="text-secondary pl-4 font-italic"># &nbsp;&nbsp;finding&nbsp; sum&nbsp; of&nbsp; even&nbsp; numbers&nbsp; in&nbsp; range ( 10 )</span>
+            <br>
+            <span class="text-danger">a</span> &nbsp;=&nbsp; [ x * <span class="text-info">2</span> &nbsp;&nbsp;<span
+                class="text-danger">for&nbsp;&nbsp;</span> x&nbsp;&nbsp; <span class="text-danger">in</span>&nbsp;&nbsp;[
+            1 , 2 , 3 , 4 , 5 ] ]
+            <span class="text-secondary pl-4 font-italic"># &nbsp;&nbsp;Output : &nbsp;&nbsp;[ 2 , 4 , 6 , 8 , 10 ] &nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                class="text-secondary">( list comprehension )</span> <br>
+
+            <span class="text-danger">a</span> &nbsp;=&nbsp; ( x * <span class="text-info">2</span> &nbsp;&nbsp;<span
+                class="text-danger">for&nbsp;&nbsp;</span> x&nbsp;&nbsp; <span class="text-danger">in</span>&nbsp;&nbsp;[
+            1 , 2 , 3 , 4 , 5 ] )
+            <span class="text-secondary pl-4 font-italic"># &nbsp;&nbsp;Output : &nbsp;&nbsp;'generator object at 0x7f3833fdd4a0' &nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                class="text-secondary">( generator expression )</span> <br>
+
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.1</strong>: Difference between <strong>yield</strong> and
+            <strong>return</strong></div>
+        <ul>
+            <li><p class="p-color p-size"><span class="text-danger font-weight-bold">yield</span> can be used <u>one or
+                more times</u> to create <span class="text-dark font-weight-bold">generator function</span>.</li>
+            <li><p class="p-color p-size">Both <span class="text-danger font-weight-bold">yield</span> and <span
+                    class="text-danger font-weight-bold">return</span> will return some value from a function.</li>
+            <li><p class="p-color p-size"><span class="text-danger font-weight-bold">Return</span> sends a specified
+                value back to its caller whereas <span class="text-danger font-weight-bold">yield</span> can produce a
+                sequence of values.</li>
+            <li><p class="p-color p-size"><span class="text-danger font-weight-bold">Yield</span> is used to iterate
+                over a sequence without storing whole sequence in a memory.</li>
+        </ul>
+
+
+        <hr>
+        <div class="h5 text-info mb-3 text-capitalize"><strong>Section 2.2</strong>: Iterating over generator objects
+        </div>
+        <p class="p-color p-size pl-3">
+            Iterating over the objects generated by a generator is allowed only <span
+                class="text-dark font-weight-bold">once</span>.
+        </p>
+        <p class="p-color p-size pl-3">
+            If you've already iterated generator objects, you should define the generator
+            function again. </p>
+        <p class="p-color p-size pl-3">
+            Alternatively, some people declare them in a list for during usage, so that they can iterate over generator
+            objects more than once.
+        </p>
+        <p class="command p-size text-dark my-3">
+            <span class="text-danger">def &nbsp;&nbsp;</span> double ( &nbsp;) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">for &nbsp;&nbsp;</span> i &nbsp;&nbsp;<span
+                class="text-danger">in &nbsp;&nbsp;</span> <span class="text-success">range </span>( <span
+                class="text-danger">10</span> ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">yield &nbsp;&nbsp;</span> i **
+            <span class="text-danger">2</span>
+        </p>
+        <p class="p-color p-size pl-3">
+            Iterating over generator objects using <span class="text-danger font-weight-bold">next</span> (&nbsp; ) :
+        </p>
+        <p class="command p-size text-dark my-3">
+            gen &nbsp;=&nbsp; <span class="text-danger">double</span> (&nbsp; ) <br>
+            <span class="text-danger">num1</span> &nbsp;=&nbsp; <span class="text-info">next</span> ( gen ) <span
+                class="text-secondary pl-4 font-italic"># &nbsp;&nbsp;Output : &nbsp;&nbsp;  0</span><br>
+            <span class="text-danger">num2</span> &nbsp;=&nbsp; <span class="text-info">next</span> ( gen ) <span
+                class="text-secondary pl-4 font-italic"># &nbsp;&nbsp;Output : &nbsp;&nbsp;  1</span><br>
+            <span class="text-danger">num3</span> &nbsp;=&nbsp; <span class="text-info">next</span> ( gen ) <span
+                class="text-secondary pl-4 font-italic"># &nbsp;&nbsp;Output : &nbsp;&nbsp;  2</span><br>
+            ... <br>
+            <span class="text-danger">num10</span> &nbsp;=&nbsp; <span class="text-info">next</span> ( gen ) <span
+                class="text-secondary pl-4 font-italic"># &nbsp;&nbsp;Output : &nbsp;&nbsp; StopIteration</span><br>
+
+        </p>
+        <hr>
+
+
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">next </span> ( &nbsp;) &nbsp;function is used to receive a value
+            from any iterator :
+        </p>
+        <p class="p-color p-size pl-3">
+            In example below, we provided a <span class="text-dark font-weight-bold">default value</span> ( <span
+                class="text-danger font-weight-bold">None</span> ) in case the iterator is out - ranged. If no default
+            is provided, <span class="text-danger font-weight-bold">StopIteration</span> going to be raised.
+
+        </p>
+
+
+        <p class="command p-size text-dark my-3">
+            <span class="text-danger">def</span>&nbsp;&nbsp; nums (&nbsp; ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">yield</span>&nbsp; 1 <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">yield</span>&nbsp; 2 <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">yield</span>&nbsp; 3 <br>
+
+            <br>
+            generator &nbsp;=&nbsp; nums ( &nbsp;)<br>
+            <span class="text-danger">next</span> ( generator , <span class="text-success">None</span> ) <span
+                class="text-secondary pl-4 font-italic"># &nbsp;&nbsp;1</span><br>
+            <span class="text-danger">next</span> ( generator , <span class="text-success">None</span> ) <span
+                class="text-secondary pl-4 font-italic"># &nbsp;&nbsp;2</span><br>
+            <span class="text-danger">next</span> ( generator , <span class="text-success">None</span> ) <span
+                class="text-secondary pl-4 font-italic"># &nbsp;&nbsp;3</span><br>
+            <span class="text-danger">next</span> ( generator , <span class="text-success">None</span> ) <span
+                class="text-secondary pl-4 font-italic"># &nbsp;&nbsp;None</span><br>
+            <span class="text-danger">next</span> ( generator ) <span
+                class="text-secondary pl-5 font-italic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;StopIteration</span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3 text-capitalize"><strong>Section 2.3</strong>: <strong>Generator
+            Expression</strong> Practice
+        </div>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">Generator expression</span> is crated using <span
+                class="text-dark font-weight-bold">List Comprehension</span> syntax, but under <span
+                class="text-dark font-weight-bold">( &nbsp;)</span>.
+        </p>
+        <p class="command p-size text-dark my-3">
+            expression &nbsp;=&nbsp;
+            ( x + <span class="text-danger">2</span> &nbsp;&nbsp;<span class="text-danger">for &nbsp;&nbsp;</span> x
+            &nbsp;&nbsp;<span
+                class="text-danger">in &nbsp;&nbsp; </span><span class="text-success">range</span> ( <span
+                class="text-danger">10</span> ) )
+            <br>
+            <span class="text-danger">print</span> ( expression )  <span class="text-secondary pl-5 font-italic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;'generator object at 0x8f39703fdd4a0'</span><br>
+           <br>
+            <span class="text-danger">next</span> ( expression )  <span class="text-secondary pl-5 font-italic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;0 &nbsp;+&nbsp; 2 &nbsp;=&nbsp; 2</span><br>
+            <span class="text-danger">next</span> ( expression )  <span class="text-secondary pl-5 font-italic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;1 &nbsp;+&nbsp; 2 &nbsp;=&nbsp; 3</span><br>
+            <span class="text-danger">next</span> ( expression )  <span class="text-secondary pl-5 font-italic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;2 &nbsp;+&nbsp; 2 &nbsp;=&nbsp; 4</span><br>
+            . . . <br>
+            <span class="text-danger">next</span> ( expression )  <span class="text-secondary pl-5 font-italic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;StopIteration</span><br>
+
+        </p>
+
+    <p class="p-color p-size pl-3">
+        Applying <span class="text-danger font-weight-bold">Mathematical functions</span> along with <span class="text-dark font-weight-bold font-italic">generator expressions</span> :
+    </p>
+    <p class="command p-size text-dark my-3">
+          <span class="text-secondary font-italic"># &nbsp;&nbsp;finding&nbsp; sum&nbsp; of &nbsp; numbers&nbsp; in&nbsp; range ( 10 )</span>
+        <br><br>
+        <span class="text-success">sum</span> ( i&nbsp;*&nbsp;<span class="text-info">2</span>&nbsp;&nbsp;  <span class="text-danger">for&nbsp;&nbsp;</span> i&nbsp;&nbsp;
+            <span class="text-danger">in</span>&nbsp;&nbsp; <span class="text-success">range</span> ( <span
+                class="text-info">10</span> )&nbsp; ) <br>
+        <span class="text-secondary font-italic"># &nbsp;&nbsp;Output: &nbsp;&nbsp;0 &nbsp;*&nbsp; 2 &nbsp;+&nbsp; 1 &nbsp;*&nbsp; 2 &nbsp;+&nbsp; . . . &nbsp;+&nbsp;9 &nbsp;*&nbsp; 2 &nbsp;=&nbsp; 90</span>
+
+    </p>
+      <br>
+         <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_module_package' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_map_reduce' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

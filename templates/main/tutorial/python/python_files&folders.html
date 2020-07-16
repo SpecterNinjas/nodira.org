@@ -1,0 +1,481 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+.bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Files & Folders I/O</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_i&o' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_os_path' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Files & Folders Overview</div>
+        <p class="p-color p-size ml-3">In this section, we'll learn about <span class="text-dark font-weight-bold">Python files & folders</span>. Basically, when it comes to
+            <em>storing, reading, changing</em> and <em>deleting</em> data, python provides us really useful functions
+            and operators. </p>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered ">
+                <thead>
+                <tr>
+
+                    <th>Mode</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    <td><span class="text-danger">'r'</span></td>
+                    <td><span class="text-dark">reading mode (by default). It allows you only to read the ﬁle, not to modify it. When using this mode the
+ﬁle must exist.</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">'w'</span></td>
+                    <td><span class="text-dark">writing mode. It will create a new ﬁle if it does not exist, otherwise will erase the ﬁle and allow you to
+write to it.</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">'a'</span></td>
+                    <td><span class="text-dark">append mode. It will write data to the end of the ﬁle. It does not erase the ﬁle, and the ﬁle must exist for
+this mode.</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">'b'</span></td>
+                    <td><span
+                            class="text-dark">binary mode. It allows to open file in binary format.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">'+'</span></td>
+                    <td><span class="text-dark">updating mode. It allows to open/read and do some modification.</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><span class="text-danger">'x'</span></td>
+                    <td><span class="text-dark">open for exclusive creation, will raise <span
+                            class="text-danger">FileExistsError</span> if the ﬁle already exists.</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.1</strong>: Reading Files</div>
+
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Safely opening file with read mode using <span
+                        class="text-danger">try/except</span> block. </p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">try</span> :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">with &nbsp;</span> <span class="text-success">open</span>
+            ( &nbsp;<span class="text-info">"file.txt" &nbsp; , &nbsp; "r"</span> &nbsp;) <span class="text-danger"> &nbsp;as </span>
+            <span class="text-dark">myfile &nbsp;</span>:
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <span class="text-secondary font-italic"># &nbsp;&nbsp;&nbsp; Some operation with file</span><br>
+            <span class="text-danger">except &nbsp;</span> <span class="text-dark">FileExistsError</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-secondary font-italic"># &nbsp;&nbsp;&nbsp;Error message goes here</span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.2</strong>: Reading Files Line-By-Line</div>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> The simple logical way is using <span
+                        class="text-danger font-weight-bold">for</span>
+                    loop. </p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">try</span> :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">with &nbsp;</span> <span class="text-success">open</span>
+            ( &nbsp;<span class="text-info">"file.txt" &nbsp; , &nbsp; "r"</span> &nbsp;) <span class="text-danger"> &nbsp;as </span>
+            <span class="text-dark">myfile </span>:
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">for </span><span
+                class="text-dark">&nbsp; line &nbsp;</span><span class="text-danger">&nbsp;in&nbsp;</span><span
+                class="text-dark"> myfile :</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-danger">print</span> <span class="text-dark">( line )</span><br>
+            <span class="text-danger">except &nbsp;</span> <span class="text-dark">FileExistsError</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-secondary font-italic"># &nbsp;&nbsp;&nbsp;Error message goes here</span><br>
+        </p>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Using built-in <span class="text-danger font-weight-bold">readline</span>(
+                    ) :</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">try</span> :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">with &nbsp;</span> <span class="text-success">open</span>
+            ( &nbsp;<span class="text-info">"file.txt" &nbsp; , &nbsp; "r"</span> &nbsp;) <span class="text-danger"> &nbsp;&nbsp;as&nbsp; </span>
+            <span class="text-dark">&nbsp;myfile </span>:
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">while </span><span
+                class="text-info">&nbsp;True&nbsp;</span><span class="text-dark">:</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-dark">inline &nbsp;=&nbsp;</span><span class="text-dark">&nbsp;myfile.</span><span
+                class="text-danger">readline</span><span class="text-dark">( )</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-danger">if </span><span
+                class="text-dark">&nbsp;inline&nbsp;== &nbsp;&nbsp;</span> <span
+                class="text-danger">' '</span>&nbsp;: <span class="text-secondary pl-3 font-italic">#&nbsp;&nbsp;&nbsp; When it comes to the end</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-danger">break</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-danger">print</span> <span class="text-dark">( inline )</span><br>
+
+            <span class="text-danger">except &nbsp;</span> <span class="text-dark">FileExistsError</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-secondary font-italic"># &nbsp;&nbsp;&nbsp;Error message goes here</span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.3</strong>: Reading Full Contents of Files</div>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> For safety, it's recommended to use <span
+                        class="text-danger font-weight-bold">try/except</span> block:</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">try</span> :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">with &nbsp;</span> <span class="text-success">open</span>
+            ( &nbsp;<span class="text-info">"file.txt"&nbsp;</span> &nbsp;) <span class="text-danger"> &nbsp;&nbsp;as&nbsp; </span>
+            <span class="text-dark">&nbsp;myfile </span>:
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark">full_content </span><span
+                class="text-dark"> = </span><span
+                class="text-dark">&nbsp;myfile.&nbsp;</span><span class="text-danger">read</span><span
+                class="text-dark">( )</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-danger">print</span> <span class="text-dark">( full_content )</span><br>
+
+            <span class="text-danger">except &nbsp;</span> <span class="text-dark">FileExistsError</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-secondary font-italic"># &nbsp;&nbsp;&nbsp;Error message goes here</span><br>
+        </p>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> If you don't want to use <span
+                        class="text-danger font-weight-bold">with/as</span> method, then you must <span
+                        class="text-danger font-weight-bold">close</span>( ) the file manually:</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">try</span> :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark">myfile &nbsp;=&nbsp;</span> <span
+                class="text-success">open</span>
+            ( &nbsp;<span class="text-info">"file.txt"</span> <span class="text-dark">,</span> <span class="text-info">"r"</span>
+            &nbsp;) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark">full_content </span><span
+                class="text-dark"> = </span><span
+                class="text-dark">&nbsp;myfile.&nbsp;</span><span class="text-danger">read</span><span
+                class="text-dark">( )</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> <span
+                class="text-dark">( full_content )</span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark">myfile.</span><span class="text-danger">close</span><span
+                class="text-dark">( ) </span><span
+                class="text-secondary font-italic pl-3"># &nbsp;&nbsp;&nbsp;Closing file manually</span><br>
+            <span class="text-danger">except &nbsp;</span> <span class="text-dark">FileExistsError</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-secondary font-italic"># &nbsp;&nbsp;&nbsp;Error message goes here</span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 3.1</strong>: Writing to a file</div>
+
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Since we're using <span
+                        class="text-danger font-weight-bold">with/as</span> block, we don't need to worry about closing
+                    our file.</p>
+            </li>
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> To write something into the file, we use <span
+                        class="text-danger font-weight-bold">write</span>( ) function.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+
+            <span class="text-danger">with &nbsp;</span> <span class="text-success">open</span>
+            ( &nbsp;<span class="text-info"><span class="text-dark">"</span>file.txt<span
+                class="text-dark">"</span> <span class="text-dark">,</span> <span class="text-dark">"</span>w<span
+                class="text-dark">"</span></span> &nbsp;) <span
+                class="text-danger"> &nbsp;&nbsp;as&nbsp; </span>
+            <span class="text-dark">&nbsp;myfile </span>:
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark">myfile.</span><span
+                class="text-danger">write</span><span class="text-dark"> ( </span><span class="text-info"><span
+                class="text-dark">"</span>Hello<span class="text-dark">"</span></span>
+            <span class="text-dark">)</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark">myfile.</span><span
+                class="text-danger">write</span><span class="text-dark"> ( </span><span class="text-info"><span
+                class="text-dark">"</span>World<span class="text-dark">"</span></span>
+            <span class="text-dark">)</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark">myfile.</span><span
+                class="text-danger">write</span><span class="text-dark"> ( </span><span
+                class="text-info"><span class="text-dark">"</span>What's up?<span class="text-dark">"</span></span>
+            <span class="text-dark">)</span><br>
+
+        </p>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Remember that Python will not automatically add <strong>line
+                    breaks</strong>.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-secondary font-italic"># &nbsp; "myfile.txt" :</span><br>
+            <span class="text-dark">HelloWorldWhat's up?</span>
+        </p>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> We must manually add line breaks using <span
+                        class="text-danger font-weight-bold">\n</span>.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+
+            <span class="text-danger">with &nbsp;</span> <span class="text-success">open</span>
+            ( &nbsp;<span class="text-info"><span class="text-dark">"</span>file.txt<span
+                class="text-dark">"</span> <span class="text-dark">,</span> <span class="text-dark">"</span>w<span
+                class="text-dark">"</span></span> &nbsp;) <span
+                class="text-danger"> &nbsp;&nbsp;as&nbsp; </span>
+            <span class="text-dark">&nbsp;myfile </span>:
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark">myfile.</span><span
+                class="text-danger">write</span><span class="text-dark"> ( </span><span class="text-info"><span
+                class="text-dark">"</span>Hello <span
+                class="text-danger">\n</span><span class="text-dark">"</span></span>
+            <span class="text-dark">)</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark">myfile.</span><span
+                class="text-danger">write</span><span class="text-dark"> ( </span><span class="text-info"><span
+                class="text-dark">"</span>World <span
+                class="text-danger">\n</span><span class="text-dark">"</span></span>
+            <span class="text-dark">)</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark">myfile.</span><span
+                class="text-danger">write</span><span class="text-dark"> ( </span><span
+                class="text-info"><span class="text-dark">"</span>What's up? <span class="text-danger">\n</span><span
+                class="text-dark">"</span></span>
+            <span class="text-dark">)</span><br>
+
+        </p>
+        <hr>
+        <p class="command p-size">
+            <span class="text-secondary font-italic"># &nbsp; "myfile.txt" :</span><br>
+            <span class="text-dark">Hello <br> World <br> What's up?</span>
+        </p>
+        <hr>
+
+        <div class="h5 text-info mb-3"><strong>Section 4.1</strong>: Checking File/Path Existence</div>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Checking file existence using <span
+                        class="text-danger font-weight-bold">os.path</span> module :</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">import </span> <span class="text-info">os.path</span> <br>
+            <span class="text-danger">print </span><span class="span text-dark"> ( <span
+                class="text-info">os.path</span>.isfile ( </span>"mypath/myfile.txt"
+            <span class="text-dark">) )</span><br>
+        </p>
+
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Checking path existence using <span
+                        class="text-danger font-weight-bold">os.path</span> module :</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">import </span> <span class="text-info">os.path</span> <br>
+            <span class="text-danger">print </span><span class="text-dark"> ( <span class="text-info">os.path</span>.exists ( </span>"mypath"
+            <span class="text-dark">) )</span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 5.1</strong>: Deleting File/Path</div>
+        <p class="p-color p-size ml-3">
+            In order to delete file, we're using <span class="text-danger">os.remove</span>( ) function.
+        </p>
+
+        <p class="command p-size">
+            <span class="text-danger">import </span> <span class="text-dark">os</span> <br>
+            <span class="text-danger">print </span><span class="text-dark"> ( <span class="text-danger"><span
+                class="text-dark">os.</span>remove</span> ( "</span> <span class="text-info">myfile.txt</span><span
+                class="text-dark">"
+            ) )</span><br>
+        </p>
+        <p class="p-color p-size mt-3 ml-3">
+            More safe way to delete a file is checking for existence first, using <span class="text-danger">os.path.exists</span>(
+            ) or <span class="text-danger">os.path.isfile</span>( ) function.
+            <span class="text-info font-weight-bold">Section 4.1</span>
+        </p>
+        <p class="command p-size">
+            <span class="text-danger">import </span> <span class="text-info">os.path</span> <br>
+            <span class="text-danger">print </span><span class="text-dark"> ( <span class="text-info">os.path</span>.exists ( </span>"mypath/myfile.txt"
+            <span class="text-dark">) )</span><br>
+        </p>
+        <p class="p-color p-size mt-3 ml-3">
+            In order to delete folder/path, we're using <span class="text-danger">os.rmdir</span>( ) function which
+            stands for <strong><em>remove directory</em></strong>.
+        </p>
+        <p class="command p-size">
+            <span class="text-danger">import </span> <span class="text-dark">os</span> <br>
+            <span class="text-danger">print </span><span class="text-dark"> ( <span class="text-danger"><span
+                class="text-dark">os.</span>rmdir</span> ( "</span> <span class="text-info">myfolder</span><span
+                class="text-dark">"
+            ) )</span><br>
+        </p>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> By running these command, the whole <span class="text-info">folder</span>
+                    will be deleted.
+                </p>
+            </li>
+        </ul>
+                  <br>
+      <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_i&o' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_os_path' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+
+
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

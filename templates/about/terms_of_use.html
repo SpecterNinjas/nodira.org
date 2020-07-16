@@ -1,0 +1,233 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+         .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'about/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Terms & Conditions</h2>
+    <div class="container mt-2">
+        <hr>
+        <div class="mt-4 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'about:privacy_policy' %}" target="_blank"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'about:contribute' %}" target="_blank">Next </a></span>
+            </button>
+        </div>
+        <br>
+        <br><br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Terms & Conditions Overview</div>
+        <p class="p-color p-size ml-3">
+            Welcome to <span class="text-danger font-weight-bold">nodira</span>! This section is going to cover the
+            <span class="text-dark font-weight-bold">terms & conditions</span> in which
+            users may use our website and online services. By accessing or using the website, you represent and
+            acknowledge that you have read, understood and agree to be bound by this <span class="text-info">Terms of Service Agreement</span>
+            ("Agreement") & <a href="{% url 'about:privacy_policy' %} " data-toggle="tooltip" data-placement="bottom"
+                                    title="Visit Privacy Policy"><span class="text-info">Privacy Policy</span></a> and to the collection and use of your personal information provided during registering to use
+            the Service is accurate, complete, and is yours or within your right to use. </p>
+        <p class="p-color p-size ml-3">
+            This Agreement applies to all visitors, users, and others who access the Service ("Users"), whether or not
+            you are a registered user of our service.</p>
+        <p class="p-color p-size ml-3">
+            Regarding all of our respect to other Services and/or Websites and their intellectual properties, if you
+            find
+            anything from our content that may violate your terms of use or policy, please do not hesitate to <a
+                class="text-info" href="{% url 'about:contact' %}">contact us</a>. <span
+                class="text-danger font-weight-bold">nodira.org</span> highly respects intellectual property and
+            policy of other Services and we will review violated content or part and will immediately remove from our
+            Service. </p>
+        <p class="p-color p-size ml-3">
+            If you have objections with our <span class="text-dark font-weight-bold">terms & conditions</span>, you
+            should immediately discontinue to use and visit of the site.
+            <br> The materials contained in this web site are protected by applicable copyright and trade mark law.</p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.2</strong>: Terms Of Use</div>
+        <p class="p-color p-size ml-3">
+            The Service provides general information only and does not constitute legal advice. <span
+                class="text-dark font-weight-bold">nodira.org</span> is provided without warranty of any kind. There
+            are no guarantees that use of the site will not be subject to interruptions. All direct or indirect risk
+            related to use of the site is borne entirely by the user. </p>
+        <p class="p-color p-size ml-3">
+            We may make changes to the Service as we update our offerings, content and functionality. We may add,
+            remove, suspend, or modify features or portions of the
+            Service at any time with or without prior notice to you.
+        </p>
+        <p class="p-color p-size ml-3">The following is an incomplete list of illegal and prohibited uses of the
+            Service. Any illegal and/or unauthorized use of the Service and appropriate legal action may be taken,
+            including without limitation, termination of your right to access the Service, and may be basis for Jury
+            Trials.</p>
+        <ul class="ml-3">
+            <li><p class="p-color p-size ml-3">Using the Service for any commercial purpose or advertisements.</p></li>
+            <li><p class="p-color p-size ml-3">Modifying or copying the content or functionality of our Service.</p>
+            </li>
+            <li><p class="p-color p-size ml-3">Posting an illegal or unauthorized copy of another person's copyrighted
+                work like intellectual properties, videos or links that may violate terms of use and policy of other
+                Services.</p></li>
+            <li><p class="p-color p-size ml-3">Submitting Material that violates the rights of others, such as Material
+                that
+                infringes any copyright, trademark, patent, trade secret or violates any right of privacy or
+                publicity.</p></li>
+            <li><p class="p-color p-size ml-3">Removing any copyright or other proprietary notations from the
+                materials.</p></li>
+            <li><p class="p-color p-size ml-3">Post on the Service any links to any external Internet Site that are
+                obscene or pornographic.</p></li>
+            <li><p class="p-color p-size ml-3">Transmit any viruses, worms and/or defects or other items having
+                destructive nature through the Service.</p></li>
+
+
+        </ul>
+        <p class="p-color p-size ml-3">Users violating any of these restrictions may be terminated by <span
+                class="text-danger font-weight-bold">nodira.org</span> at any time and must destroy violated content
+            and/or materials immediately. </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.3</strong>: Warranties and Errors</div>
+        <p class="p-color p-size ml-3"><span class="text-danger font-weight-bold">nodira.org</span> does not provide any
+            warranties. All the materials and resources appearing on our service may contain technical, typographical,
+            or other kinds of inaccurate errors. Our service is provided without any kind of guarantees regarding the
+            <span class="text-dark font-weight-bold">accuracy & completeness</span> of the site or its
+            contents.
+            The service may make <span class="text-dark font-weight-bold">changes & modifications</span> to the
+            materials and features contained on our service at any time without notice. </p>
+        <p class="p-color p-size ml-3">
+            Our service is a forum based for publishers and users. We are not liable for any disputes, claims,
+            losses, injuries, or damage of any kind that might arise out of or relate to conduct of our service,
+            publishers or users, including, but not limited to, any user's reliance upon any information provided by our
+            service.
+        </p>
+        <p class="p-color p-size ml-3">
+            Regarding all of our respect to other Services and/or Websites and their intellectual properties, if you
+            find
+            anything from our content that may violate your terms of use or policy, please do not hesitate to <a
+                class="text-info" href="{% url 'about:contact' %}">contact us</a>. <br><br>
+            <span class="text-dark font-weight-bold">nodira.org</span> highly respects intellectual property and
+            policy of other Services and we will review violated content or part and will immediately remove from our
+            Service.
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.4</strong>: Disclaimer</div>
+        <p class="p-color p-size ml-3">
+            The Service is provided an "as is" and "as available" basis. <span
+                class="text-dark font-weight-bold">Nodira</span> will never be responsible for any damage, loss or any
+            kind of injury resulting from hacking, technical issues or other unauthorized access or use of the service.
+            We do not provide any guarantees that content containing in our site may violate your intellectual property
+            and/or terms & conditions. If you have any prove that contents displayed on our site violate any kind of
+            law, please <a class="text-info" href="{% url 'about:contact' %}">contact us</a>. We will review your request and remove violated content.
+        </p>
+
+        <br>
+         <div class="mt-4 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'about:privacy_policy' %}" target="_blank"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'about:contribute' %}" target="_blank">Next </a></span>
+            </button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'about/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

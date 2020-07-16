@@ -1,0 +1,35 @@
+{% load static %}
+<!--Header-->
+<header id="header">
+    <div class="container">
+
+        <div id="logo" class="pull-left">
+            <a href="{% url 'main:main' %}" class="scrollto"><img src="{% static 'images/logo3.png' %}"
+                                                                  alt="nodira.org logo"></a>
+        </div>
+
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li><a href="{% url 'main:python' %} "><span
+                        style="font-family:'Poppins', sans-serif;letter-spacing: 1px; ">Python Course</span></a></li>
+                <li><a href="{% url 'about:contribute' %} "><span
+                        style="font-family:'Poppins', sans-serif;letter-spacing: 1px; ">Guest Writing</span></a></li>
+                <li><a href="{% url 'about:advertising' %} "><span
+                        style="font-family:'Poppins', sans-serif;letter-spacing: 1px; ">Advertise</span></a></li>
+                <li><a href="{% url 'about:company' %} "><span
+                        style="font-family:'Poppins', sans-serif;letter-spacing: 1px; ">About</span></a></li>
+                 <li><a href="{% url 'about:contact' %} "><span
+                        style="font-family:'Poppins', sans-serif;letter-spacing: 1px; ">Contact</span></a></li>
+
+                {#                <li><a href="{% url 'main:article' %}">Article</a></li>#}
+                {#                 <li><a href="{% url 'main:quiz' %}">Quiz</a></li>#}
+                {#                <li><a href="{% url 'main:algorithm' %}">Algorithms</a></li>#}
+                {#                <li><a href="{% url 'main:project' %}">Projects</a></li>#}
+                {#                <li class="search-icon"><a href="#"><i class="fa fa-search"></i></a></li>#}
+                {#                <li class="buy-tickets"><a href="#">Sign Up</a></li>#}
+            </ul>
+        </nav><!-- #nav-menu-container -->
+    </div>
+</header><!-- #header -->
+
+

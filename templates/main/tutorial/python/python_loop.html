@@ -1,0 +1,322 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Loops</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_if_elif_else' %}"
+                                          target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_array' %}"
+                                          target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Loops Overview</div>
+        <p class="p-color p-size ml-3">Like in all other programming languages, loops play very important role in
+            programming.
+            Python provides 2 categories of loop and in this section, we'll cover both: <span
+                    class="text-danger">for</span> and <span
+                    class="text-danger">while loop</span>.</p>
+        <p class="p-color p-size ml-3">In python, <span class="text-danger">for</span> loop will take care of indexing
+            itself, whereas C/C++ , Java programmers don't have this functionality. </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Python For Loop</div>
+        <p class="p-color p-size ml-3 my-3"><span class="text-danger">For</span> loops are commonly used to access the
+            items of
+            <em>lists</em>, <em>tuples</em>, <em>sets</em> and <em>dictionaries</em> individually.</p>
+        <p class="command p-color">
+            <span class="text-danger">for</span> i <span class="text-danger">in</span> ['a', 'b', 'c'] :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; <span class="text-danger">print</span> ( i ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; a  b  c </span>
+
+        </p>
+        <p class="p-color p-size ml-3 my-3">In the above mentioned example, <span class="text-danger">for</span> loop
+            will iterate
+            each item of a list one by one.</p>
+        <p class="p-color p-size ml-3 my-3"><em>Let's see 2 more examples:</em></p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-size p-color"><span class="text-danger">range</span>(<span class="text-primary">4</span>)
+                    function returns a list of numbers, starting from 0 till 4 (not included) : <strong>[ 0 , 1 , 2 , 3
+                        ]</strong>
+                </p>
+            </li>
+        </ul>
+        <p class="command p-color">
+            <span class="text-danger">for</span> i <span class="text-danger">in</span> <span
+                class="text-success">range</span>(4) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; <span class="text-danger">print</span> ( i ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; 0 1 2 3</span>
+
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-size p-color">In this example, <span class="text-danger">for</span> loop will iterate over
+                    the string characters one by one:
+                </p>
+            </li>
+        </ul>
+        <p class="command p-color ">
+            <span class="text-danger">for</span> i <span class="text-danger">in</span> "<span
+                class="text-info">nodira</span>" :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; <span class="text-danger">print</span> ( i ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; n o d i r a</span>
+
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.2</strong>: For Loop - Break Statement</div>
+        <p class="p-color p-size ml-3"><span class="text-danger">break</span> statement will stop the loop.</p>
+        <p class="command p-color">
+            <span class="text-danger">for</span>&nbsp; x &nbsp;<span class="text-danger">&nbsp;in&nbsp; </span> [ 'a',
+            'b', 'c' , 'd' ] :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; <span class="text-info">print</span> ( x ) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; <span class="text-danger">if</span> x &nbsp;==&nbsp; '<span
+                class="text-danger">c</span>' :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">break</span><span
+                class="text-secondary pl-3"># &nbsp; &nbsp;<em>Loop breaks once given condition becomes True</em></span>
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-size p-color">Once <span class="text-danger">for</span> loop reaches to the item <span
+                        class="text-danger">c</span> , condition becomes <span class="text-info">True</span> and loop
+                    stops functioning.</p>
+            </li>
+        </ul>
+        <p class="command p-color">
+            <span class="text-secondary"><em># &nbsp; &nbsp;Output:</em></span><br>
+            a <br> b
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.3</strong>: For Loop - Continue Statement</div>
+        <p class="p-color p-size ml-3"><span class="text-danger">continue</span> statement will skip the item and
+            continues
+            accessing from the next item.</p>
+        <p class="command p-color">
+            <span class="text-danger">for</span>&nbsp; x &nbsp;<span class="text-danger">&nbsp;in&nbsp; </span> [ 'a',
+            'b', 'c' , 'd' ] :<br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp; <span class="text-danger">if</span> x &nbsp;==&nbsp; '<span
+                class="text-danger">c</span>' :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">continue</span><span
+                class="text-secondary pl-3"># &nbsp; &nbsp;<em>skip current the element </em></span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp; <span class="text-info">print</span> ( x ) <br>
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-size p-color">Once <span class="text-danger">for</span> loop reaches to the item <span
+                        class="text-danger">c</span>, condition becomes <span class="text-info">True</span> and loop
+                    will skip the item.</p>
+            </li>
+        </ul>
+        <p class="command p-color">
+            <span class="text-secondary"><em># &nbsp; &nbsp;Output:</em></span><br>
+            a <br> b <br> d
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 3.1</strong>: Python While Loop</div>
+        <p class="p-color p-size ml-3"><span class="text-danger">While</span> loops are used to access a set of items as
+            long
+            as specified condition becomes <span class="text-info">True</span></p>
+
+        <p class="command p-color">
+            i = <span class="text-info">0</span> <br>
+            <span class="text-danger">while</span> i < <span class="text-info">4</span> :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( i ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; 0 1 2 3</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;i += <span class="text-info">1</span><span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Important</em>&nbsp; &nbsp;</span>
+            <br>
+
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-size p-color">It's important to increment <span class="text-danger">i</span> , otherwise it
+                    remains being 1 and will loop forever.
+            </li>
+        </ul>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 3.2</strong>: While Loop - <strong>Break Statement</strong></div>
+        <p class="p-color p-size ml-3"><span class="text-danger">break</span> statement will stop the loop.</p>
+        <p class="command p-color">
+            i = <span class="text-info">0</span> <br>
+            <span class="text-danger">while</span> i < <span class="text-info">4</span> :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">if</span> i == <span class="text-info">3</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">break</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( i ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; 0 1 2</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;i += <span class="text-info">1</span><span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Important</em>&nbsp; &nbsp;</span>
+            <br>
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-size p-color">Once <span class="text-danger">while</span> loop reaches to <span
+                        class="text-danger">3</span> , condition becomes <span class="text-info">True</span> and loop
+                    stops functioning.</p>
+            </li>
+        </ul>
+        <p class="command p-color">
+            <span class="text-secondary"><em># &nbsp; &nbsp;Output:</em></span><br>0 <br> 1 <br> 2
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 3.3</strong>: While Loop - <strong>Continue Statement</strong>
+        </div>
+        <p class="p-color p-size ml-3"><span class="text-danger">continue</span> statement will skip the item and
+            continues
+            accessing from the next item.</p>
+        <p class="command p-color">
+            i = <span class="text-info">0</span> <br>
+            <span class="text-danger">while</span> i < <span class="text-info">5</span> :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">if</span> i == <span class="text-info">3</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">continue</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( i ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; 0 1 2 4</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;i += <span class="text-info">1</span><span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Important</em>&nbsp; &nbsp;</span>
+            <br>
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-size p-color">Once <span class="text-danger">while</span> loop reaches to <span
+                        class="text-danger">3</span>, condition becomes <span class="text-info">True</span> and loop
+                    will skip <span class="text-danger">3</span>.</p>
+            </li>
+        </ul>
+        <p class="command p-color">
+            <span class="text-secondary"><em># &nbsp; &nbsp;Output:</em></span><br>0 <br> 1 <br> 2 <br> 4
+        </p>
+        <br>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_if_elif_else' %}"
+                                          target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_array' %}"
+                                          target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

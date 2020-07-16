@@ -1,0 +1,434 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+.bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Tempfile</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_descriptor' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_zip_unzip_files' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Tempfile Overview</div>
+        <p class="p-color p-size pl-3 pt-3 font-italic"><span
+                class="text-danger font-weight-bold">Python tempfile</span>
+            module is intended to create temporary files and directories. <span class="text-info">TemporaryFile</span> ,
+            <span class="text-info">NamedTemporaryFile</span> , <span class="text-info">TemporaryDirectory</span>
+        </p>
+        <p class="p-color p-size pl-3 font-italic">In this section, we'll learn more about how to create <span
+                class="text-dark font-weight-bold">temporary file</span> and how to handle <span
+                class="text-dark font-weight-bold">temporary directories</span> on a deep level.
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.1</strong>: Python <strong>TemporaryFile</strong> Syntax</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    The syntax of <span class="text-danger">TemporaryFile</span> ( ) function:
+                </p>
+            </li>
+        </ul>
+        <p class="p-color p-size  font-weight-bold"
+           style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+           <span class="text-dark font-italic"> <span class="text-danger">TemporaryFile</span>
+               ( mode = 'w+b' , buffering = None , encoding = None , newline = None , suffix = None , prefix = None , <br> dir = None , errors = None )
+           </span>
+        </p>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered font-italic">
+                <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    <td><span class="text-danger font-weight-bold">mode</span></td>
+                    <td><span class="text-dark"> mode to open ﬁle, default = w + b. </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><span class="text-danger font-weight-bold">buffering</span></td>
+                    <td><span class="text-dark">Store data in memory temporarily.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">encoding </span></td>
+                    <td><span class="text-dark">Encryption & Decryption of a file.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">newline </span></td>
+                    <td><span class="text-dark">Adding a newline, default = None.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">suffix </span></td>
+                    <td><span class="text-dark">One or more letters added at the end of a word to modify the word's meaning.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">prefix </span></td>
+                    <td><span class="text-dark">One or more letters added to the beginning of a word to modify its meaning</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">dir </span></td>
+                    <td><span class="text-dark">Dirname to place tempfile, default = None.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">errors  </span></td>
+                    <td><span class="text-dark">A failure to complete a task, default =  None</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+        <p class="command p-size text-dark">
+            <span class="text-secondary font-italic"># &nbsp;&nbsp; TemporaryFile <br></span>
+            <span class="text-dark">import &nbsp;</span> &nbsp;&nbsp;<span class="text-danger">tempfile</span> <br>
+            <br>
+            <span class="text-danger">print</span> ( <span class="text-info">" Temporary File example . . .  "</span> )
+            <br>
+            temp &nbsp;=&nbsp; <span class="text-danger">tempfile</span>.TemporaryFile ( ) <br>
+            <br>
+            <span class="text-dark">try</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span class="text-info">" TemporaryFile Reference : "</span>
+            , temp )
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span class="text-info">" TemporaryFile Name : "</span>
+            , temp.name )
+            <br>
+            <span class="text-dark">finally</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;temp.<span class="text-danger">close</span> ( )
+
+
+            <br>
+
+        </p>
+        <hr>
+        <p class="command p-size text-dark">
+            <span class="text-dark font-italic">#&nbsp;&nbsp; Output: <br></span>
+            <span class="text-secondary font-italic">Temporary File example . . .</span> <br>
+            <span class="text-secondary font-italic">TemporaryFile Reference :</span> &nbsp; _io.BufferedRandom name = 7
+            <br>
+            <span class="text-secondary font-italic">TemporaryFile Name :</span> &nbsp;7
+        </p>
+        <br>
+        <hr>
+        <br>
+        <div class="h5 text-info mb-3"><strong>Section 2.2</strong>: Python <strong>NamedTemporaryFile</strong> Syntax
+        </div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    The syntax of <span class="text-danger">NamedTemporaryFile</span> ( ) function:
+                </p>
+            </li>
+        </ul>
+        <p class="p-color p-size  font-weight-bold"
+           style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+           <span class="text-dark font-italic"> <span class="text-danger">NamedTemporaryFile</span>
+               ( mode = 'w+b' , buffering = None , encoding = None , newline = None , suffix = None , prefix = None , <br> dir = None , delete = True , errors = None )
+           </span>
+        </p>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered font-italic">
+                <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    <td><span class="text-danger font-weight-bold">mode</span></td>
+                    <td><span class="text-dark"> mode to open ﬁle, default = w + b. </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><span class="text-danger font-weight-bold">buffering</span></td>
+                    <td><span class="text-dark">Store data in memory temporarily.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">encoding </span></td>
+                    <td><span class="text-dark">Encryption & Decryption of a file.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">newline </span></td>
+                    <td><span class="text-dark">Adding a newline, default = None.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">suffix </span></td>
+                    <td><span class="text-dark">One or more letters added at the end of a word to modify the word's meaning.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">prefix </span></td>
+                    <td><span class="text-dark">One or more letters added to the beginning of a word to modify its meaning</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">dir </span></td>
+                    <td><span class="text-dark">Dirname to place tempfile, default = None.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">delete  </span></td>
+                    <td><span class="text-dark">To delete ﬁle on closure, default =  True</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">errors  </span></td>
+                    <td><span class="text-dark">A failure to complete a task, default =  None</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <p class="command p-size text-dark">
+            <span class="text-secondary font-italic">#&nbsp;&nbsp; NamedTemporaryFile <br></span>
+            <span class="text-danger">import &nbsp;</span> &nbsp;&nbsp;<span class="text-info">tempfile</span> <br>
+            <br>
+            <span class="text-danger">with &nbsp;</span><span class="text-info">tempfile</span>.NamedTemporaryFile (
+            delete &nbsp;=&nbsp; <span class="text-success">False</span> ) <span class="text-danger">&nbsp; as </span>
+            &nbsp; t:
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;t.write ( <span class="text-info">"Python tempfile is cool"</span> ) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;path &nbsp;=&nbsp;t.name <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print &nbsp;</span> path <br>
+            <br>
+            <span class="text-danger">with &nbsp;</span> <span class="text-success">open</span> ( path ) <span
+                class="text-danger">&nbsp; as </span> &nbsp; t:
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print &nbsp;</span> t.read ( ) <br>
+
+        </p>
+        <hr>
+        <p class="command p-size text-dark">
+            <span class="text-secondary font-italic">#&nbsp;&nbsp; Output: <br></span>
+            /tmp/tmp6pireJ <br>
+            Python tempfile is cool
+        </p>
+        <br>
+        <hr>
+        <br>
+        <div class="h5 text-info mb-3"><strong>Section 2.3</strong>: Python <strong>TemporaryDirectory</strong> Syntax
+        </div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    The syntax of <span class="text-danger">TemporaryDirectory</span> ( ) function:
+                </p>
+            </li>
+        </ul>
+        <p class="p-color p-size  font-weight-bold"
+           style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+           <span class="text-dark font-italic"> <span class="text-danger">TemporaryDirectory</span>
+               ( suffix = None , prefix = None , dir = None )
+           </span>
+        </p>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered font-italic">
+                <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <td><span class="text-danger font-weight-bold">suffix </span></td>
+                    <td><span class="text-dark">One or more letters added at the end of a word to modify the word's meaning.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">prefix </span></td>
+                    <td><span class="text-dark">One or more letters added to the beginning of a word to modify its meaning</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">dir </span></td>
+                    <td><span class="text-dark">Dirname to place tempfile, default = None.</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+        <p class="command p-size text-dark">
+            <span class="text-secondary font-italic"># &nbsp;&nbsp; TemporaryDirectory <br></span>
+            <span class="text-dark">import &nbsp;</span> &nbsp;&nbsp;<span class="text-danger">tempfile</span> <br>
+            <br>
+            <span class="text-danger">print</span> ( <span class="text-info">" Temporary Directory example . . .  "</span> )
+            <br>
+            temp &nbsp;=&nbsp; <span class="text-danger">tempfile</span>.TemporaryDirectory ( ) <br>
+            <br>
+            <span class="text-dark">try</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span class="text-info">" Temporary Directory Reference : "</span>
+            , temp )
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span class="text-info">" Temporary Directory Name : "</span>
+            , temp.name )
+            <br>
+            <span class="text-dark">finally</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;temp.<span class="text-danger">close</span> ( )
+        </p>
+        <hr>
+        <p class="command p-size text-dark">
+            <span class="text-dark font-italic">#&nbsp;&nbsp; Output: <br></span>
+            <span class="text-secondary font-italic">Temporary Directory example . . .</span> <br>
+            <span class="text-secondary font-italic">Temporary Directory Reference :</span> &nbsp; _io.BufferedRandom name = 12
+            <br>
+            <span class="text-secondary font-italic">Temporary Directory Name :</span> &nbsp;12
+        </p>
+       <br>
+          <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_descriptor' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_zip_unzip_files' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

@@ -1,0 +1,292 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Descriptor</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_http_server' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_tempfile' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Descriptor Overview</div>
+        <p class="p-color p-size pl-3 pt-3">
+            Python provides <u>3 types of methods</u> to define descriptors. They're: <strong><span
+                class="text-danger font-weight-bold">__get__</span> , <span
+                class="text-danger font-weight-bold">__set__</span> , <span class="text-danger font-weight-bold">__delete__</span></strong>
+            methods.
+        </p>
+        <p class="p-color p-size pl-3">In this section, we'll learn more about how to create and use these methods on a
+            deep level.</p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 1.2</strong>: Python Descriptor Syntax</div>
+        <ul class="my-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    The syntax of <span class="text-danger">descriptor</span> methods:
+                </p>
+            </li>
+        </ul>
+        <p class="p-color p-size  font-weight-bold"
+           style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+           <span class="text-dark font-italic">
+               descriptor.<span class="text-info">__get__</span> ( <span class="text-danger">self</span> , obj , <span
+                   class="text-success">type</span> &nbsp;=&nbsp; None ) <span class="text-secondary pl-3 font-italic"># &nbsp;&nbsp; returns 'value'</span><br>
+               descriptor.<span class="text-info">__set__</span> ( <span class="text-danger">self</span> , obj , value ) <span
+                   class="text-secondary pl-3 font-italic"># &nbsp;&nbsp; returns 'None'</span><br>
+               descriptor.<span class="text-info">__delete__</span> ( <span
+                   class="text-danger">self</span> , obj ) <span class="text-secondary pl-3 font-italic"># &nbsp;&nbsp; returns 'None'</span><br>
+           </span>
+        </p>
+        <hr>
+
+        <div class="h5 text-info mb-3"><strong>Section 2.1</strong>: Applying Descriptors in Practice</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2">
+                    Note that <strong>Data descriptors</strong> are defined as objects in both <span
+                        class="text-danger font-weight-bold">__get__</span> and <span
+                        class="text-danger font-weight-bold">__set__</span>, whereas <strong>non-data
+                    descriptors</strong> only define a <span
+                        class="text-danger font-weight-bold">__get__</span> method.</p>
+            </li>
+        </ul>
+        <p class="command p-size text-dark">
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Simple usage of Descriptor</span> <br>
+            <span class="text-danger">class </span>&nbsp;&nbsp;Car ( object ) : <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;&nbsp;__init__ ( <span
+                class="text-success">self</span> , brand = <span class="text-info font-italic">'BMW'</span>&nbsp; ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.brand &nbsp;=&nbsp;brand
+            <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;&nbsp;__get__ ( <span
+                class="text-success">self</span> , obj , type = <em>None</em> ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">return &nbsp;&nbsp;</span> f<span
+                class="text-info font-italic">" My Car's Brand <span class="text-dark">{</span><span
+                class="text-success">self</span>.brand<span class="text-dark">}</span> "</span> <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;&nbsp;__set__ ( <span
+                class="text-success">self</span> , obj , brand ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">if&nbsp;&nbsp; </span><span
+                class="text-info">type </span> ( brand )
+            &nbsp;==&nbsp; <span class="text-danger">'str'</span> :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-success">self</span>.brand &nbsp;=&nbsp; brand <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">else&nbsp; </span>: <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                class="text-danger">print</span> ( <span class="text-info font-italic">" Brand name must be only string! "</span>
+            )
+
+        </p>
+        <hr>
+        <p class="command p-size text-dark">
+            <span class="text-secondary font-italic">#&nbsp;&nbsp; Accessing Descriptor: <br></span>
+            <span class="text-dark">class </span>&nbsp;&nbsp;<span class="text-danger">Desc</span> ( object ) : <br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark">name </span>&nbsp;=&nbsp;<span
+                class="text-danger">Car</span> ( )
+            <br><br>
+            x &nbsp;=&nbsp;<span class="text-danger">Desc</span> ( ) <br>
+            x.brand &nbsp;=&nbsp; <span class="text-info font-italic">"Ferrari"</span> <br>
+            <span class="text-danger">print</span> ( x.brand ) <span class="text-secondary font-italic pl-4">#&nbsp;&nbsp; Ferrari</span>
+            <br>
+
+
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.2</strong>: Applying Descriptors in Practice</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    Another simple, but very good explanation of defining a <span class="text-danger">descriptor</span>.
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size text-dark">
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Simple usage of descriptor</span> <br>
+            <span class="text-danger">class </span>&nbsp;&nbsp;Person ( object ) : <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name &nbsp;=&nbsp; <span class="text-danger">'Alex'</span> <br>
+
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;&nbsp;__get__ ( <span
+                class="text-success">self</span> , obj , type = <em>None</em> ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info font-italic">" Getting Person name . . . "</span> &nbsp;)
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">return &nbsp;&nbsp;</span> <span
+                class="text-success">self</span>.name <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;&nbsp;__set__ ( <span
+                class="text-success">self</span> , obj , pname ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info font-italic">" Setting Person name:  "</span> &nbsp;, pname )
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.name = pname<br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;&nbsp;__delete__ ( <span
+                class="text-success">self</span> , obj ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info font-italic">" Deleting Person name . . . "</span> &nbsp; )
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">del </span> &nbsp;<span
+                class="text-success">self</span>.name<br>
+
+        </p>
+        <hr>
+        <p class="command p-size text-dark">
+            <span class="text-secondary font-italic">#&nbsp;&nbsp; Accessing Descriptor: <br></span>
+            <span class="text-dark">class </span>&nbsp;&nbsp;<span class="text-danger">Name</span> ( object ) : <br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark">t </span>&nbsp;=&nbsp;<span
+                class="text-danger">Person</span> ( )
+            <br><br>
+            desc &nbsp;=&nbsp;<span class="text-danger">Name</span> ( ) <br>
+            <span class="text-danger">print </span>( desc.t )<br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp; Getting Person name...</span> <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Alex</span> <br>
+            <br>
+            desc.t &nbsp;=&nbsp;<span class="text-danger">'John' </span><br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Setting Person name: John</span> <br>
+            <br>
+            <span class="text-danger">del &nbsp;</span>desc.t <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp; Deleting Person name...</span> <br>
+
+        </p>
+        <br>
+          <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_http_server' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_tempfile' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

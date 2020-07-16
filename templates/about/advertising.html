@@ -1,0 +1,299 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+         .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .hoverable {
+            cursor: pointer;
+            box-shadow: none;
+            transition: all 0.55s ease-in-out
+        }
+
+        .hoverable:hover {
+            box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transition: all 0.55s ease-in-out
+        }
+
+        p {
+            font-weight: 400;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'about/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <div class="container" style="background-color: rgb(249,250,252)">
+        <div class="mt-4 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'about:contribute' %}" target="_blank"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'about:contact' %}" target="_blank">Next </a></span>
+            </button>
+        </div>
+        <br>
+        <br>
+        <div class="wow fadeInUp">
+            <div class="container-fluid head-bar my-5">
+                <div class="text-center my-lg-5">
+                    <p class="h1 my-font"
+                       style=" font-weight:900;color: #102a43;font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif; margin-bottom: 20px;font-size: 2.8em;">
+                        Advertise & Sponsorship
+                    </p>
+                    <p style="color: rgb(102,103,142);">We're here to help and answer any question you might have. <br>
+                        We look forward to hearing from you!</p>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+
+    <!--===== DISPLAY BANNER Section ============-->
+    <section id="schedule" class="section-with-bg">
+        <div class="container wow fadeInUp">
+            <div class="section-header">
+                <p class="my-font ml-3"
+                   style="font-weight:900;color: #102a43;font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif; margin-bottom: 20px;font-size: 2em;">
+                    Display Advertising <img src="{% static 'images/gallery/fire.png' %}" alt=""
+                                             style="width: 35px; height: 35px; margin-bottom: 10px;">
+                </p>
+                <p style="color: rgb(102,103,142)">" Stopping advertising to save money is like stopping your watch to
+                    save time "</p>
+            </div>
+
+            <h3 class="sub-heading">Choose your favorite display and let us know at <span class="text-info">nodira.org@gmail.com</span>
+            </h3>
+            <!--===== BANNER OPTION  ============-->
+            <div class="row justify-content-center">
+
+                <!-- Schdule Day 1 -->
+                <div class="col-lg-9 fade show">
+
+                    <div class="row schedule-item hoverable">
+                        <div class="col-md-2">
+                            <span class="font-italic text-danger" style="font-weight: 500">30 days</span>
+                        </div>
+                        <div class="col-md-10">
+                            <h4>Premium Top Banner</h4>
+                            <p class="text-capitalize">Top Center | Desktop: 1020*120 px | 1000 $ </p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item hoverable">
+                        <div class="col-md-2">
+                            <span class="font-italic text-danger" style="font-weight: 500">30 days</span>
+                        </div>
+                        <div class="col-md-10">
+                            <h4>Sidebar Banner </h4>
+                            <p class="text-capitalize">Left & Right Sidebar | 300 $</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item hoverable">
+                        <div class="col-md-2">
+                            <span class="font-italic text-danger" style="font-weight: 500">30 days</span>
+                        </div>
+                        <div class="col-md-10">
+                            <h4>Premium Bottom Banner</h4>
+                            <p class="text-capitalize">Bottom | Desktop: 1020*120 px | 500 $</p>
+                        </div>
+                    </div>
+                    <div class="row schedule-item hoverable">
+                        <div class="col-md-2">
+                            <span class="font-italic text-danger" style="font-weight: 500">30 days</span>
+                        </div>
+                        <div class="col-md-10">
+                            <h4>Super Bottom Banner</h4>
+                            <p class="text-capitalize">Bottom | Desktop: 300*250 px | 300 $</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item hoverable">
+                        <div class="col-md-2">
+                            <span class="font-italic text-danger" style="font-weight: 500">Forever</span>
+                        </div>
+                        <div class="col-md-10">
+
+                            <h4>Masterpiece Article</h4>
+                            <p class="text-capitalize">Advertise Company & Services | Special Article | 500 $</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item hoverable">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-10">
+                            <h4>Direct Mail Marketing</h4>
+                            <p class="text-capitalize">Advertise Company & Services | Banner | 300 $</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--=====END OF BANNER OPTION ============-->
+        </div>
+    </section>
+    <!--=====END OF BANNER Section ============-->
+
+    <!--===== SPONSORSHIP Section ============-->
+    <section id="schedule" class="section-with-bg">
+        <div class="container wow fadeInUp">
+            <div class="section-header">
+                <p class="my-font ml-3"
+                   style="font-weight:900;color: #102a43;font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif; margin-bottom: 20px;font-size: 2em;">
+                    SPONSORSHIP <img src="{% static 'images/gallery/Sponsor-Icon.png' %}" alt=""
+                                     style="width: 70px; height: 80px; margin-bottom: 5px;">
+                </p>
+                <p style="color: rgb(102,103,142)">" Mentors give you <strong>Perspective</strong>, Sponsors give you
+                    <strong>Opportunities</strong> "</p>
+            </div>
+
+            <h3 class="sub-heading">Support our community. Get in touch at <span
+                    class="text-info">nodira.org@gmail.com</span>
+            </h3>
+            <!--===== BANNER OPTION  ============-->
+            <div class="row justify-content-center">
+
+                <!-- Schdule Day 1 -->
+                <div class="col-lg-9 fade show">
+
+                    <div class="row schedule-item hoverable">
+                        <div class="col-md-2">
+                            <span class="font-italic text-danger" style="font-weight: 500">Forever</span>
+                        </div>
+                        <div class="col-md-10">
+                            <h4>Masterpice Article</h4>
+                            <p class="text-capitalize">Advertise Company & Services | Special Article </p>
+                        </div>
+                    </div>
+                    <div class="row schedule-item hoverable">
+                        <div class="col-md-2">
+                            <span class="font-italic text-danger" style="font-weight: 500">Forever</span>
+                        </div>
+                        <div class="col-md-10">
+                            <h4>Sponsorship Member</h4>
+                            <p class="text-capitalize">Company Logo in our Sponsorship List </p>
+                        </div>
+                    </div>
+                    <div class="row schedule-item hoverable">
+                        <div class="col-md-2">
+                            <span class="font-italic text-danger" style="font-weight: 500">30 days</span>
+                        </div>
+                        <div class="col-md-10">
+                            <h4>Premium Top Banner</h4>
+                            <p class="text-capitalize">Top Center | Desktop: 1020*120 px </p>
+                        </div>
+                    </div>
+
+
+                    <div class="row schedule-item hoverable">
+                        <div class="col-md-2">
+                            <span class="font-italic text-danger" style="font-weight: 500"></span>
+                        </div>
+                        <div class="col-md-10">
+                            <h4>Mail Advertising</h4>
+                            <p class="text-capitalize">Advertise Company & Services | Banner | Article </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--=====END OF BANNER OPTION ============-->
+        </div>
+    </section>
+    <!--=====END OF BANNER Section ============-->
+    <div class="mt-4 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'about:contribute' %}" target="_blank"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'about:contact' %}" target="_blank">Next </a></span>
+            </button>
+        </div>
+    <br> <br> <br>
+    <!--==========Schedule Section==============-->
+    <section id="schedule" class="section-with-bg">
+        <div class="container wow fadeInUp">
+
+
+            <div class="section-header my-3">
+                <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                    <img
+                            src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+            </div>
+
+            <h3 class="sub-heading mt-5">
+                Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                <br>
+                Your contributions are very important for us!
+                <br>
+                <br>
+                <strong>*</strong>Articles can be written on any topic
+            </h3>
+
+        </div>
+    </section>
+
+
+
+    <!--SIDEBAR2 -->
+    {% include 'about/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

@@ -1,0 +1,343 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: 600;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Dictionary</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_tuple' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_operator' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python <strong>Data Type</strong></div>
+        <p class="p-color p-size ml-3">In this section, we'll cover : <span
+                class="text-danger font-weight-bold">Python Dictionary</span></p>
+        <ul>
+            <li><p class="p-color p-size"><strong>Dictionary</strong> - a collection of unordered elements.</p></li>
+            <li><p class="p-color p-size"><strong>Dictionary</strong> - mutable (meaning that we can change its values).
+            </p>
+            </li>
+            <li><p class="p-color p-size"><strong>Dictionary</strong> - supports key-based indexing.</p></li>
+            <li><p class="p-color p-size"><strong>Dictionary</strong> - every key must be unique.</p></li>
+            <li><p class="p-color p-size"><strong>Dictionary</strong> - curly brackets{ } are used, like <a data-toggle="tooltip" data-placement="bottom" class="text-danger font-weight-bold"
+            title="Visit Article" href="{% url 'main:python_set' %}">sets</a>.
+            </p></li>
+        </ul>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.2</strong>: <strong>Dictionary</strong> Example</div>
+        <p class="p-color p-size ml-3">Dictionary elements are separated by <u>commas</u> ( like <a data-toggle="tooltip" data-placement="bottom" class="text-danger font-weight-bold"
+            title="Visit Article" href="{% url 'main:python_set' %}">sets</a> ) , and closed with <u>curly brackets</u>.</p>
+        <ul>
+            <li><p class="p-color p-size font-weight-bold"> dict {
+                "<span class="text-danger">key</span>" :
+                "<span class="text-danger">value</span>" }
+            </p></li>
+        </ul>
+
+        <p class="command p-color">
+
+            <span class="text-danger">b</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            print ( <span class="text-danger">b</span> )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp; 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy'  </span><br>
+        </p>
+        <p class="p-color p-size my-3 ml-3">In this example, <span class="text-danger">keys</span> : <em>'one' , 'two' ,
+            'three'</em> and <span class="text-danger">values</span> : <em>'dog' , 'cat' , 'puppy'</em>, respectively.
+        </p>
+
+
+        <p class="command p-color">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-danger">a</span>.keys (&nbsp; )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp; dict_keys ( [ 'one' , 'two' , 'three' ] ) </span><br>
+        </p>
+        <p class="p-color p-size my-3 ml-3"><span class="text-danger font-weight-bold">.keys</span> (&nbsp;) function returns <em>key</em> attributes of a
+            dictionary.</p>
+
+        <p class="command p-color">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-danger">a</span>.values (&nbsp; )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp; dict_values ( [ 'dog' , 'cat' , 'puppy' ] ) </span><br>
+        </p>
+        <p class="p-color p-size my-3 ml-3"><span class="text-danger font-weight-bold">.values</span> (&nbsp;) function returns <em>value</em> attributes of a
+            dictionary.</p>
+
+        <p class="command p-color">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-danger">a</span>.items (&nbsp; )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp; { ( 'one' : 'dog' ) , ( 'two' : 'cat' ) , ( 'three' : 'puppy' ) } </span><br>
+        </p>
+        <p class="p-color p-size my-3 ml-3"><span class="text-danger font-weight-bold">.items</span> (&nbsp;) function returns paired <em>( key , value )</em>
+            attributes of a dictionary.</p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.3</strong>: Accessing Dictionary items</div>
+        <p class="p-color p-size ml-3"><span class="text-dark font-weight-bold">1<sup>st</sup> way :</span> Dictionary items can be accessed through <span
+                class="text-danger"><a data-toggle="tooltip" data-placement="bottom"
+                                        title="Visit Article"
+                href="{% url 'main:python_loop' %}">for</a></span>
+            loop. <em> We'll learn more detailed later.</em></p>
+        <p class="command p-color">
+
+            dict &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-danger">for</span>&nbsp;&nbsp; <span class="text-info"> key <span class="text-dark">,</span> value &nbsp;&nbsp;</span> <span class="text-danger">in</span>&nbsp;&nbsp;
+            dict.<span class="text-danger">items</span> (&nbsp; ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( dict[<span class="text-info">key</span>] )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp; <em>Output :</em> dog , cat , puppy  </span><br>
+        </p><br>
+        <p class="p-color p-size ml-3"><span class="text-dark font-weight-bold">2<sup>nd</sup> way :</span> using key-based indexing.</p>
+        <p class="command p-color">
+            <span class="text-danger">b</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-danger">b</span>['one']<span
+                class="text-secondary pl-4"># &nbsp;&nbsp; <em>Output:</em>  dog </span><br>
+        </p>
+        <hr>
+        <p class="command p-color">
+            <span class="text-danger">b</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-danger">b</span>['two']<span
+                class="text-secondary pl-4"># &nbsp;&nbsp; <em>Output :</em>  cat </span><br>
+        </p>
+        <hr>
+        <p class="command p-color">
+            <span class="text-danger">b</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-danger">b</span>['dog']
+            <span class="text-secondary pl-4"># &nbsp;&nbsp;  Error : use only keys for indexing. </span><br>
+        </p>
+        <p class="p-color p-size my-3 ml-3"><span class="text-dark font-weight-bold">3<sup>rd</sup> way :</span> <span class="text-danger font-weight-bold">get</span> (&nbsp;) function.</p>
+        <p class="command p-color">
+            <span class="text-danger">b</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-danger">b.</span>get ( 'one' )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp; <em>Output :</em> dog </span><br>
+            <span class="text-danger">b.</span>get ( 'four' , 'default_value' )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp; <em>Output :</em> default_value </span><br>
+        </p>
+        <ul>
+            <li><p class="p-color p-size my-3">Note that <span class="text-danger font-weight-bold">get</span> (&nbsp;) function returns 2nd argument, in case
+                specified key
+                doesn't exist.</p>
+            </li>
+        </ul>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.4</strong>: Combining 2 dictionaries</div>
+        <ul>
+            <li><p class="p-color p-size font-weight-bold">merged_dict &nbsp;=&nbsp; { **dict1 , **dict2 }</p></li>
+        </ul>
+        <p class="command p-color">
+
+            <span class="text-info">a</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' }<br>
+            <span class="text-info">b</span> &nbsp;=&nbsp; { 'word' : 'hello' }<br>
+            <span class="text-info">c</span> &nbsp;=&nbsp; { **<span class="text-info">a</span> , **<span
+                class="text-info">b</span> }<span
+                class="text-secondary pl-4">#&nbsp; &nbsp;merging a and b. </span><br>
+            <span class="text-danger">print</span> ( <span class="text-primary">c</span> )<span
+                class="text-secondary pl-4">#&nbsp;&nbsp; <em>Output:</em>  'one' : 'dog' , 'two' : 'cat' , 'word' : 'hello' </span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.5</strong>: Adding elements in a dictionary</div>
+
+        <p class="command p-color mt-3">
+
+            <span class="text-info">a</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-info">a</span> [ 'four' ] &nbsp;=&nbsp; 'new_element'<br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span> ) <span
+                class="text-secondary pl-4"># &nbsp; 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' , 'four' : 'new_element'</span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.6</strong>: Checking Key Existence</div>
+
+        <p class="command p-color mt-3">
+            <span class="text-info">a</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            'four' <span class="text-info">&nbsp;&nbsp;<span class="text-danger">in</span></span>&nbsp;&nbsp; <span
+                class="text-info">a</span>. <span class="text-danger">keys</span> (&nbsp; )<span
+                class="text-secondary pl-4"># &nbsp; False</span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.7</strong>: Checking Value Existence</div>
+
+        <p class="command p-color">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            'cat' <span class="text-info">&nbsp;in</span>&nbsp;&nbsp; <span
+                class="text-danger">a</span>.values ( )<span
+                class="text-secondary pl-4"># &nbsp; True</span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Built-in functions</div>
+
+        <p class="command p-color mt-3">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-danger">a</span>.pop ( 'one' )<span
+                class="text-secondary pl-4"># &nbsp; 'two' : 'cat' , 'three' : 'puppy'  &nbsp; </span><br>
+        </p>
+        <ul>
+            <li><p class="p-color p-size pt-2"><em>pop(key)</em> function removes specified key with its paired value.
+            </p>
+            </li>
+        </ul>
+
+
+        <p class="command p-color mt-3">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-danger">len</span> ( a )<span
+                class="text-secondary pl-4"># &nbsp; 3  &nbsp; </span><br>
+        </p>
+        <ul>
+            <li><p class="p-color p-size pt-2"><em>len(dict)</em> returns length of a dictionary.</p>
+            </li>
+        </ul>
+
+         <p class="command p-color mt-3">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-danger">a</span>.popitem ( &nbsp;)<span
+                class="text-secondary pl-4"># &nbsp; 'one' : 'dog' , 'two' : 'cat'  &nbsp; </span><br>
+        </p>
+        <ul>
+            <li><p class="p-color p-size pt-2"><em>popitem( )</em> removes last added item.</p>
+            </li>
+        </ul>
+        <p class="command p-color mt-3">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; { 'one' : 'dog' , 'two' : 'cat' , 'three' : 'puppy' }<br>
+            <span class="text-danger">a</span>.clear ( &nbsp;)<span
+                class="text-secondary pl-4"># &nbsp; empty  &nbsp; </span><br>
+        </p>
+        <ul>
+            <li><p class="p-color p-size pt-2"><em>clear( )</em> clears all paired items.</p>
+            </li>
+        </ul>
+       <br>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_tuple' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_operator' %}" target="_blank">Next </a></span></button>
+        </div>
+
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

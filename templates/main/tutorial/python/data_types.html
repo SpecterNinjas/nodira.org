@@ -1,0 +1,588 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        p {
+            font-weight: 400;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            border: 1px solid lightslategrey;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Data Types</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_installing' %}" target="_blank"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:indentation' %}"
+                                          target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+
+        <div class="h5 text-info my-3" style="clear: right;"><strong>Section 1.1</strong>: Python <strong>Data
+            Types</strong></div>
+        <p class="p-color p-size pl-3">Basically, Python variables will
+            differentiate with respect to the data that they will store.</p>
+        <p class="p-color p-size pl-3">Fortunately, Python already built for us <span
+                class="text-dark font-weight-bold font-italic">7 categories</span> of <span
+                class="text-danger font-weight-bold">data types</span> to use.</p>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>Text Type</th>
+                    <th>Numeric Type</th>
+                    <th>Sequence Type</th>
+                    <th>Mapping Type</th>
+                    <th>Set Type</th>
+                    <th>Boolean Type</th>
+                    <th>Binary Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>str</td>
+                    <td>int</td>
+                    <td>list</td>
+                    <td>dict</td>
+                    <td>set</td>
+                    <td>bool</td>
+                    <td>bytes</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>float</td>
+                    <td>tuple</td>
+                    <td></td>
+                    <td>frozenset</td>
+                    <td></td>
+                    <td>bytearray</td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>complex</td>
+                    <td>range</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>memoryview</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="h5 text-info"><strong>Section 1.2</strong>: Getting Data Types using <strong>type()</strong>
+            function
+        </div>
+        <ul class="my-3">
+            <li style="list-style-type: square">
+                <p class="p-color p-size  pl-3"><span class="text-danger font-weight-bold">type</span> ( ) function
+                    <span class="text-dark"><em><strong>returns data type</strong></em></span>
+                    of a
+                    specified variable</p>
+            </li>
+        </ul>
+
+        <p class="command p-color text-dark">
+            a &nbsp;=&nbsp; <span class="text-danger">2</span> <br> <span class="text-danger">print</span> ( <span
+                class="text-info font-weight-bold">type</span> ( a ) )
+            <strong><em>&nbsp;&nbsp;&nbsp;# Output: <'int'></em></strong><br>
+            b &nbsp;=&nbsp; <span class="text-danger">9223372036854775807</span><br>
+            <span class="text-danger">print</span> ( <span class="text-info font-weight-bold">type</span> ( b ) )
+            <strong><em>&nbsp;&nbsp;&nbsp;# Output:
+                <'int'></em></strong>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            pi &nbsp;=&nbsp; <span class="text-danger">3.14</span> <br> <span class="text-danger">print</span> ( <span
+                class="text-info font-weight-bold">type</span> ( pi ) )
+            <strong><em>&nbsp;&nbsp;&nbsp;# Output:
+                <'float'></em></strong><br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            c &nbsp;=&nbsp; <span class="text-danger">'A'</span><br> <span class="text-danger">print</span> ( <span
+                class="text-info font-weight-bold">type</span> ( c ) )
+            <strong><em>&nbsp;&nbsp;&nbsp;# Output: <'str'></em></strong><br>
+
+            name &nbsp;=&nbsp; <span class="text-danger">'John Doe'</span><br> <span class="text-danger">print</span> (
+            <span class="text-info font-weight-bold">type</span> ( name ) ) <strong><em>&nbsp;&nbsp;&nbsp;# Output:
+            <'str'></em></strong><br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            q &nbsp;=&nbsp; <span class="text-danger">True</span> <br> <span class="text-danger">print</span> ( <span
+                class="text-info font-weight-bold">type</span> ( q ) )
+            <strong><em>&nbsp;&nbsp;&nbsp;# Output:
+                <'bool'></em></strong><br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            q &nbsp;=&nbsp; <span class="text-danger">None</span> <br> <span class="text-danger">print</span> ( <span
+                class="text-info font-weight-bold">type</span> ( q ) )
+            <strong><em>&nbsp;&nbsp;&nbsp;# Output:
+                <'NoneType'></em></strong><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info py-3"><strong>Section 1.3</strong>: Checking Data Types using
+            <strong>isinstance( )</strong> function
+        </div>
+        <p class="command p-color my-2 text-dark"><span class="text-danger font-weight-bold">isinstance</span> ( )
+            function returns <em>boolean</em> : <span
+                    class="text-danger"> True</span>/ <span class="text-danger">False</span></p>
+        <br>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered ">
+                <thead>
+                <tr>
+                    <th>Example</th>
+                    <th>isinstance ( variable, data type )</th>
+                    <th>Result</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><span class="text-danger">a</span> = 1</td>
+                    <td><span class="text-danger">isinstance</span>(a,int)</td>
+                    <td><span class="text-info">True</span></td>
+                    <td><span class="text-dark">1 is integer number, it returns "True"</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">a</span> = 1</td>
+                    <td><span class="text-danger">isinstance</span>(a,float)</td>
+                    <td><span class="text-info">False</span></td>
+                    <td><span class="text-dark">1 isn't floating point number, it returns "False"</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">a</span> = "Nodira"</td>
+                    <td><span class="text-danger">isinstance</span>(a,str)</td>
+                    <td><span class="text-info">True</span></td>
+                    <td><span class="text-dark">"Nodira" is string, it returns "True"</span></td>
+
+                </tr>
+                <tr>
+                    <td><span class="text-danger">a</span> = 10.99</td>
+                    <td><span class="text-danger">isinstance</span>(a,float)</td>
+                    <td><span class="text-info">True</span></td>
+                    <td><span class="text-dark">10.99 is floating point number, it returns "True"</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">a</span> = 19j</td>
+                    <td><span class="text-danger">isinstance</span>(a,complex)</td>
+                    <td><span class="text-info">True</span></td>
+                    <td><span class="text-dark">19j is complex number, it returns "True"</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">a</span> = True</td>
+                    <td><span class="text-danger">isinstance</span>(a,bool)</td>
+                    <td><span class="text-info">True</span></td>
+                    <td><span class="text-dark">True is boolean, it returns "True"</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">a</span> = [1,2,3]</td>
+                    <td><span class="text-danger">isinstance</span>(a,list)</td>
+                    <td><span class="text-info">True</span></td>
+                    <td><span class="text-dark">[1,2,3] is list, it returns "True"</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">a</span> = (1,2,3)</td>
+                    <td><span class="text-danger">isinstance</span>(a,tuple)</td>
+                    <td><span class="text-info">True</span></td>
+                    <td><span class="text-dark">(1,2,3) is tuple, it returns "True"</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">a</span> = {a = 1,b = "car", c = "black"}</td>
+                    <td><span class="text-danger">isinstance</span>(a,dict)</td>
+                    <td><span class="text-info">True</span></td>
+                    <td><span class="text-dark">a is dictionary, it returns "True"</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.4</strong>: Creating variables and assigning values</div>
+        <p class="p-color p-size pl-3">To create a variable in Python, all you need to do is specify the variable name,
+            and
+            then assign a value to it.</p>
+        <p class="p-color p-size ml-3 my-3">Python uses <strong>=</strong> to assign values to variables. There's no
+            need to
+            declare a variable
+            beforehand, Python will take care of everything.
+            There's no way to
+            declare a variable without assigning it an initial value.</p>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>Integer</th>
+                    <th>Floating point</th>
+                    <th>String</th>
+                    <th>Boolean</th>
+                    <th>Null</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><span class="text-danger">a</span> = 2</td>
+                    <td><span class="text-danger">a</span> = 2.14</td>
+                    <td><span class="text-danger">a</span> = 'ABC'</td>
+                    <td><span class="text-danger">a</span> = True</td>
+                    <td><span class="text-danger">a</span> = None</td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">b</span> = 10</td>
+                    <td><span class="text-danger">b</span> = 10.9</td>
+                    <td><span class="text-danger">b</span> = '102ABC'</td>
+                    <td><span class="text-danger">b</span> = False</td>
+                    <td><span class="text-danger">b</span> = None</td>
+
+                </tr>
+                <tr>
+                    <td><span class="text-danger">c</span> = 199</td>
+                    <td><span class="text-danger">c</span> = 199.01</td>
+                    <td><span class="text-danger">c</span> = 'Roman Collak'</td>
+                    <td><span class="text-danger">c</span> = True</td>
+                    <td><span class="text-danger">c</span> = None</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="p-color p-size ml-3 my-3">Variable always needs to be from left to right. So the following will give
+            you an
+            syntax error. </p>
+        <p class="command text-dark"><span class="text-danger">0</span> = x &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span><em># &nbsp;&nbsp; </em><span
+                    class="text-danger"><em>SyntaxError</em></span> : <span
+                    class="text-info"><em>can't assign to literal</em></span></span>
+        </p>
+        <hr>
+        <p class="p-color p-size mt-3 h5"><strong>Rules for variable naming:</strong></p>
+        <ol>
+            <li class="my-3"> Variables names must start with a letter or an underscore.</li>
+            <div class="pl-2">
+                <p class="p-color p-size command  text-dark"> x = <span class="text-success">True</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <em># valid</em> <br>
+                    _y = <span class="text-success">True</span>&nbsp;&nbsp;&nbsp;&nbsp; <em># valid</em><br>
+                    9x = <span class="text-danger">False</span>&nbsp;&nbsp;&nbsp; <em># starts with numeral</em><br>
+                    $y = <span class="text-danger">False</span>&nbsp;&nbsp;&nbsp; <em># starts with symbol</em><br>
+                </p>
+            </div>
+            <li class="my-3"> The remainder of your variable name may consist of letters, numbers and underscores.</li>
+            <p class="command pl-2 p-color p-size text-dark">has_0_in_it &nbsp;=&nbsp; <span class="text-info">"Still Valid"</span>
+            </p>
+
+            <li class="my-3">Names are case sensitive.</li>
+            <div class="pl-2">
+                <p class="p-color p-size command">x = 9 <br>
+                    y = <strong>X</strong>*5<br>
+                    >>><span class="text-danger">NameError:</span><em> name 'X' is not defined</em></p>
+            </div>
+        </ol>
+        <br>
+        <hr>
+
+        <p class="p-color p-size my-4 h5"><strong>Assigning multiple variables:</strong></p>
+        <p class="command p-color text-dark">
+            a , b , c &nbsp;=&nbsp; <span class="text-danger">1</span> , <span class="text-danger">2</span> , <span
+                class="text-danger">3</span>
+            <br>
+            <span class="text-danger">print</span> ( a , b , c ) <span class="pl-3"><em># Output: 1 2 3</em></span> <br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            a , b , c &nbsp;=&nbsp; <span class="text-danger">1</span> , <span class="text-danger">2</span>
+            <br>
+            <span class="text-danger">print</span> ( a , b , c ) <span class="pl-3"><em><span class="text-success"># ValueError:</span> need more than <span
+                class="text-danger">2</span> values to pack</em></span> <br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            a , b &nbsp;=&nbsp; <span class="text-danger">1</span> , <span class="text-danger">2</span> , <span
+                class="text-danger">3</span>
+            <br>
+            <span class="text-danger">print</span> ( a , b , c ) <span class="pl-3"><em><span class="text-success"># ValueError:</span> too many values to unpack</em></span>
+            <br>
+        </p>
+        <ul>
+            <li style="list-style-type: square"><p class="p-size p-color my-3 ml-3">Underscore (_) for assigning
+                unwanted values:</p>
+            </li>
+        </ul>
+        <p class="command p-color text-dark">
+            a , b , _ &nbsp;=&nbsp; <span class="text-danger">1</span> , <span class="text-danger">2</span> , <span
+                class="text-danger">3</span>
+            <br>
+            <span class="text-danger">print</span> ( a , b ) <span class="pl-3"><em># Output: 1 2</em></span> <br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            a , b , _ &nbsp;=&nbsp; <span class="text-danger">1</span> , <span class="text-danger">2</span> , <span
+                class="text-danger">3</span> , <span
+                class="text-danger">4</span>
+            <br>
+            <span class="text-danger">print</span> ( a , b ) <span class="pl-3"><em><span
+                class="text-success"># ValueError</span> too many values to unpack</em></span> <br>
+        </p>
+        <ul class="my-3">
+            <li style="list-style-type: square"><p class="p-size p-color mt-2">Assigning a single value to several
+                variables simultaneously:</p>
+            </li>
+        </ul>
+        <p class="command p-color text-dark">
+            a &nbsp;=&nbsp; b &nbsp;=&nbsp; c &nbsp;=&nbsp; <span class="text-danger">1</span><br>
+            <span class="text-danger">print</span> ( a , b , c ) <span
+                class="pl-4"><em># Output: &nbsp;&nbsp; 1 1 1</em></span></p>
+        <ul class="my-3">
+            <li style="list-style-type: square">
+                <p class="p-size p-color mt-2">Now, let's see a bit difficult example:</p>
+            </li>
+        </ul>
+
+
+        <p class="command p-color text-dark">
+            a &nbsp;=&nbsp; b &nbsp;=&nbsp; c &nbsp;=&nbsp; <span class="text-danger">1</span> <span
+                class="text-secondary font-italic pl-5"># all three names a, b and c refer to same int object with value 1</span><br>
+            <span class="text-danger">print</span> ( a , b , c ) <span
+                class="pl-4"><em># Output: &nbsp;&nbsp; 1 1 1</em></span><br>
+            b &nbsp;=&nbsp; <span class="text-danger">2</span><span class="text-secondary font-italic pl-5"># b now refers to another int object, one with a value of 2</span><br>
+            <span class="text-danger">print</span> ( a , b , c ) <span
+                class="pl-3"><em># Output: &nbsp;&nbsp; 1 2 1</em></span></p>
+        <ul class="my-3">
+            <li style="list-style-type: square">
+                <p class="p-size p-color mt-2">
+                <p class="p-size p-color mt-2">Another example about over assigning:</p>
+            </li>
+        </ul>
+        <p class="command p-color text-dark">
+            a &nbsp;=&nbsp; <span class="text-danger">1</span> <br>
+            <span class="text-danger">print</span> ( a ) <span class="pl-4"><em># Output: 1</em></span><br>
+            a &nbsp;=&nbsp; <span class="text-info">" New value over written "</span><br>
+            <span class="text-danger">print</span> ( a , b , c ) <span class="pl-4"><em># Output: &nbsp;&nbsp; New value over written</em></span>
+        </p>
+
+        <p class="p-size p-color my-3 ml-3">Unlike, other programming languages Python will take care of their data
+            types.
+            Awesome!
+        </p>
+        <hr>
+        <div class="h5 text-info"><strong>Section 1.5</strong>: Python Data Types in details</div>
+        <ul>
+
+            <li><p class="h5 p-color my-3">Integer Number </p>
+                <p class="command text-dark"><span class="text-info">int</span> : <em>integer number</em> <br>
+                    <span class="text-danger">a</span> &nbsp;=&nbsp; 1 <br>
+                    <span class="text-danger">b</span> &nbsp;=&nbsp; 21 <br>
+                    <span class="text-danger">c</span> &nbsp;=&nbsp; 1234 <br>
+                    <span class="text-danger">d</span> &nbsp;=&nbsp; 2334215323 <br>
+                </p></li>
+            <li><p class="h5 p-color my-3">Floating Point Number </p>
+                <p class="command text-dark"><span class="text-info">float</span> : <em>floating point number</em> <br>
+                    <span class="text-danger">a</span> &nbsp;=&nbsp; 1.2 <br>
+                    <span class="text-danger">b</span> &nbsp;=&nbsp; 21.13 <br>
+                    <span class="text-danger">c</span> &nbsp;=&nbsp; 1234.422 <br>
+                    <span class="text-danger">d</span> &nbsp;=&nbsp; 2334215323.01 <br>
+                </p>
+                <p class="p-size p-color my-3">
+                    In some programming languages (C/C++ , Java), it is also referred as
+                    <span class="text-danger">double</span>.</p></li>
+            <li>
+                <p class="h5 p-color  my-3">Boolean Values </p>
+                <p class="command text-dark"><span class="text-info">bool</span> : <em>Boolean value</em> <br>
+                    <span class="text-danger">a</span> &nbsp;=&nbsp; True <br>
+                    <span class="text-danger">b</span> &nbsp;=&nbsp; False <br>
+                </p>
+                <p class="p-size p-color my-3">
+                    Boolean value can be only
+                    <span class="text-danger font-weight-bold">True</span> or <span
+                        class="text-danger font-weight-bold">False</span>.</p>
+            </li>
+            <li>
+                <p class="h5 p-color my-3">String </p>
+                <p class="command text-dark"><span class="text-info">str</span> : <em>String</em> <br>
+                    <span class="text-danger">a</span> &nbsp;=&nbsp; 'ABC' <br>
+                    <span class="text-danger">b</span> &nbsp;=&nbsp; 'Azam' <br>
+                    <span class="text-danger">c</span> &nbsp;=&nbsp; <span class="text-danger">b</span>'Azam' <span
+                            class="text-secondary pl-4 font-italic">#  &nbsp;&nbsp;Assigning string in Binary format</span><br>
+                </p>
+            </li>
+            <li>
+                <p class="h5 p-color my-3">List </p>
+                <p class="command text-dark"><span class="text-info">list</span> : <em>Collection of ordered items (Can
+                    be
+                    reassigned)</em> <br>
+                    <span class="text-danger">a</span> &nbsp;=&nbsp; [ 1 , 2 , 3 ] <br>
+                    <span class="text-danger">b</span> &nbsp;=&nbsp; [ 'A' , 2 , 'CD', ( 1 , 2 ) ] <br>
+                </p>
+            </li>
+            <li>
+                <p class="h5 p-color my-3">Tuple </p>
+                <p class="command text-dark"><span class="text-info">tuple</span> : <em>Collection of ordered items
+                    (Can't be
+                    reassigned)</em> <br>
+                    <span class="text-danger">a</span> &nbsp;=&nbsp; ( 1 , 2 , 3 ) <br>
+                    <span class="text-danger">b</span> &nbsp;=&nbsp; ( 'A' , 2 , 'CD' , [ 1 , 2 ] ) <br>
+                </p>
+            </li>
+            <li>
+                <p class="h5 p-color my-3">Set </p>
+                <p class="command text-dark"><span class="text-info">set</span> : <em>Unordered collection of Unique
+                    items</em>
+                    <br>
+                    <span class="text-danger">a</span> &nbsp;=&nbsp; { 1 , 2 , 3 } <br>
+                    <span class="text-danger">b</span> &nbsp;=&nbsp; { 'A' , 2 , 'CD' , [ 1 , 2 ] } <br>
+                </p>
+            </li>
+            <li>
+                <p class="h5 p-color my-3">Dictionary </p>
+                <p class="command text-dark"><span class="text-info">dict</span> : <em>Unordered collection of unique
+                    key-value
+                    pairs</em> <br>
+                    <span class="text-danger">a</span> &nbsp;=&nbsp; { k &nbsp;=&nbsp; 'Hello World' , d &nbsp;=&nbsp;
+                    'ABC' , b &nbsp;=&nbsp; 'ABC123' } <br>
+                </p>
+            </li>
+        </ul>
+
+
+        <br>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_installing' %}" target="_blank"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:indentation' %}"
+                                          target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+    <!--END OF CONTENT -->
+
+
+
+
+
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

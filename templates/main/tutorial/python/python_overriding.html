@@ -1,0 +1,225 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+.bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Overriding Methods</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_overloading' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_polymorphism' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Overriding Overview</div>
+        <p class="p-color p-size pl-3">
+            This section focuses on <span class="text-danger font-weight-bold">Overriding</span> methods and how to
+            implement in Python projects.
+        </p>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">Method overriding</span> is a feature that allows a subclass or
+            child class to provide a specific implementation of a method that is already provided by one of its
+            superclasses or parent classes.</p>
+        <p class="p-color p-size pl-3">
+            Let's do some practice and learn about <span class="text-dark font-weight-bold"> overriding methods </span>on
+            a
+            deep level.
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Python Overriding Practice - Part 1</div>
+        <p class="p-color p-size pl-3">
+            Let's create a parent class <span class="text-danger font-weight-bold">Factory</span>. Then a class that
+            inherits from the class <span class="text-danger font-weight-bold">Farm</span>.
+            <br> We add a method <span class="text-dark font-weight-bold">employee</span> that we override: </p>
+        <p class="command p-size">
+            <span class="text-danger">class</span>&nbsp;&nbsp; Factory : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; employee ( <span
+                class="text-success">self</span> ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">"I work at Factory"</span> )<br>
+            <br>
+            <span class="text-danger">class</span>&nbsp;&nbsp; Farm ( Factory ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;inheriting Factory class</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; employee ( <span
+                class="text-success">self</span> ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">"I work at Farm"</span> )<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;method has been overridden</span><br>
+            <br>
+            a &nbsp;=&nbsp; <span class="text-danger">Farm</span> ( &nbsp;)<br>
+            a.employee ( &nbsp;) <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;I work at Farm</span>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.2</strong>: Python Overriding Practice - Part 2</div>
+        <p class="p-color p-size pl-3">
+            In order to understand <span class="text-danger font-weight-bold">Overriding Methods</span> on a deep level,
+            let's do one more exercise:
+        </p>
+        <p class="command p-size">
+            <span class="text-danger">class</span>&nbsp;&nbsp; Factory : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; employee ( <span
+                class="text-success">self</span> ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">"I work at Factory"</span> )<br>
+            <br>
+            <span class="text-danger">class</span>&nbsp;&nbsp; Farm ( Factory ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;inheriting Factory class</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; employee ( <span
+                class="text-success">self</span> ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">"I work at Farm"</span> )<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;method has been overridden</span><br>
+            <br>
+            <span class="text-danger">class</span>&nbsp;&nbsp; Branch ( Factory ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;inheriting Factory class</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; employee ( <span
+                class="text-success">self</span> ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">"I work at Branch"</span> )<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;method has been overridden</span><br>
+            <br>
+            a &nbsp;=&nbsp; <span class="text-danger">Farm</span> ( &nbsp;)<br>
+            b &nbsp;=&nbsp; <span class="text-danger">Branch</span> ( &nbsp;)<br><br>
+            a.employee ( &nbsp;) <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;I work at Farm</span><br>
+            b.employee ( &nbsp;) <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;I work at Branch</span>
+        </p>
+        <hr>
+    <div class="h5 text-info my-3"><strong>Section 2.3</strong>: Overriding Conclusion</div>
+        <p class="p-color p-size pl-3 my-3">
+            <span class="text-danger font-weight-bold">Method overriding</span> -  when a class is <span class="text-dark font-weight-bold font-italic">inherited</span>,&nbsp; you can <span class="text-dark font-weight-bold font-italic">override</span> the definition of any of its existing accessible methods in its subclass by a feature known as <span class="text-dark font-weight-bold">method overriding</span>.
+        </p>
+        <p class="p-color p-size pl-3">
+            In simple words, <span class="text-dark font-weight-bold">method overriding</span> is changing the definition of a superclass method in its subclass.
+        </p>
+    <br>
+          <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_overloading' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_polymorphism' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}
+

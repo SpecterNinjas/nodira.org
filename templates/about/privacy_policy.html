@@ -1,0 +1,230 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+         .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'about/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Privacy Policy</h2>
+    <div class="container mt-2">
+        <hr>
+        <div class="mt-4 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'about:company' %}" target="_blank"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'about:terms_of_use' %}" target="_blank">Next </a></span>
+            </button>
+        </div>
+        <br>
+        <br><br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Privacy Policy Overview</div>
+        <p class="p-color p-size ml-3">
+            Welcome to <span class="text-danger font-weight-bold">nodira</span>! The current website <span
+                class="text-danger font-weight-bold">nodira.org</span> can be also be referred as
+            ( "nodira" , "website" , "we" , "our" or "us" ) throughout our web pages in order to
+            avoid being too official and make our users feel more comfortable.
+        </p>
+        <p class="p-color p-size ml-3">Like all other websites, our privacy policy has been created and regularly
+            reviewed to better serve <span
+                    class="text-dark font-weight-bold">"Personally Identifiable Information"</span>. Regarding all the
+            respect & trust to your personal data , we are highly committed to
+            protecting your privacy on a high level. This privacy policy statement explains general concepts about data
+            collection and usage when you visit the website. Please, make sure to review our policy frequently
+            and be aware about all the changes and modifications. </p>
+
+        <p class="p-color p-size pl-3">By continuing using the Service, you are agree with our <a
+                href="{% url 'about:terms_of_use' %}" class="text-danger font-weight-bold" data-toggle="tooltip"
+                data-placement="bottom"
+                title="Visit Terms & Conditions">Terms & Conditions</a> and storing
+            your personal information in order to provide you better environment and best usage of our service. If you
+            have objections to the Privacy Policy, you should immediately discontinue use of the site.
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.2</strong>: Data Collection</div>
+
+        <p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">nodira</span> requires no user
+            registration. All users are free to visit the site and learn web development courses based on their
+            interests.
+            Like other Web sites, users can sign up and take best usage of our service.
+        </p>
+        <p class="p-color p-size pl-3">
+            Your personal data will be stored on our database and most of the time these information is used for
+            authentication. We collect information from you during standard procedures like registration, subscription
+            to a newsletter or profile data.
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.3</strong>: Data Usage</div>
+        <p class="p-color p-size pl-3">We collect these information for a number of purposes including to maintain and
+            communicate directly with you through sending email messages. </p>
+        <p class="p-color p-size pl-3">Here is the list of statements describing information usage :</p>
+        <ul class="ml-3">
+            <li><p class="p-color p-size pl-3">Operate and manage our Service, including your registration and
+                account.</p></li>
+            <li><p class="p-color p-size pl-3">For interactive learning such as comments, questions, and requests, and
+                provide customer service. </p></li>
+            <li><p class="p-color p-size pl-3">Preventing & addressing fraud and threats.</p></li>
+            <li><p class="p-color p-size pl-3">Monitoring and analyzing daily usage and activities.</p></li>
+            <li><p class="p-color p-size pl-3">Improving our service and send most relevant information about our
+                products and services.</p></li>
+            <li><p class="p-color p-size pl-3">Analyzing frequency of visits, traffic volume and time duration.</p></li>
+            <li><p class="p-color p-size pl-3">Developing and sending you direct marketing, including advertisements,
+                promotions and offers.</p></li>
+        </ul>
+        <p class="p-color p-size pl-3">We only collect, track and analyze such information in an aggregate manner that
+            does not personally identify you.</p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Data Analytics and Advertising</div>
+        <p class="p-color p-size pl-3">We only use <a href="http://www.google.com/policies/technologies/"
+                                                      data-toggle="tooltip" data-placement="bottom"
+                                                      title="Learn more"><span class="text-dark font-weight-bold">Google Analytics</span></a>
+            to
+            analyze the data and provide our users most relevant ads and articles based upon their interests.
+            We do not use any third party agencies to analyze the data. We strong keep our users personal information
+            confidential and respect all the laws.
+        </p>
+        <p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">Advertising Partners</span></p>
+        <ul class="ml-3">
+            <li><p class="p-color p-size pl-3"><span class="text-dark font-weight-bold">Google AdSense </span> - as a
+                third party vendor Google provides most relevant ads and uses cookies to serve ads on our site.</p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-dark font-weight-bold">Third party links</span> -
+                Linked websites are governed by their own privacy policies and we disclaim any responsibility arising
+                out from linked website. </p></li>
+            <li><p class="p-color p-size pl-3"><span class="text-dark font-weight-bold">AdPushup </span> - Our
+                advertising partner.
+                <a href="https://www.adpushup.com/privacy-policy/" data-toggle="tooltip" data-placement="bottom"
+                   title="Learn more" class="text-info">Visit AdPushup Website</a></p></li>
+
+        </ul>
+        <p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">Third-Party Advertisements</span> - We
+            use third-party advertising companies to serve ads when you visit our Web site. We do not guarantee
+            correctness, viability, validity and availability of information displayed on our website in the form of
+            advertisements.</p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.2</strong>: Updates & Contact Info</div>
+        <p class="p-color p-size pl-3">We regularly check and update our <span class="text-danger font-weight-bold">Privacy Policy</span>
+            and <a
+                    href="{% url 'about:terms_of_use' %}" class="text-danger font-weight-bold" data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Visit Terms & Conditions">Terms & Conditions</a>. Hence, it's
+            highly recommended review both of them frequently and be aware about all the changes and modifications.</p>
+        <p class="p-color p-size pl-3">If you have a complaint & feedback about our <span
+                class="text-dark font-weight-bold">Privacy Policy</span> and <span class="text-dark font-weight-bold">Terms & Conditions</span>,
+            please
+            <a href="{% url 'about:contact' %}">contact us</a>.
+        </p>
+        <br>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'about:company' %}" target="_blank"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'about:terms_of_use' %}" target="_blank">Next </a></span>
+            </button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'about/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

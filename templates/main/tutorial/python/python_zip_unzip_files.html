@@ -1,0 +1,363 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+.bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Zip & Unzip Files</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_tempfile' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_mixins' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: <strong>ZIP Files Format</strong> Overview</div>
+        <p class="p-color p-size pl-3">The <span class="text-danger font-weight-bold">ZIP file format</span> is a common
+            archive and compression standard. </p>
+        <p class="p-color p-size pl-3">
+            The <span class="text-danger font-weight-bold">ZIP Module</span> handles ZIP files that use only the ZIP64
+            extensions.
+        </p>
+        <p class="p-color p-size pl-3">
+            Hence, it supports decryption of encrypted files in ZIP archives, but it currently cannot create an
+            encrypted file. </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.1</strong>: Python <strong>ZipFile Objects</strong></div>
+
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    The syntax of <span class="text-danger">ZipFile</span>( ) function:
+                </p>
+            </li>
+        </ul>
+        <p class="p-color p-size  font-weight-bold"
+           style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+           <span class="text-dark"> <span class="text-danger">ZipFile</span>
+               ( file , mode &nbsp;=&nbsp; <span class="text-danger">'r'</span>, compression &nbsp;=&nbsp; <span
+                       class="text-info">ZIP_STORED</span>, allowZip64 &nbsp;=&nbsp; <span class="text-info">True</span> )
+           </span>
+        </p>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered ">
+                <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    <td><span class="text-danger font-weight-bold">file</span></td>
+                    <td>
+                        <span class="text-dark font-italic"> File that needs to be zipped or it can be a path to a file.</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><span class="text-danger font-weight-bold">mode</span></td>
+                    <td>
+                        <span class="text-dark font-italic">Mode that file that needs to be zipped.</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">compression</span></td>
+                    <td>
+                        <span class="text-dark font-italic">ZIP compression method to use when writing the archive.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">allowZip64  </span></td>
+                    <td>
+                        <span class="text-dark font-italic">Zipfile will create ZIP files that use the ZIP64 extensions when the zipfile is larger than 4 GB.</span>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <ul class="my-3">
+            <li style="list-style-type: square">
+                <p class="p-color p-size mt-2 text-dark">
+                    Creating a <em><span class="text-dark font-weight-bold">zip archive</span></em>&nbsp; of a directory
+                    in Python :
+                </p>
+            </li>
+        </ul>
+        <p class="command p-color text-dark my-3">
+            import &nbsp;&nbsp;<span class="text-info">os</span> <br>
+            import &nbsp;&nbsp;<span class="text-danger">zipfile</span> <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;importing zipfile</span><br>
+            <br>
+            <span class="text-info">def</span> &nbsp;&nbsp; zipdir ( path , ziph ) : <br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">for</span> &nbsp;&nbsp; root , dirs , files
+            &nbsp;&nbsp;<span class="text-danger">in</span>&nbsp;&nbsp; <span class="text-info">os</span>.walk ( path )
+            :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">for</span> &nbsp;&nbsp; file
+            &nbsp;&nbsp;<span class="text-danger">in</span>&nbsp;&nbsp;
+            files :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ziph.<span class="text-success">write</span>
+            ( os.path.join ( root ,
+            file ) ) <br>
+            <br>
+
+            zipf = zipfile.<span class="text-danger">ZipFile</span> ( 'Python.zip' , 'w' , zipfile.<span
+                class="text-info">ZIP_DEFLATED</span> ) <br>
+            zipdir ( <span class="text-info">'tmp/'</span> , zipf) <br>
+            zipf.<span class="text-danger">close</span> ( &nbsp;) <br>
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.2</strong>: <strong>ZIP File Contents</strong></div>
+        <p class="p-color p-size pl-3">The <span class="text-danger font-weight-bold">printdir </span> ( &nbsp;) is a
+            function
+            to inspect contents of a zip archive. </p>
+        <p class="p-color p-size pl-3 font-italic">
+            Let's apply this function in practice :
+        </p>
+        <p class="command p-color text-dark my-3">
+            from &nbsp;&nbsp;<span class="text-danger">zipfile</span> &nbsp;&nbsp;import &nbsp;&nbsp;<span
+                class="text-danger">Zipfile</span> <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;importing Zipfile</span><br><br>
+
+            with &nbsp;&nbsp;<span class="text-danger">Zipfile</span> ( file ) &nbsp;&nbsp;as&nbsp;&nbsp; <span
+                class="text-info">zip</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">zip</span>.printdir ( &nbsp;) <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Output: </span> <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Filename  <span
+                    class="pl-5"> &nbsp;&nbsp;Modified</span><span class="pl-5"> <span class="pl-5"><span class="pl-4">Size</span></span></span> </span>
+            <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;index.py  <span class="pl-5"> &nbsp;&nbsp;2019-11-15 20:22:14</span><span
+                    class="pl-5"> &nbsp;&nbsp;341215</span> </span> <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;style.css  <span class="pl-5"> &nbsp;&nbsp;2019-10-08 20:22:14</span><span
+                    class="pl-5"> &nbsp;&nbsp;23315</span> </span> <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;cards.py  <span class="pl-5"> &nbsp;&nbsp;2017-10-14 20:22:14</span><span
+                    class="pl-5"> &nbsp;&nbsp;151676</span> </span> <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;sidebar.js  <span
+                    class="pl-5"> 2018-08-25 20:22:14</span><span class="pl-5"> &nbsp;&nbsp;7639</span> </span> <br>
+
+
+        </p>
+        <ul>
+            <li style="list-style-type: square">
+                <p class="p-color p-size pl-3">The <span class="text-danger font-weight-bold">namelist </span> ( &nbsp;)
+                    is a
+                    function to print a list of filenames of a zip archive :</p>
+            </li>
+        </ul>
+
+        <p class="command p-color text-dark my-3">
+            from &nbsp;&nbsp;<span class="text-danger">zipfile</span> &nbsp;&nbsp;import &nbsp;&nbsp;<span
+                class="text-danger">Zipfile</span> <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;importing Zipfile</span><br><br>
+
+            with &nbsp;&nbsp;<span class="text-danger">Zipfile</span> ( file ) &nbsp;&nbsp;as&nbsp;&nbsp; <span
+                class="text-info">zip</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print </span> ( <span class="text-info">zip</span>.namelist
+            ( &nbsp;) ) <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Output:&nbsp;&nbsp;&nbsp;&nbsp; [ 'index.py' , 'style.css' , 'cards.py' , 'sidebar.js' ]</span>
+            <br>
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 3.1</strong>: <strong>Unzip</strong> - Opening ZIP Files</div>
+        <p class="p-color p-size pl-3">The <span class="text-danger font-weight-bold">extractall </span> ( &nbsp;)
+            function is used to <span class="text-dark font-weight-bold">unzip</span> all files.</p>
+        <p class="p-color p-size pl-3 font-italic">
+            Let's apply this function in practice :
+        </p>
+        <p class="command p-color text-dark my-3">
+            from &nbsp;&nbsp;<span class="text-danger">zipfile</span> &nbsp;&nbsp;import &nbsp;&nbsp;<span
+                class="text-danger">Zipfile</span> <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;importing Zipfile</span><br><br>
+
+            with &nbsp;&nbsp;<span class="text-danger">Zipfile</span> ( <span class="text-info">"archive.zip"</span> ,
+            <span class="text-danger">'r'</span> ) &nbsp;&nbsp;as&nbsp;&nbsp; <span
+                class="text-success">zip</span> : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">zip</span>.extractall ( &nbsp;) <span
+                class="text-secondary font-italic pl-4"># &nbsp;&nbsp;extracting all files in current directory</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">zip</span>.extractall ( <span class="text-secondary">"path"</span>)
+            <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;extracting all files in specified directory</span><br>
+
+        </p>
+        <p class="p-color p-size pl-3">The <span class="text-danger font-weight-bold">extract </span> ( &nbsp;)
+            function is used to <span class="text-dark font-weight-bold">unzip</span> a single file.</p>
+
+        <p class="command p-color text-dark my-3">
+            from &nbsp;&nbsp;<span class="text-danger">zipfile</span> &nbsp;&nbsp;import &nbsp;&nbsp;<span
+                class="text-danger">Zipfile</span> <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;importing Zipfile</span><br><br>
+
+            f &nbsp;=&nbsp; <span class="text-danger">open</span> ( <span class="text-info">'archive.zip'</span> , <span
+                class="text-danger">'rb'</span> )
+            <br>
+            archive &nbsp;=&nbsp; <span class="text-danger">Zipfile</span> ( f )<br>
+            <br>
+            <span class="text-danger">for </span>&nbsp;&nbsp;file &nbsp;&nbsp;<span class="text-danger">in </span>&nbsp;&nbsp;archive.<span
+                class="text-danger">namelist </span> ( &nbsp;) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;archive.<span class="text-danger">extract </span> ( file , <span class="text-info">path</span>
+            )
+            <span class="text-secondary pl-3 font-italic"># &nbsp;&nbsp;extracting all files one-by-one</span>
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3 text-capitalize"><strong>Section 3.2</strong>: <strong>Add Files</strong> To ZIP
+            Archives
+        </div>
+        <p class="p-color p-size pl-3"><span class="text-dark font-weight-bold">Multiple files</span> can be added to
+            <span class="text-danger font-weight-bold">ZIP Archive</span> :</p>
+        <p class="command p-color text-dark my-3">
+            from &nbsp;&nbsp;<span class="text-danger">zipfile</span> &nbsp;&nbsp;import &nbsp;&nbsp;<span
+                class="text-danger">Zipfile</span> <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;importing Zipfile</span><br>
+            write_mode &nbsp;=&nbsp; <span class="text-danger">Zipfile</span> ( <span
+                class="text-info">'archive.zip'</span> , <span class="text-danger">'w'</span> )
+        </p>
+
+        <p class="p-color p-size pl-3">Files that needs to be added :</p>
+
+        <p class="command p-color text-dark my-3">
+            write_mode.<span class="text-danger">write</span> ( <span class="text-info">"main.txt"</span> , <span
+                class="text-info">"style.js"</span> ) <br>
+            write_mode.<span class="text-danger">close</span> ( &nbsp; )
+        </p>
+        <p class="p-color p-size pl-3">For adding string , <span class="text-danger font-weight-bold">writestr</span> ( &nbsp;) method is
+            used :</p>
+        <p class="command p-color text-dark my-3">
+            my_str &nbsp;=&nbsp; <span class="text-info">"Some text here!"</span><br>
+            write_mode.<span class="text-danger">writestr</span> ( <span class="text-info">"file.txt"</span> , my_str )
+            <br>
+            write_mode.<span class="text-danger">close</span> ( &nbsp; )
+        </p>
+        <br>
+          <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_tempfile' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_mixins' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

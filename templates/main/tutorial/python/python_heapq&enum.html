@@ -1,0 +1,362 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Heapq & Count Function</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_search_filter' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_sort_min_max' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Heapq Overview</div>
+        <p class="p-color p-size ml-3">The <span class="text-danger">heapq</span>( ) library is mainly used to find out
+            <strong><em>n - largest</em></strong> and <strong><em>n - smallest</em></strong> items from a collection.
+            Basically, python makes it easy for programmers by providing
+            special library for finding them, whereas it will take at least 20 lines of code for other programming
+            languages (C/C++, Java) to find n - largest and n - smallest item of a collection.
+        </p>
+        <div class="row my-3">
+            <div class="col-md-6 col-sm-12"><p class="p-color p-size  font-weight-bold"
+                                               style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+           <span class="text-dark"> <span class="text-danger">heapq.nlargest</span>
+               ( integer_number , iterable )
+           </span>
+            </p></div>
+            <div class="col-md-6 col-sm-12"><p class="p-color p-size  font-weight-bold"
+                                               style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+           <span class="text-dark"> <span class="text-danger">heapq.nsmallest</span>
+               ( integer_number , iterable )
+           </span>
+            </p></div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered ">
+                <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    <td><span class="text-danger font-weight-bold">integer_number</span></td>
+                    <td><span class="text-dark">Integer number that defines how many to take. <em>(Required)</em></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><span class="text-danger font-weight-bold">iterable</span></td>
+                    <td><span class="text-dark">Iterable or a list of numbers. <em>(Required)</em></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 1.2</strong>: Finding Largest And Smallest Element</div>
+        <ul class="mt-3">
+            <li><p class="p-color p-size mt-2"><strong> <span
+                    class="text-danger">nlargest</span> ( <span class="text-info">how_many</span>, numbers )</strong>&nbsp;
+                will return a list of specified <em>n - largest</em> elements of a collection :</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">import&nbsp;</span> &nbsp;<span class="text-info">heapq</span>&nbsp; <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; importing heapq library  </em></span><br>
+            my_list &nbsp;=&nbsp; [ <span class="text-danger">10</span> , <span
+                class="text-danger">22</span> , <span
+                class="text-danger">13</span> , <span class="text-danger">92</span> , <span
+                class="text-danger">-3</span> , <span class="text-danger">3</span> , <span
+                class="text-danger">34</span> , <span class="text-danger">2</span> , <span class="text-danger">53</span>
+            ] <br>
+            <span class="text-danger">print</span> ( <span
+                class="text-info">heapq</span>.<span
+                class="text-dark">nlargest</span> (<span class="text-danger">4</span>, my_list ) ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; [ 92 , 53 , 34 , 22 ]   </em></span>
+
+        </p>
+        <ul class="mt-3">
+            <li><p class="p-color p-size mt-2"><strong> <span
+                    class="text-danger">nsmallest</span> ( <span class="text-info">how_many</span>, numbers )</strong>&nbsp;
+                will return a list of specified <em>n - smallest</em> elements of a collection :</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">import&nbsp;</span> &nbsp;<span class="text-info">heapq</span>&nbsp; <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; importing heapq library  </em></span><br>
+            my_list &nbsp;=&nbsp; [ <span class="text-danger">10</span> , <span
+                class="text-danger">22</span> , <span
+                class="text-danger">13</span> , <span class="text-danger">92</span> , <span
+                class="text-danger">-3</span> , <span class="text-danger">3</span> , <span
+                class="text-danger">34</span> , <span class="text-danger">2</span> , <span class="text-danger">53</span>
+            ] <br>
+            <span class="text-danger">print</span> ( <span
+                class="text-info">heapq</span>.<span
+                class="text-dark">nsmallest</span> (<span class="text-danger">3</span>, my_list ) ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; [ -3 , 2 , 3 ]   </em></span>
+
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 1.3</strong>: Heapify</div>
+        <ul class="mt-3">
+            <li><p class="p-color p-size mt-2"><strong> <span
+                    class="text-danger">heapify</span> ( <span class="text-info">numbers</span> )</strong>&nbsp;
+                will return a list of numbers, where <em><strong>1st element</strong></em> will be the smallest :</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">import&nbsp;</span> &nbsp;<span class="text-info">heapq</span>&nbsp; <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; importing heapq library  </em></span><br>
+            my_list &nbsp;=&nbsp; [ <span class="text-danger">10</span> , <span
+                class="text-danger">22</span> , <span
+                class="text-danger">13</span> , <span class="text-danger">92</span> , <span
+                class="text-danger">-3</span> , <span class="text-danger">3</span> , <span
+                class="text-danger">34</span> , <span class="text-danger">2</span> , <span class="text-danger">53</span>
+            ] <br>
+            <span class="text-info">heapq</span>.<span class="text-dark">heapify</span>
+            ( my_list )
+            <span class="text-secondary pl-3"><em># &nbsp;&nbsp; [ -3 , 2 , 3 , 10 , 22 , 13 , 34 , 92 , 53 ]   </em></span><br>
+            <span class="text-danger">print</span> ( my_list [ <span class="text-danger">0</span> ]) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp;  -3    </em></span>
+        </p>
+        <br>
+        <hr>
+        <br>
+        <div class="h5 text-info mb-3"><strong>Section 2.1</strong>: Python Count Overview</div>
+        <p class="p-color p-size ml-3">In general, <span class="text-danger">count</span>( ) method is used to find
+            frequency of an element in a collection. Frequency means how many times an element occurred in a collection.
+            During practice, you'll obtain more deep understanding of <span class="text-danger">Count</span> method and
+            where to apply. </p>
+        <hr>
+        <ul class="mt-3">
+            <li><p class="p-color p-size mt-2 font-italic font-weight-light">Simply, it'll count how many times elements
+                occurred in a collection.</p></li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;collections&nbsp;&nbsp; <span class="text-danger">import&nbsp;</span>
+            &nbsp;<span class="text-info">Counter</span>&nbsp; <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; importing Counter function  </em></span><br>
+            my_list &nbsp;=&nbsp; <span class="text-info">Counter</span>&nbsp;( [ <span class="text-danger">"a"</span> ,
+            <span
+                    class="text-danger">"b"</span> , <span
+                class="text-danger">"b"</span> , <span class="text-danger">"h"</span> , <span
+                class="text-danger">"c"</span> , <span class="text-danger">"a"</span> , <span
+                class="text-danger">"a"</span> , <span class="text-danger">"c"</span> , <span
+                class="text-danger">"b"</span>
+            ] )<br>
+            <span class="text-danger">print</span>&nbsp;( my_list )
+            <span class="text-secondary pl-3"><em># &nbsp;&nbsp; Counter ( { 'a' : 3 , 'b' : 3 , 'c' : 2 , 'h' : 1 } )  </em></span><br>
+            <span class="text-danger">print</span> ( my_list [ <span class="text-danger">"b"</span> ] ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp;  3    </em></span><br>
+            <span class="text-danger">print</span> ( my_list [ <span class="text-danger">"a"</span> ] ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp;  3    </em></span><br>
+            <span class="text-danger">print</span> ( my_list [ <span class="text-danger">"h"</span> ] ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp;  1    </em></span>
+
+
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.2</strong>: Finding The Occurrence - <strong>count( )</strong>
+            method
+        </div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2"><strong><span class="text-danger">count</span> (<span
+                        class="text-info">&nbsp;value&nbsp;</span>)</strong> function will count how many times
+                    specified element occurred in lists, tuples, strings and so on.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            my_nums &nbsp;=&nbsp; &nbsp;
+            [ <span class="text-danger">1</span> , <span class="text-danger">2</span> , <span
+                class="text-danger">3</span> , <span class="text-danger">3</span> , <span class="text-danger">2</span> ,
+            <span class="text-danger">3</span> , <span class="text-danger">3</span> ] <br>
+            <span
+                    class="text-secondary "><em># &nbsp;&nbsp;count how many times 3 occurred in a collection </em></span><br>
+            <span class="text-danger">print</span> ( my_nums.<span class="text-danger">count</span>( &nbsp;3&nbsp; ) )
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; 4   </em></span><br>
+            <span
+                    class="text-secondary"><em># &nbsp;&nbsp;count how many times 2 occurred in a collection </em></span><br>
+            <span class="text-danger">print</span> ( my_nums.<span class="text-danger">count</span>( &nbsp;2&nbsp; ) )
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; 2   </em></span>
+        </p>
+        <hr>
+        <p class="command p-size">
+            my_nums &nbsp;=&nbsp; &nbsp;
+            [ <span class="text-danger">"a"</span> ,
+            <span
+                    class="text-danger">"b"</span> , <span
+                class="text-danger">"b"</span> , <span class="text-danger">"h"</span> , <span
+                class="text-danger">"c"</span> , <span class="text-danger">"a"</span> , <span
+                class="text-danger">"a"</span> , <span class="text-danger">"c"</span> , <span
+                class="text-danger">"b"</span>
+            ] <br>
+            <span class="text-danger">print</span> ( my_nums.<span class="text-danger">count</span>( &nbsp;"a"&nbsp; ) )
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; 3  </em></span><br>
+            <span class="text-danger">print</span> ( my_nums.<span class="text-danger">count</span>( &nbsp;"z"&nbsp; ) )
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; 0   </em></span>
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">Counting substring occurrence in a string</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            my_str &nbsp;=&nbsp;<span class="text-info">"Awesome_Tutorials_From_Nodira"</span><br>
+            <span class="text-danger">print</span> ( my_str.<span class="text-danger">count</span>( &nbsp;<span
+                class="text-info">"a"</span>&nbsp; ) ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 2  </em></span><br>
+            <span class="text-danger">print</span> ( my_str.<span class="text-danger">count</span>( &nbsp;<span
+                class="text-info">"om"</span>&nbsp; ) ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 2   </em></span><br>
+            <span class="text-danger">print</span> ( my_str.<span class="text-danger">count</span>( &nbsp;<span
+                class="text-info">"Awesome"</span>&nbsp; ) ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 1   </em></span>
+        </p>
+        <br>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_search_filter' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_sort_min_max' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

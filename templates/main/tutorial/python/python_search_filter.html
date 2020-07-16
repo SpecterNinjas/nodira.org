@@ -1,0 +1,367 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+.bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Find & Filter Function</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_map_reduce' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_heapq_enum' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: <strong>Python Find</strong> Overview</div>
+        <p class="p-color p-size ml-3">The <span class="text-danger font-weight-bold">find </span>( ) function is used to <em>search certain
+            value/expression</em> over string and returns its <span class="text-dark font-weight-bold">index</span>.
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 1.2</strong>: Python Find Syntax</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    The syntax of <span class="text-danger font-weight-bold">find</span> ( ) function:
+                </p>
+            </li>
+        </ul>
+        <p class="p-color p-size  font-weight-bold"
+           style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+           <span class="text-dark"> <span class="text-danger">find</span>
+               ( value , start , end )
+           </span>
+        </p>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered ">
+                <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    <td><span class="text-danger font-weight-bold">value</span></td>
+                    <td><span class="text-dark"><em>Required</em> parameter for <strong>find</strong> function. Searches/Finds certain value over string.</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><span class="text-danger font-weight-bold">start</span></td>
+                    <td><span class="text-dark">Starting point for searching. <em>(Optional)</em></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger font-weight-bold">end</span></td>
+                    <td><span class="text-dark">Ending point for searching. <em>(Optional)</em></span>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 1.3</strong>: Find Function in Practice</div>
+        <ul class="my-3">
+            <li>
+                <p class="p-color p-size mt-3">
+                    If searching value isn't found <span class="text-danger font-weight-bold">find</span> ( &nbsp;)
+                    function returns <strong>-1 ,</strong> otherwise returns the index of <strong>1 <sup>st</sup>
+                    occurrence</strong> of a value</p>
+            </li>
+        </ul>
+
+        <p class="command p-size">
+            <span class="text-dark">my_str &nbsp;=</span>&nbsp; &nbsp;<span class="text-info">"Python Tutorial at Nodira courses"</span><br>
+            <span
+                    class="text-secondary"><em># &nbsp;&nbsp;returns the index of 1 <sup>st</sup> occurrence 'T' </em></span><br>
+            <span class="text-dark"><span class="text-danger">print</span> ( <span class="text-dark">my_str.</span><span
+                    class="text-danger">find</span> ( <span class="text-info">"T"</span> ) )</span>
+            <span class="text-secondary font-italic pl-3">#&nbsp;&nbsp; 7</span> <br>
+            <span class="text-dark"><span class="text-danger">print</span> ( <span class="text-dark">my_str.</span><span
+                    class="text-danger">find</span> ( <span class="text-info">"Nodira"</span> ) )</span>
+            <span class="text-secondary font-italic pl-3">#&nbsp;&nbsp; 19</span> <br>
+
+        </p>
+
+        <ul class="my-3">
+
+            <li>
+                <p class="p-color p-size mt-2">
+                    <span class="text-danger font-weight-bold">Starting</span> and <span
+                        class="text-danger font-weight-bold">ending </span>parameters are mostly used to find out 2
+                    <sup>nd</sup> and 3 <sup>rd</sup> occurrences of a pattern
+                </p>
+            </li>
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    Let's do some practice with starting and ending parameters:
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-dark">my_str &nbsp;=</span>&nbsp; &nbsp;<span
+                class="text-info">"Python Tutorial is cool!"</span><br>
+            <span
+                    class="text-secondary"><em># &nbsp;&nbsp;returns the index of 2 <sup>nd</sup> occurrence 'o' </em></span><br>
+            <span class="text-dark"><span class="text-danger">print</span> ( <span class="text-dark">my_str.</span><span
+                    class="text-danger">find</span> ( <span class="text-info">"o"</span> , <span
+                    class="text-dark">5</span> ) )</span>
+            <span class="text-secondary font-italic pl-3">#&nbsp;&nbsp; 10</span> <br>
+            <span class="text-secondary"><em># &nbsp;&nbsp;starting & ending parameter </em></span><br>
+            <span class="text-dark"><span class="text-danger">print</span> ( <span class="text-dark">my_str.</span><span
+                    class="text-danger">find</span> ( <span class="text-info">"t"</span> , <span
+                    class="text-dark">5</span> , <span class="text-dark">10</span>  ) )</span>
+            <span class="text-secondary font-italic pl-3">#&nbsp;&nbsp; 9</span> <br>
+
+
+            <span class="text-secondary"><em># &nbsp;&nbsp;If pattern isn't found, function returns -1 </em></span><br>
+
+            <span class="text-dark"><span class="text-danger">print</span> ( <span class="text-dark">my_str.</span><span
+                    class="text-danger">find</span> ( <span class="text-info">"Nodira"</span> , <span
+                    class="text-dark">5</span> ) )</span>
+            <span class="text-secondary font-italic pl-3">#&nbsp;&nbsp; -1</span> <br>
+
+        </p>
+        <br>
+        <hr>
+
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Python Filter Overview</div>
+        <p class="p-color p-size ml-3">The <span class="text-danger font-weight-bold">filter</span> ( ) function is used to filter the items of
+            an iterable
+            over certain criteria.
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.2</strong>: Filter Function Syntax</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    The syntax of <span class="text-danger">filter</span> ( ) function:
+                </p>
+            </li>
+        </ul>
+        <p class="p-color p-size  font-weight-bold"
+           style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+           <span class="text-dark"> <span class="text-danger">filter</span>
+               ( function , iterable )
+           </span>
+        </p>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered ">
+                <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    <td><span class="text-danger font-weight-bold">function</span></td>
+                    <td><span class="text-dark">Required parameter to filter the items of an iterables over certain criteria.</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><span class="text-danger font-weight-bold">iterable</span></td>
+                    <td><span class="text-dark">Iterable in which function executes a set of criteria.</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.3</strong>: Filter Function Practice</div>
+ <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    We used <span class="text-danger">lambda</span> inline function to define our function. <a
+                        href="{% url 'main:python_lambda' %}">Learn More</a>
+                </p>
+            </li>
+        </ul>
+
+        <p class="command p-size">
+             <span class="text-dark">names &nbsp;=&nbsp; &nbsp;</span>
+            [ &nbsp;<span class="text-info">"John"</span> , <span class="text-info">"Alexa"</span> ,
+            <span class="text-info">"Abraham"</span> , <span class="text-info">"Lincoln"</span>
+            ] <br>
+
+            <span
+                    class="text-secondary"><em># &nbsp;&nbsp;Using&nbsp; inline&nbsp; lambda&nbsp; function </em></span><br>
+
+            <span class="text-dark"><span class="text-danger">list</span> ( <span
+                    class="text-info">filter</span> (<span
+                    class="text-danger"> lambda </span> x : <span class="text-danger">len</span> ( x ) > <span class="text-success">5</span> , names ) )</span>
+            <span class="text-secondary font-italic pl-3">#&nbsp;&nbsp; [ 'Abraham' , 'Lincoln' ]</span> <br>
+
+             <span class="text-dark"><span class="text-danger">list</span> ( <span
+                    class="text-info">filter</span> (<span
+                    class="text-danger"> lambda </span> x : <span class="text-danger">len</span> ( x ) < <span class="text-success">5</span> , names ) )</span>
+            <span class="text-secondary font-italic pl-3">#&nbsp;&nbsp; [ 'John' , 'Alexa' ]</span> <br>
+
+        </p>
+
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    In this example, we used <span class="text-dark font-weight-bold">user defined function</span> to define our criteria. <a
+                        href="{% url 'main:python_function' %}">Learn More</a>
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-dark">names &nbsp;=&nbsp; &nbsp;</span>
+            [ &nbsp;<span class="text-info">"John"</span> , <span class="text-info">"Alexa"</span> ,
+            <span class="text-info">"Abraham"</span> , <span class="text-info">"Lincoln"</span>
+            ] <br>
+            <span class="text-dark"><span class="text-danger">def </span> longer ( name ) :</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-dark"><span class="text-danger">return &nbsp;</span>  <span
+                class="text-success"> len</span> ( name ) > <span class="text-danger">5</span> </span>
+            <br>
+            <span
+                    class="text-secondary"><em># &nbsp;&nbsp;Filters and shows the result, where criteria fully satisfied</em></span><br>
+
+            <span class="text-dark"><span class="text-danger">list</span> ( <span
+                    class="text-info">filter</span> ( <span
+                    class="text-danger"> longer </span> , names ) )</span>
+            <span class="text-secondary font-italic pl-3">#&nbsp;&nbsp; [ 'Abraham' , 'Lincoln' ]</span> <br>
+        </p>
+       <br>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_map_reduce' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_heapq_enum' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

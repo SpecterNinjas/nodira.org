@@ -1,0 +1,52 @@
+#fh5co-explore
+ {
+  padding: 7em 0;
+  clear: both;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-explore{
+    padding: 3em 0;
+  }
+}
+#fh5co-explore .fh5co-explore1 {
+  margin-bottom: 7em;
+}
+
+.mt {
+  margin-top: 70px;
+}
+.mt h4 {
+  position: relative;
+  padding-left: 40px;
+  font-size: 20px;
+}
+.mt h4 i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #EA9215;
+}
+.mt > div {
+  margin-bottom: 40px;
+}
+.mt .list-nav {
+  margin: 50px 0 30px 0;
+  padding: 0;
+}
+.mt .list-nav li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.mt .list-nav li i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 18px;
+  color: #EA9215;
+}
+

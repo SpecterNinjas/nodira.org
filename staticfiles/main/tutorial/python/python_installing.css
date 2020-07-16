@@ -1,0 +1,26 @@
+.body-color {
+    color: rgba(4, 9, 25, 0.9);
+}
+
+.p-color {
+    color: black;
+}
+
+.p-size {
+    font-size: 1.3em;
+}
+
+li code {
+    font-weight: bold;
+    line-height: .8em;
+}
+
+.command {
+    background-color: rgb(237, 237, 237);
+
+    color: black;
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 6px;
+}

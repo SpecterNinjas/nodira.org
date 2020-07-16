@@ -1,0 +1,340 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+.bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: 0.9em;
+            font-weight: 500;
+
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Virtual Environments</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_hashlib' %}" target="_blank"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_unit_testing' %}"
+                                          target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Virtual Environments Overview</div>
+        <p class="p-color p-size pl-3">
+            This section focuses on <span class="text-danger font-weight-bold">Python Virtual Environments</span> and
+            how to
+            implement in Python projects.
+        </p>
+        <p class="p-color p-size pl-3">
+            Basically, Python programs will often use <span
+                class="text-dark font-weight-bold font-italic">packages</span> and <span
+                class="text-dark font-weight-bold font-italic">modules</span> that don’t come as part of the standard
+            library.
+            Applications will sometimes need a specific version of a library, because the application may require that a
+            particular bug has been fixed or the application may be written using an obsolete version of the library’s
+            interface.
+        </p>
+        <p class="p-color p-size pl-3">
+            Let's say an application or specific function may require a new version of module. Therefor, the solution
+            for this problem is to create a <span class="text-dark font-weight-bold">virtual environment</span>.
+        </p>
+        <p class="p-color p-size pl-3">
+            Let's do some practice and learn about <span
+                class="text-danger font-weight-bold"> Python Virtual Environments </span>
+            and how to implement & understand them on a deep level.
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Creating Virtual Environments</div>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">venv</span>&nbsp; is a module used to create and manage virtual
+            environments.
+        </p>
+        <p class="p-color p-size pl-3">
+            Let's run this command on your current directory to create a virtual environment :
+        </p>
+        <p class="command p-size my-3">
+            >>> python3&nbsp; -m&nbsp; <span class="text-danger">venv</span>&nbsp; coding-env
+        </p>
+        <p class="p-color p-size pl-3">
+            <span class="text-dark font-weight-bold">Congratulations!</span> We successively learnt how to create
+            virtual environment called : <span class="text-dark font-weight-bold">coding</span>
+        </p>
+        <p class="p-color p-size pl-3">
+            We have created virtual environment, but it's not enough. We have to activate it.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="p-color p-size pl-3">For <span
+                        class="text-dark font-weight-bold">Windows Operating System</span> :</p>
+                <p class="command p-size my-3">
+                    >>> coding-env\Scripts\activate.bat
+                </p>
+            </div>
+            <div class="col-md-6">
+                <p class="p-color p-size pl-3">For <span
+                        class="text-dark font-weight-bold">Linux Operating System</span> :</p>
+                <p class="command p-size my-3">
+                    >>> source coding-env/bin/activate
+                </p>
+            </div>
+        </div>
+
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.2</strong>: PIP - Package Manager</div>
+        <p class="p-color p-size pl-3">
+            Python provides <span class="text-dark font-weight-bold">pip</span> module to install, upgrade and remove
+            packages.
+            We already have a special section for
+            <a data-toggle="tooltip" class="text-danger font-weight-bold" data-placement="bottom" title="Learn More"
+               href="{% url 'main:python_pip' %}">PIP</a>
+        </p>
+
+        <p class="p-color p-size pl-3">Let's do some practice and execute simple commands :</p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2">
+                    <span class="text-danger font-weight-bold">List</span> command will also show all installed
+                    packages, like <span class="text-danger font-weight-bold">freeze</span>.
+
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            >>> &nbsp;&nbsp;pip <span class="text-danger">list</span> <br><br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;<strong>Output:</strong> <br>
+            behave ( 1.2.4 ) <br>
+            enum34 ( 1.0 ) <br>
+            flask ( 0.10.1 ) <br>
+            </span>
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2">
+                    <span class="text-danger font-weight-bold">List Outdated</span> command will show outdated packages
+                    along with new versions.
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            >>> &nbsp;&nbsp;pip <span class="text-danger">list</span> --outdated<br><br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;<strong>Output:</strong> <br>
+            behave ( Current: 1.2.4 , Latest: 1.2.5 ) <br>
+            enum34 ( Current: 1.0 , Latest: 1.1) <br>
+            flask ( Current: 0.10.1 , Latest: 0.10.2 ) <br>
+            </span>
+        </p>
+        <hr>
+        <div class="h5 text-info"><strong>Section 2.3</strong>: Upgrade & Uninstall Python Package</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size my-3">
+                    Upgrade with <u>the latest version</u> of a package called <span
+                        class="text-danger">PackageName</span>:
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            >>> &nbsp;&nbsp;pip install --upgrade <span class="text-danger">PackageName</span>
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    Upgrade pip itself with <u>the latest version pip</u> :
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            >>> &nbsp;&nbsp;pip install --upgrade <span class="text-danger">pip</span>
+        </p>
+
+
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    <u>Uninstall</u> of a package called <span
+                        class="text-danger">PackageName</span>:
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            >>> &nbsp;&nbsp;pip uninstall <span class="text-danger">PackageName</span>
+        </p>
+
+
+        <hr>
+        <div class="h5 text-info text-capitalize"><strong>Section 3.1</strong>: Checking if running inside a virtual
+            environment
+        </div>
+
+        <p class="p-color p-size pl-3 my-3">
+            In most cases, especially during debugging you might wander and try to check whether you are running inside
+            a virtual environment.
+        </p>
+        <p class="command p-size">
+            import &nbsp;&nbsp;<span class="text-danger">sys</span> <br>
+            <span class="text-danger">sys</span>.prefix <br>
+            <span class="text-danger">sys</span>.real_prefix
+        </p>
+        <ul>
+            <li>
+                <p class="p-color p-size pl-3 my-3">
+                    Outside a virtual, environment <span class="font-weight-bold text-dark"><span class="text-danger">sys</span>.prefix</span>
+                    will point to the system python installation and <span class="font-weight-bold text-dark"><span
+                        class="text-danger">sys</span>.real_prefix</span>
+                    is not deﬁned.
+                </p>
+            </li>
+            <li>
+                <p class="p-color p-size pl-3 my-3">
+                    Inside a virtual environment, <span class="font-weight-bold text-dark"><span
+                        class="text-danger">sys</span>.prefix</span> will point to the virtual environment python
+                    installation
+                    and <span class="font-weight-bold text-dark"><span class="text-danger">sys</span>.real_prefix</span>
+                    will point to the system python installation.
+                </p>
+            </li>
+        </ul>
+
+        <hr>
+        <div class="h5 text-info text-capitalize"><strong>Section 3.2</strong>: Python Virtual Environments - Advantages
+        </div>
+
+        <p class="p-color p-size pl-3 my-3">
+            One of the main advantages of <span class="text-danger font-weight-bold">Virtual Environments</span> is to
+            backup up copies of whole computers and use those if a hard disk crashes.
+            They allow you to make historic backups of whole disks without using much additional disk space. So if a
+            virtual machine crashes you can go back to an earlier
+            version and that's it, <span class="text-dark font-weight-bold">easy peasy lemon squeezy!</span>
+        </p>
+
+        <br>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_hashlib' %}" target="_blank"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_unit_testing' %}"
+                                          target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

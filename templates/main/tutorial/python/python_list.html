@@ -1,0 +1,355 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python List</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_string_manipulation' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_set' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python <strong>Data Type</strong></div>
+        <p class="p-color p-size ml-3">In general, Python offers <span class="text-dark font-weight-bold">6 data types</span> to assign.
+            They're: <em><strong>List</strong>, <strong>Set</strong>, <strong>Tuple</strong>, <strong>Dictionary</strong>,
+            <strong>String</strong>, <strong>Numbers</strong></em></p>
+        <p class="p-color p-size ml-3">In this section, we'll cover one of these: <span
+                class="text-danger font-weight-bold">Python List</span></p>
+        <ul>
+            <li><p class="p-color p-size"><strong>List</strong> - a collection of ordered elements.</p></li>
+            <li><p class="p-color p-size"><strong>List</strong> - mutable (meaning that we can change its elements).</p>
+            </li>
+            <li><p class="p-color p-size"><strong>List</strong> - elements start with an index of 0, not 1.</p></li>
+            <li><p class="p-color p-size"><strong>List</strong> - allows dublicated elements.</p></li>
+            <li><p class="p-color p-size"><strong>List</strong> - Square brackets [ ] are used to define list data type.
+            </p></li>
+        </ul>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.2</strong>: List Example</div>
+        <p class="p-color p-size ml-3">List elements are separated by <u>commas</u> and closed by <u>square brackets</u>.</p>
+        <p class="command p-color text-dark">
+
+            <span class="text-info">a</span>  &nbsp;=&nbsp; [ 1 , 'dog' , 10.99 , 'cat' , 0.678 ]<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; defining simple list </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span> )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp;  1 , 'dog' , 10.99 , 'cat' , 0.678 </span><br><br>
+            <span class="text-info">b</span>  &nbsp;=&nbsp; [ 10 , 23.99 , 10.99 , 0.56 , 0.99 ]<span class="text-secondary pl-3"># defining numerical list </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">b</span> )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp;  10 , 23.99 , 10.99 , 0.56 , 0.99 </span><br><br>
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; defining string list </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span> )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp;  'puppy' , 'dog' , 'hen' , 'cat' , 'cow' </span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.3</strong>: Accessing List items</div>
+        <p class="p-color p-size ml-3">List items can be accessed through index only. <span class="text-dark font-weight-bold">E.x: list [</span><span
+                class="text-danger font-weight-bold"> index </span><strong>]</strong></p>
+        <p class="p-color p-size font-weight-bold ml-3 my-3"> list [
+            <span class="text-danger">start</span> :
+            <span class="text-danger">stop</span> :
+            <span class="text-danger">step</span> ]
+        </p>
+        <p class="command p-color text-dark">
+
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 1 , 'dog' , 10.99 , 'cat' , 0.678 ]<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; index 0 is 1st element of a list </span><br>
+           <span class="text-danger">print</span> ( <span class="text-info">a</span>[0] )<span
+                class="text-secondary pl-4 font-italic"># &nbsp;&nbsp; 1  </span><br></p>
+        <ul class="my-3">
+            <li style="list-style-type: square"><p class="p-size p-color">First element starts with index 0, not 1.</p></li>
+        </ul>
+        <p class="command p-color text-dark">
+            <span class="text-info">b</span> &nbsp;=&nbsp; [ 10 , 23.99 , 10.99 , 0.56 , 0.99 ]<span class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; show items with index 0 , 1 , and 2. </span><br>
+           <span class="text-danger">print</span> ( <span class="text-info">b</span>[0:3] )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp;  10 , 23.99 , 10.99</span><br></p>
+        <ul class="my-3">
+            <li style="list-style-type: square"><p class="p-size p-color">Show items starting with index 0 till 3
+                (not included).</p></li>
+        </ul>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; show items with index 2 and 3. </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span>[2:4] )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp;   'hen' , 'cat' </span><br></p>
+        <ul class="my-3">
+            <li style="list-style-type: square"><p class="p-size p-color">Show items starting with index 2 till 4
+                (not included).</p></li>
+        </ul>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; -index means start counting from backside </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span>[-1] )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp;   'cow' -> 1st index from backside </span><br></p>
+        <ul class="my-3">
+            <li style="list-style-type: square"><p class="p-size p-color">minus( - ) means start from backside.
+            </p></li>
+            <li style="list-style-type: square"><p class="p-size p-color"><strong>E.x:</strong> [-1] -> last element, [-2] -> second element from the
+                back.
+            </p></li>
+        </ul>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; [ a: ] means start from index 'a' till the end. </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span>[1:] )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp;   'dog' , 'hen' , 'cat' , 'cow' </span><br></p>
+        <hr>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; show items with index 2 and 3. </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span>[2:4] )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp;   'hen' , 'cat' </span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.4</strong>: Combining 2 lists</div>
+        <ul class="my-3">
+            <li><p class="p-color p-size font-weight-bold">merged_list &nbsp;=&nbsp; list1 + list2</p></li>
+        </ul>
+        <p class="command p-color text-dark">
+
+            <span class="text-danger">a</span> &nbsp;=&nbsp; [ 1 , 'dog' , 10.99 , 'cat' , 0.678 ]<br>
+            <span class="text-danger">b</span> &nbsp;=&nbsp; [ 10 , 23.99 , 10.99 , 0.56 , 0.99 ]<br>
+            <span class="text-danger">c</span> &nbsp;=&nbsp; <span class="text-danger">a</span> &nbsp;+&nbsp; <span
+                class="text-danger">b</span><span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; merging 2 lists </span><br>
+            print ( <span class="text-danger">c</span> )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp;  1 , 'dog' , 10.99 , 'cat' , 0.678 , 10 , 23.99 , 10.99 , 0.56 , 0.99 </span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.5</strong>: <strong>'step'</strong> - 3rd argument of a list</div>
+
+        <p class="command p-color text-dark">
+
+            <span class="text-danger">b</span> &nbsp;=&nbsp; [ 10 , 23.99 , 10.99 , 0.56 , 0.99 ]<br>
+            print ( <span class="text-danger">b</span>[ : : 2 ] )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 10 , 10.99 , 0.99 </span><br>
+            print ( <span class="text-danger">b</span>[ : : 3 ] )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; 10 , 0.56 </span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.6</strong>: Reversing a string</div>
+
+        <p class="command p-color text-dark">
+
+            <span class="text-danger">b</span> &nbsp;=&nbsp; [ 10 , 23.99 , 10.99 , 0.56 , 0.99 ]<br>
+            print ( <span class="text-danger">b</span>[ : : -1 ] )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 0.99 , 0.56 , 10.99 , 23.99 , 10&nbsp; ( reverse step )</span><br>
+            print ( <span class="text-danger">b</span>.reverse( &nbsp;) )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; 0.99 , 0.56 , 10.99 , 23.99 , 10&nbsp; ( ready-made function ) </span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.7</strong>: Changing List Item</div>
+
+        <p class="command p-color text-dark">
+
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<br>
+            <span class="text-info">a</span> [ 2 ] &nbsp;=&nbsp; 'sheep'<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  item with index 2 has been reassigned </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span> )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 'puppy' , 'dog' , 'sheep' , 'cat' , 'cow'</span><br>
+
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.8</strong>: Built-in functions</div>
+
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<br>
+            <span class="text-info">a</span>.<span class="text-danger">append</span> ( 'sheep' )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 'puppy' , 'dog' , 'hen' , 'cat' , 'cow', 'sheep' &nbsp; (adds item from back)</span><br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<br>
+            <span class="text-info">a</span>.<span class="text-danger">pop</span> ( )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 'puppy' , 'dog' , 'hen' , 'cat'  &nbsp; (removes last item if index is not specified)</span><br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<br>
+            <span class="text-danger">len</span> ( <span class="text-danger">a</span> )<span
+                class="text-secondary pl-4 font-italic"># &nbsp; 5  &nbsp; (displays total number of items)</span><br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<br>
+            <span class="text-info">a</span>.<span class="text-danger">insert</span> ( 2 , 'sheep' )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 'puppy' , 'dog' , 'sheep' , 'hen' , 'cat' , 'cow' &nbsp; (insert item in a specified index)</span><br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<br>
+            <span class="text-info">a</span>.<span class="text-danger">remove</span> ( 'dog' )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 'puppy' , 'hen' , 'cat' , 'cow' &nbsp; (removes specified item)</span><br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<br>
+            <span class="text-info">a</span>.<span class="text-danger">clear</span> ( )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; removes all items</span><br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; [ 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' ]<br>
+            'cat' <span class="text-info">&nbsp;&nbsp;in</span>&nbsp;&nbsp; <span class="text-danger">a</span><span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; True</span><br>
+            'cat' <span class="text-info">&nbsp;&nbsp;not&nbsp;&nbsp; in</span>&nbsp;&nbsp; <span
+                class="text-danger">a</span><span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; False</span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.9</strong>: Removing dublicated items</div>
+        <p class="p-color p-size ml-3">We can simply change <em>data type</em> of <span class="text-danger">list</span> to <a
+                href="{% url 'main:python_set' %} ">set</a> and then convert it again to <span
+                class="text-danger">list</span>.</p>
+        <p class="command p-color text-dark">
+
+            <span class="text-info">a</span> &nbsp;=&nbsp; [ 10 , 23.99 , 23.99 , 10.99 , 10, 0.56 , 0.56 , 0.99 ]<br>
+            <span class="text-info">a</span> &nbsp;=&nbsp; <span class="text-danger">list</span> ( <span
+                class="text-danger">set</span> ( <span class="text-info">a</span> ) )<span
+                class="text-secondary pl-4 font-italic">#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 0.56 , 0.99 , 10 , 10.99 , 23.99 </span><br>
+        </p>
+        <ul class="my-3">
+            <li>
+                <p class="p-size p-color"><span class="text-danger font-weight-bold">set</span> ( ) automatically removes dublicated
+                    items.</p>
+            </li>
+        </ul>
+ <br>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_string_manipulation' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_set' %}" target="_blank">Next </a></span></button>
+        </div>
+
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

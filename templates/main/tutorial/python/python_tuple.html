@@ -1,0 +1,378 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+.bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: 600;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Tuple</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_set' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_dict' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Data Type</div>
+        <p class="p-color p-size ml-3">In this section, we'll cover one of these: <span
+                class="text-danger font-weight-bold">Python Tuple</span></p>
+        <ul>
+            <li><p class="p-color p-size"><strong>Tuple</strong> - a collection of ordered elements.</p></li>
+            <li><p class="p-color p-size"><strong>Tuple</strong> - immutable (meaning that we can't change its
+                elements).</p>
+            </li>
+            <li><p class="p-color p-size"><strong>Tuple</strong> - we can't add or delete any element. Remains fixed.
+            </p></li>
+            <li><p class="p-color p-size"><strong>Tuple</strong> - supports indexing. Elements start with an index of 0,
+                not 1.</p></li>
+            <li><p class="p-color p-size"><strong>Tuple</strong> - parentheses( ) are used to define list data type.
+            </p></li>
+        </ul>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.2</strong>: Tuple Example</div>
+        <p class="p-color p-size ml-3"><span class="text-danger font-weight-bold">Tuple</span> elements are separated by <u>commas</u> and
+            closed by <u>parentheses</u>.</p>
+        <p class="command p-color text-dark">
+
+            <span class="text-success">a</span> &nbsp;=&nbsp; ( 1 , 'dog' , 10.99 , 'cat' , 0.678 )<span
+                class="text-secondary pl-3"># defining simple tuple </span><br>
+            print ( <span class="text-success">a</span> )<span
+                class="text-secondary pl-3">#  1 , 'dog' , 10.99 , 'cat' , 0.678 </span><br><br>
+            <span class="text-danger">b</span> &nbsp;=&nbsp; ( 10 , 23.99 , 10.99 , 0.56 , 0.99 )<span class="text-secondary pl-3"># defining numerical tuple </span><br>
+            print ( <span class="text-danger">b</span> )<span
+                class="text-secondary pl-3">#  10 , 23.99 , 10.99 , 0.56 , 0.99 </span><br><br>
+            <span class="text-info">a</span> &nbsp;=&nbsp; ( 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' )<span
+                class="text-secondary pl-3"># defining string tuple </span><br>
+            print ( <span class="text-info">a</span> )<span
+                class="text-secondary pl-3">#  'puppy' , 'dog' , 'hen' , 'cat' , 'cow' </span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.3</strong>: Accessing Tuple items</div>
+        <p class="p-color p-size ml-3"><span class="text-danger font-weight-bold">Tuple</span> items can be accessed through index (like <span
+                class="text-danger"><a data-toggle="tooltip" data-placement="bottom" class="text-danger"
+            title="Visit Article" href="{% url 'main:python_list' %}">lists</a></span>). <strong>E.x: tuple [</strong><span
+                class="text-danger font-weight-bold">index</span><strong>]</strong></p>
+        <p class="p-color p-size font-weight-bold ml-3"> tuple [
+            <span class="text-danger">start</span> :
+            <span class="text-danger">stop</span> :
+            <span class="text-danger">step</span> ]
+        </p>
+        <p class="command p-color text-dark">
+
+            <span class="text-info">a</span> &nbsp;=&nbsp; ( 1 , 'dog' , 10.99 , 'cat' , 0.678 )<span
+                class="text-secondary pl-4"># index 0 is 1st element of a tuple </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span>[0] )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp; 1  </span><br>
+        </p>
+        <ul class="my-3">
+            <li><p class="p-size p-color">First element starts with index 0, not 1.</p></li>
+        </ul>
+        <p class="command p-color text-dark">
+            <span class="text-info">b</span> &nbsp;=&nbsp; ( 10 , 23.99 , 10.99 , 0.56 , 0.99 )<span class="text-secondary pl-3"># show items with index 0 , 1 , and 2. </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">b</span>[0:3] )<span
+                class="text-secondary pl-4">#  10 , 23.99 , 10.99</span><br>
+        </p>
+        <ul class="my-3">
+            <li><p class="p-size p-color">Show items starting with index 0 till 3
+                (not included).</p></li>
+        </ul>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; ( 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' )<span
+                class="text-secondary pl-4"># show items with index 2 and 3. </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span>[2:4] )<span
+                class="text-secondary pl-4">#   'hen' , 'cat' </span><br>
+        </p>
+        <ul class="my-3">
+            <li><p class="p-size p-color">Show items starting with index 2 till 4
+                (not included).</p></li>
+        </ul>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; ( 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' )<span
+                class="text-secondary pl-3"># -index means start counting from backside </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span>[-1] )<span
+                class="text-secondary pl-3">#   'cow' -> 1st index from backside </span><br></p>
+        <ul class="my-3">
+            <li><p class="p-size p-color">minus( - ) means start from backside.</p></li>
+            <li><p class="p-size p-color"><strong>E.x:</strong> [-1] -> last element, [-2] -> second element from the
+                back.</p></li>
+        </ul>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> = ( 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' )<span
+                class="text-secondary pl-4"># [a:] means start from index 'a' till the end. </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span>[1:] )<span
+                class="text-secondary pl-4">#   'dog' , 'hen' , 'cat' , 'cow' </span><br>
+        </p>
+        <hr>
+        <p class="command p-color text-dark">
+            <span class="text-info">a</span> &nbsp;=&nbsp; ( 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' )<span
+                class="text-secondary pl-4"># show items with index 2 and 3. </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span>[2:4] )<span
+                class="text-secondary pl-4">#   'hen' , 'cat' </span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.4</strong>: Combining 2 tuples</div>
+        <ul class="my-3">
+            <li><p class="p-color p-size font-weight-bold">merged_tuple = tuple1 + tuple2</p></li>
+        </ul>
+        <p class="command p-color text-dark">
+
+            <span class="text-info">a</span> &nbsp;=&nbsp; ( 1 , 'dog' , 10.99 , 'cat' , 0.678 )<br>
+            <span class="text-info">b</span> &nbsp;=&nbsp; ( 10 , 23.99 , 10.99 , 0.56 , 0.99 )<br>
+            <span class="text-info">c</span> &nbsp;=&nbsp; <span class="text-info">a</span> + <span
+                class="text-info">b</span><span
+                class="text-secondary pl-4">#&nbsp;&nbsp; merging 2 tuples </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">c</span> )<span
+                class="text-secondary pl-4">#&nbsp;&nbsp;  1 , 'dog' , 10.99 , 'cat' , 0.678 , 10 , 23.99 , 10.99 , 0.56 , 0.99 </span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.5</strong>: 'step' - 3rd argument of a tuple</div>
+
+        <p class="command p-color text-dark">
+
+            <span class="text-info">b</span> &nbsp;=&nbsp; ( 10 , 23.99 , 10.99 , 0.56 , 0.99 )<br>
+            <span class="text-danger">print</span> ( <span class="text-info">b</span>[ : : 2 ] )<span
+                class="text-secondary pl-4"># &nbsp; 10 , 10.99 , 0.99 </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">b</span>[ : : 3 ] )<span
+                class="text-secondary pl-4">#  &nbsp; 10 , 0.56 </span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section1.6</strong>: Reversing a tuple</div>
+
+        <p class="command p-color text-dark">
+
+            <span class="text-info">b</span> &nbsp;=&nbsp; ( 10 , 23.99 , 10.99 , 0.56 , 0.99 )<br>
+            <span class="text-danger">print</span> ( <span class="text-info">b</span>[ : : -1 ] )<span
+                class="text-secondary pl-4">#&nbsp; &nbsp; 0.99 , 0.56 , 10.99 , 23.99 , 10&nbsp; ( reverse step )</span><br>
+        </p>
+        <ul class="my-3">
+            <li><p class="p-size p-color">We must remember that we can't <em>change</em> , <em>add</em> and
+                <em>delete</em> items of a tuple. But, we can <em>reverse</em> or <em>sort</em> them.</p></li>
+        </ul>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.7</strong>: Changing Tuple Item - <span class="text-danger">Not Allowed</span>
+        </div>
+
+        <p class="command p-color text-dark">
+
+            <span class="text-info">a</span> &nbsp;=&nbsp; ( 'puppy' , 'dog' , 'hen' , 'cat' , 'cow' )<br>
+            <span class="text-info">a</span> [ 2 ] &nbsp;=&nbsp; 'sheep'<span
+                class="text-secondary pl-4">#&nbsp; &nbsp;  Tuple items can't be changed or deleted. </span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">a</span> )<span
+                class="text-secondary pl-4">#&nbsp; &nbsp; <em>Error</em></span><br>
+
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.8</strong>: Checking item Existence</div>
+
+        <p class="command p-color my-3 text-dark">
+            <span class="text-danger">tuple1</span> &nbsp;=&nbsp; ( 'puppy' , 'dog' , 'cat' )<br>
+            print ( 'hen' <span class="text-info">&nbsp;in</span>&nbsp;&nbsp; <span
+                class="text-danger">tuple1</span>)<span
+                class="text-secondary pl-4">#&nbsp; &nbsp; False</span><br>
+            print ( 'hen' <span class="text-info">&nbsp;not&nbsp; in</span>&nbsp;&nbsp; <span
+                class="text-danger">tuple1</span>)<span
+                class="text-secondary pl-4">#&nbsp; &nbsp; True</span><br>
+        </p>
+
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.9</strong>: Built-in functions</div>
+
+
+        <p class="command p-color text-dark">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; ( 'puppy' , 'dog' , 'hen' )<br>
+            len ( <span class="text-danger">a</span> )<span
+                class="text-secondary pl-4"># &nbsp; 3  &nbsp; (displays total number of items)</span><br>
+        </p>
+        <ul class="my-3">
+            <li><p class="p-size p-color"><span class="text-danger font-weight-bold">len</span> (&nbsp; )  shows total number of items in a
+                tuple</p></li>
+        </ul>
+        <p class="command p-color text-dark">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; ( 'puppy' , 'dog' , 'hen' )<br>
+            <span class="text-danger">del</span> a <span
+                class="text-secondary pl-4">#&nbsp; &nbsp; <em>Deleting whole tuple</em></span><br>
+            print ( <span class="text-danger">a</span> )<span
+                class="text-secondary pl-4">#&nbsp; &nbsp; <em>Error</em></span><br>
+        </p>
+        <ul class="my-3">
+            <li><p class="p-size p-color"><span class="text-danger font-weight-bold">del </span> removes whole tuple</p></li>
+        </ul>
+        <p class="command p-color text-dark">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; ( 'a' , 'b' , 'c' , 'a' , 'b' , 'a' )<br>
+            <span class="text-danger">a</span>.count ( 'a' )<span
+                class="text-secondary pl-4"># &nbsp; 3 &nbsp; (total number of 'a' in a tuple)</span><br>
+            <span class="text-danger">a</span>.count ( 'b' )<span
+                class="text-secondary pl-4"># &nbsp; 2 &nbsp; (total number of 'b' in a tuple)</span><br>
+            <span class="text-danger">a</span>.count ( 'c' )<span
+                class="text-secondary pl-4"># &nbsp; 1 &nbsp; (total number of 'c' in a tuple)</span><br>
+        </p>
+        <ul class="my-3">
+            <li><p class="p-size p-color"><span class="text-danger font-weight-bold">count</span> (&nbsp; ) returns total number of a specified
+                item in a tuple.</p></li>
+        </ul>
+        <p class="command p-color text-dark">
+            <span class="text-danger">a</span> &nbsp;=&nbsp; ( 'a' , 'b' , 'c' , 'a' , 'b' , 'a' )<br>
+            <span class="text-danger">a</span>.index ( 'a' )<span
+                class="text-secondary pl-4"># &nbsp; 0 &nbsp; (returns index of 1st 'a')</span><br>
+            <span class="text-danger">a</span>.count ( 'b' )<span
+                class="text-secondary pl-4"># &nbsp; 1 &nbsp; (returns index of 1st 'b')</span><br>
+            <span class="text-danger">a</span>.count ( 'c' )<span
+                class="text-secondary pl-4"># &nbsp; 2 &nbsp; (returns index of 1st 'c')</span><br>
+        </p>
+        <ul class="my-3">
+            <li><p class="p-size p-color"><span class="text-danger font-weight-bold">index</span> (&nbsp; ) returns the index of 1st matched
+                occurrence of a specified
+                item.</p></li>
+        </ul>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Removing dublicated items</div>
+        <p class="p-color p-size my-3 ml-3">We can simply change <em>data type</em> of <span class="text-danger">tuple</span> to
+            <a data-toggle="tooltip" data-placement="bottom" class="text-info"
+            title="Visit Article" href="{% url 'main:python_set' %}">set</a> and then convert it again to <span
+                    class="text-danger">tuple</span>.</p>
+        <p class="command p-color text-dark">
+
+            <span class="text-info">a</span> &nbsp;=&nbsp; ( 10 , 23.99 , 23.99 , 10.99 , 10, 0.56 , 0.56 , 0.99 )<br>
+            <span class="text-info">a</span> &nbsp;=&nbsp; <span class="text-danger">tuple</span> ( <span
+                class="text-danger">set</span> ( <span class="text-info">a</span> ) )<span
+                class="text-secondary pl-4">#&nbsp; &nbsp; 0.56 , 0.99 , 10 , 10.99 , 23.99 </span><br>
+        </p>
+        <ul class="my-3">
+            <li>
+                <p class="p-size p-color"><span class="text-danger font-weight-bold">set</span> (&nbsp; ) automatically removes dublicated items.</p>
+            </li>
+        </ul>
+<br>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_set' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_dict' %}" target="_blank">Next </a></span></button>
+        </div>
+
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

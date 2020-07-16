@@ -1,0 +1,287 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+.bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: 0.9em;
+            font-weight: 500;
+
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Polymorphism Methods</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_overriding' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_debugging' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Polymorphism Overview</div>
+        <p class="p-color p-size pl-3">
+            This section focuses on <span class="text-danger font-weight-bold">Polymorphism</span> method and how to
+            implement in Python projects.
+        </p>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">Polymorphism </span> is a feature that allows to define methods
+            in the child class with the same name as defined in their parent class.</p>
+        <p class="p-color p-size pl-3">
+            Let's do some practice and learn about <span class="text-dark font-weight-bold"> polymorphism </span>on
+            a deep level.
+        </p>
+        <hr>
+
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Python Polymorphism Practice - Part 1</div>
+        <p class="p-color p-size pl-3">
+            Let's create a parent class <span class="text-danger font-weight-bold">Figure</span>. <br> Then child
+            classes that
+            inherits from parent class and have method with the same name as defined in <span
+                class="text-danger font-weight-bold">Figure</span>.
+            <br> We add a method <span class="text-dark font-weight-bold">area</span> that finds area of each figure:
+        </p>
+        <p class="command p-size my-3">
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Defining Parent class</span><br>
+            <span class="text-danger">class</span>&nbsp;&nbsp; Figure : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;width , height &nbsp;=&nbsp; <span class="text-danger">0</span> <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Defining Area method </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; area ( <span
+                class="text-success">self</span> ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">" Parent Class Area "</span> )<br>
+            <br>
+            <span class="text-danger">class</span>&nbsp;&nbsp; Triangle ( Figure ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;inheriting Parent class</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; <span
+                class="text-info">__init__</span> ( <span class="text-success">self</span> , width , height ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.width &nbsp;=&nbsp;
+            width<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.height &nbsp;=&nbsp;
+            height<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; area ( <span
+                class="text-success">self</span> ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">" Triangle Area: "</span>, <span class="text-success">self</span>.width * <span
+                class="text-success">self</span>.height * <span class="text-danger">0.5</span> )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;method has been overridden</span><br>
+            <br>
+            <span class="text-danger">class</span>&nbsp;&nbsp; Rectangle ( Figure ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;inheriting Parent class</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; <span
+                class="text-info">__init__</span> ( <span class="text-success">self</span> , width , height ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.width &nbsp;=&nbsp;
+            width<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.height &nbsp;=&nbsp;
+            height<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; area ( <span
+                class="text-success">self</span> ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">" Rectangle Area: "</span>, <span class="text-success">self</span>.width * <span
+                class="text-success">self</span>.height )<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;method has been overridden</span><br>
+            <br>
+            triangle &nbsp;=&nbsp; <span class="text-danger">Triangle</span> ( <span class="text-info">5</span> , <span
+                class="text-info">6</span> )<br>
+            rectangle &nbsp;=&nbsp; <span class="text-danger">Rectangle</span> ( <span class="text-info">5</span> ,
+            <span class="text-info">6</span> )<br>
+            <br>
+            rectangle.<span class="text-danger">area</span> ( &nbsp;)<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp; Triangle Area: &nbsp;15</span><br>
+            triangle.<span class="text-danger">area</span> ( &nbsp;)<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp; Rectangle Area: &nbsp;30</span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.2</strong>: Python Polymorphism Practice - Part 2</div>
+        <p class="p-color p-size pl-3">
+            In order to understand <span class="text-dark font-weight-bold">Polymorphism</span> on a deep level,
+            let's do one more exercise:
+        </p>
+        <p class="command p-size my-3">
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Defining Parent class</span><br>
+            <span class="text-danger">class</span>&nbsp;&nbsp; Factory : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;revenue , expense &nbsp;=&nbsp; <span class="text-danger">0</span> <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Defining profit method </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; profit ( <span
+                class="text-success">self</span> ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">" Parent Class Net Profit Info "</span> )<br>
+            <br>
+            <span class="text-danger">class</span>&nbsp;&nbsp; Firm ( Factory ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;inheriting Parent class</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; <span
+                class="text-info">__init__</span> ( <span class="text-success">self</span> , revenue , expense ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.revenue &nbsp;=&nbsp;
+            revenue<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.expense &nbsp;=&nbsp;
+            expense<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; profit ( <span
+                class="text-success">self</span> ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">" Firm Net Profit: "</span>, <span class="text-success">self</span>.revenue - <span
+                class="text-success">self</span>.expense )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;method has been overridden</span><br>
+            <br>
+            <span class="text-danger">class</span>&nbsp;&nbsp; Branch ( Factory ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;inheriting Parent class</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; <span
+                class="text-info">__init__</span> ( <span class="text-success">self</span> , revenue , expense ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.revenue &nbsp;=&nbsp;
+            revenue<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.expense &nbsp;=&nbsp;
+            expense<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; profit ( <span
+                class="text-success">self</span> ) :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( <span
+                class="text-info">" Branch Net Profit: "</span>, <span class="text-success">self</span>.revenue - <span
+                class="text-success">self</span>.expense - <span class="text-danger">2000</span> )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp;method has been overridden</span><br>
+            <br>
+            firm &nbsp;=&nbsp; <span class="text-danger">Firm</span> ( <span class="text-info">50000</span> , <span
+                class="text-info">20000</span> )<br>
+            branch &nbsp;=&nbsp; <span class="text-danger">Branch</span> ( <span class="text-info">23000</span> ,
+            <span class="text-info">7000</span> )<br>
+            <br>
+            firm.<span class="text-danger">profit</span> ( &nbsp;)<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp; Firm Net Profit: &nbsp;30000</span><br>
+            branch.<span class="text-danger">profit</span> ( &nbsp;)<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;&nbsp; Branch Net Profit: &nbsp;14000</span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.3</strong>: Polymorphism Conclusion</div>
+        <p class="p-color p-size pl-3 my-3">
+            <span class="text-danger font-weight-bold">Polymorphism</span> is the ability to perform an action on an
+            object regardless of its type. This is generally implemented
+            by creating a base class and having two or more subclasses that all implement methods with the same
+            signature. </p>
+        <div class="h5 text-info my-3">Advantages of Polymorphism</div>
+        <ul>
+            <li><p class="p-color p-size pl-3 my-3">It supports DRY ( Don't Repeat Yourself ) method making your code (
+                classes, methods ) reusable.</p></li>
+            <li><p class="p-color p-size pl-3 my-3">Reusable variable name can be applied to store different data type
+                variables.</p></li>
+            <li><p class="p-color p-size pl-3 my-3">Method overriding works together with inheritance to enable
+                reusability of existing classes without the need for re-compilation.</p></li>
+        </ul>
+    <div class="h5 text-info my-3">Disadvantages of Polymorphism</div>
+        <ul>
+            <li><p class="p-color p-size pl-3 my-3">Requires complex logical thinking to implement polymorphism in Multiple Classes.</p></li>
+            <li><p class="p-color p-size pl-3 my-3">Hard to debug, whereas in a team of 25+ software engineers, trying to understand one's logic can be quite difficult and requires lots of effort.</p></li>
+        </ul>
+     <br>
+          <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_overriding' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_debugging' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

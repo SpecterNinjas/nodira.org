@@ -1,0 +1,426 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: 0.9em;
+            font-weight: 500;
+
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+
+    <div class="container">
+
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_speed' %}"
+                                          target="_blank"> Previous</a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="wow fadeInUp">
+            <div class="container-fluid head-bar my-5">
+                <div class="text-center my-lg-5">
+                    <p class="h1 my-font my-4"
+                       style=" font-weight:900;color: #102a43;font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif; margin-bottom: 20px;font-size: 2.8em;">
+                        Congratulations <img src="{% static 'images/gallery/party_face_emoji.png' %}" alt=""
+                                             style="width: 60px;height: 60px; margin-bottom: 10px;">
+                    </p>
+                    <p style="color: rgb(102,103,142);">" It's time to <strong>celebrate</strong> all the hard work that
+                        led to this joyful time! "</p>
+                </div>
+            </div>
+            <br>
+            <br><br><br>
+        </div>
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp" style="background-color: rgb(246,247,253)">
+                <div class="section-header my-3">
+                    <p style="font-weight:900;color: #102a43;font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif; margin-bottom: 20px;font-size: 2.1em;">
+                        Python Projects For Practice
+                        <img
+                                src="{% static 'images/gallery/fire.png' %}" alt="fire"
+                                style="width: 50px; height: 50px; margin-bottom: 10px;">
+                    </p>
+                </div>
+
+                <div class="tab-content row justify-content-center mt-5">
+                    <div class="row">
+                        <div class="col-md-6 hoverable">
+                            <div role="tabpanel" class="col-md-12 tab-pane fade show active">
+                                <div class="row schedule-item">
+                                    <div class="col-md-12">
+                                        <div class="speaker my-0">
+                                            <img src="{% static 'images/gallery/todo.png' %}" alt="to-do list">
+                                        </div>
+                                        <h4><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Topic :</span>
+                                            <span class="text-danger font-weight-bold"
+                                                  style="font-family: -apple-system, sans-serif;">To-Do List</span></h4>
+                                        <p class="p-size"><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Description :</span>
+                                            A list of the tasks that you have to do, or things that you want to do. Must
+                                            contain basic functions like : add, delete and edit.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 hoverable">
+                            <div role="tabpanel" class="col-md-12 tab-pane fade show active">
+                                <div class="row schedule-item">
+                                    <div class="col-md-12">
+                                        <div class="speaker">
+                                            <img src="{% static 'images/gallery/quiz-original.png' %}"
+                                                 alt="Quiz Web Application" style="width: 70px;">
+                                        </div>
+                                        <h4><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Topic :</span>
+                                            <span class="text-danger font-weight-bold"
+                                                  style="font-family: -apple-system, sans-serif;">Quiz Web Application</span>
+                                        </h4>
+                                        <p class="p-size"><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Description :</span>
+                                            Short Competitive Game in which a user will answer to the questions. Must
+                                            check & count correct and wrong answers.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 hoverable">
+                            <div role="tabpanel" class="col-md-12 tab-pane fade show active">
+                                <div class="row schedule-item">
+                                    <div class="col-md-12">
+                                        <div class="speaker">
+                                            <img src="{% static 'images/gallery/wheather.png' %}" alt="author image">
+                                        </div>
+                                        <h4><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Topic :</span>
+                                            <span class="text-danger font-weight-bold"
+                                                  style="font-family: -apple-system, sans-serif;">Weather Web Application</span>
+                                        </h4>
+                                        <p class="p-size"><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Description :</span>
+                                            Simple Weather forecast app using API. User can view the weather in any
+                                            location and option to choose Celsius or Fahrenheit. </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 hoverable">
+                            <div role="tabpanel" class="col-md-12 tab-pane fade show active">
+                                <div class="row schedule-item">
+                                    <div class="col-md-12">
+                                        <div class="speaker">
+                                            <img src="{% static 'images/gallery/original-calc.png' %}"
+                                                 alt="Simple Calculator">
+                                        </div>
+                                        <h4><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Topic :</span>
+                                            <span class="text-danger font-weight-bold"
+                                                  style="font-family: -apple-system, sans-serif;">Simple Calculator</span>
+                                        </h4>
+                                        <p class="p-size"><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Description :</span>
+                                            Calculator must have simple UI/UX design and performs basic calculations
+                                            such as addition, subtraction, multiplication, and division.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 hoverable">
+                            <div role="tabpanel" class="col-md-12 tab-pane fade show active">
+                                <div class="row schedule-item">
+                                    <div class="col-md-12">
+                                        <div class="speaker">
+                                            <img src="{% static 'images/gallery/web_crawling.png' %}"
+                                                 alt="Web Crawling">
+                                        </div>
+                                        <h4><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Topic :</span>
+                                            <span class="text-danger font-weight-bold"
+                                                  style="font-family: -apple-system, sans-serif;">Web Crawling</span>
+                                        </h4>
+                                        <p class="p-size"><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Description :</span>
+                                            A web crawler copies webpages by the search engine. The web crawler
+                                            validates links, HTML code and extracts data from the website.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 hoverable">
+                            <div role="tabpanel" class="col-md-12 tab-pane fade show active">
+                                <div class="row schedule-item">
+                                    <div class="col-md-12">
+                                        <div class="speaker">
+                                            <img src="{% static 'images/gallery/url_shortener3.png' %}"
+                                                 alt="URL Shortener">
+                                        </div>
+                                        <h4><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Topic :</span>
+                                            <span class="text-danger font-weight-bold"
+                                                  style="font-family: -apple-system, sans-serif;">URL Shortener</span>
+                                        </h4>
+                                        <p class="p-size"><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Description :</span>
+                                            Shorten Long URLs easily using is.gd, v.gd, bit.ly, shorte.st, TinyURL
+                                            services to easily share them via social media using your app. </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 hoverable">
+                            <div role="tabpanel" class="col-md-12 tab-pane fade show active">
+                                <div class="row schedule-item">
+                                    <div class="col-md-12">
+                                        <div class="speaker">
+                                            <img src="{% static 'images/gallery/tic-tac-toe.png' %}"
+                                                 alt="Tic-Tac-Toe Game" style="width: 45px;height: 45px;">
+                                        </div>
+                                        <h4><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Topic :</span>
+                                            <span class="text-danger font-weight-bold"
+                                                  style="font-family: -apple-system, sans-serif;">Tic-Tac-Toe Game</span>
+                                        </h4>
+                                        <p class="p-size"><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Description :</span>
+                                            In this game,
+                                            players take turns putting marks on a board. Who
+                                            first gets 3 marks in a row (vertical, horizontal and diagonal) wins, and
+                                            the other side loses the game.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 hoverable">
+                            <div role="tabpanel" class="col-md-12 tab-pane fade show active">
+                                <div class="row schedule-item">
+                                    <div class="col-md-12">
+                                        <div class="speaker">
+                                            <img src="{% static 'images/gallery/guess_number.png' %}"
+                                                 alt="Guessing Number">
+                                        </div>
+                                        <h4><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Topic :</span>
+                                            <span class="text-danger font-weight-bold"
+                                                  style="font-family: -apple-system, sans-serif;">Guessing Number</span>
+                                        </h4>
+                                        <p class="p-size"><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Description :</span>
+                                            One side thinks of a secret number
+                                            while the 2nd player tries to guess the number.
+                                            After each guess, the 1st player answers either "Higher", "Lower" or
+                                            "Correct".</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 hoverable">
+                            <div role="tabpanel" class="col-md-12 tab-pane fade show active">
+                                <div class="row schedule-item">
+                                    <div class="col-md-12">
+                                        <div class="speaker">
+                                            <img src="{% static 'images/gallery/chatbot2.jpg' %}" alt="Simple Chatbot"
+                                                 style="width: 90px;height: 60px;">
+                                        </div>
+                                        <h4><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Topic :</span>
+                                            <span class="text-danger font-weight-bold"
+                                                  style="font-family: -apple-system, sans-serif;">Simple Chatbot</span>
+                                        </h4>
+                                        <p class="p-size"><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Description :</span>
+                                            Simple Interactive Chatbot that is used to implement basic command line
+                                            interactions with user. Mainly, used in live contact chats for receiving
+                                            basic information about user.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 hoverable">
+                            <div role="tabpanel" class="col-md-12 tab-pane fade show active">
+                                <div class="row schedule-item">
+                                    <div class="col-md-12">
+                                        <div class="speaker">
+                                            <img src="{% static 'images/gallery/rock.png' %}"
+                                                 alt="Rock, Paper, Scissors Game">
+                                        </div>
+                                        <h4><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Topic :</span>
+                                            <span class="text-danger font-weight-bold"
+                                                  style="font-family: -apple-system, sans-serif;">Rock, Paper, Scissors Game</span>
+                                        </h4>
+                                        <p class="p-size"><span
+                                                style="color: rgb(16,42,67); font-weight: 700; font-size:1em;">Description :</span>
+                                            Creating a simple Rock, Paper, Scissor Game to use basic Python functions in
+                                            practice. Use Math.random function to randomly provide one of the options.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container wow fadeInUp" style="background-color: rgb(249,250,252)">
+            <div class="section-header my-3">
+                <p style="font-weight:900;color: #102a43;font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif; margin-bottom: 20px;font-size: 2.1em;"
+                   class="text-center">
+                    Support <img src="{% static 'images/heart.ico' %}" alt="Love" style="width: 50px;height: 50px;">
+                </p>
+            </div>
+            <p class="my-4" style="color: rgb(102,103,142);">We'll get straight to the point : Today we ask you to
+                defend <strong>nodira</strong>'s independence. We believe that learning programming must be free and no
+                one should be charged. But, in order to maintain this trend we'd need donation from our users to cover
+                all the expenses. We know that most people will ignore this message. But if <strong>nodira</strong> is
+                useful to you, please consider making a donation of $5, $20, $50 or whatever you can to protect and
+                sustain our service. </p>
+
+<span class="hoverable">
+                <a class="bmc-button nav-link" target="_blank" href="https://www.buymeacoffee.com/Specter"
+                   data-toggle="tooltip" data-placement="bottom"
+                   title="Support Our Community">
+                    <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
+                         alt="Buy me a coffee" style="height: 80px; width: 100px;">
+                    <span style="font-size:22px !important;"><strong>Buy me a coffee</strong></span>
+                </a>
+</span>
+
+
+        </div>
+
+
+        <br><br>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_speed' %}"
+                                          target="_blank"> Previous</a></span></button>
+        </div>
+        <br> <br><br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+
+    </div>
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

@@ -1,0 +1,346 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Attribute Access</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_mixins' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_design_patterns' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: <strong>Attribute Access</strong> Overview</div>
+        <p class="p-color p-size pl-3">An <span class="text-danger font-weight-bold">Attribute Access</span> is a term
+            that's mainly used in terms of class. </p>
+        <p class="p-color p-size pl-3">
+            <span class="font-italic font-weight-bold text-dark">Class attributes</span> are variables of a class that
+            are shared between all of its instances.
+        </p>
+        <p class="p-color p-size pl-3">
+            In Python, <span class="font-italic font-weight-bold text-dark">Dot Notation</span> and <span
+                class="font-italic font-weight-bold text-dark">Set/Get Functions & Properties</span> used to access the
+            attribute of any
+            class.
+        </p>
+        <hr>
+
+        <div class="h5 text-info mb-3"><strong>Section 2.1</strong>: Python <strong>Dot Notation</strong></div>
+
+        <p class="p-color p-size my-3 pl-3">
+            Let's create a simple class called <span class="text-danger font-weight-bold">Person</span> and do some
+            practice:
+        </p>
+
+
+        <p class="command p-size text-dark">
+
+            <span class="text-danger">class </span>&nbsp;Person ( &nbsp;) : <br> <br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Defining simple class 'Person' </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;<span
+                class="text-info">__init__ </span>
+            ( <span class="text-success">self</span> , name , surname ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.name &nbsp;=&nbsp;
+            name <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.surname &nbsp;=&nbsp;
+            surname
+            <br><br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Creating some instances of a class </span><br>
+            mike &nbsp;=&nbsp;<span class="text-danger">Person</span> ( name &nbsp;=&nbsp;<span
+                class="text-info">"Mike"</span> , surname &nbsp;=&nbsp;<span class="text-info">"Ross"</span> )
+            <br>
+            harvey &nbsp;=&nbsp;<span class="text-danger">Person</span> ( name &nbsp;=&nbsp;<span class="text-info">"Harvey"</span>
+            , surname &nbsp;=&nbsp;<span class="text-info">"Specter"</span> )
+            <br>
+
+        </p>
+        <p class="p-color p-size my-3 pl-3">
+            Now , let's access <em><strong>name</strong></em> and <em><strong>surname</strong></em> of instances using
+            <span
+                    class="text-danger font-weight-bold">Dot Notation</span>:
+        </p>
+
+
+        <p class="command p-size text-dark">
+            <span class="text-danger">print </span> ( mike.name ) <span class="text-secondary font-italic pl-3">#&nbsp;&nbsp; Mike</span><br>
+            <span class="text-danger">print </span> ( mike.surname ) <span class="text-secondary font-italic pl-3">#&nbsp;&nbsp; Ross</span><br>
+        </p>
+        <br>
+        <hr>
+        <br>
+        <div class="h5 text-info mb-3"><strong>Section 2.2</strong>: <strong>Set/Get Functions</strong> Overview</div>
+        <p class="p-color p-size pl-3">An <span class="text-danger font-weight-bold">Attribute Access</span> can be also
+            achieved by defining <span class="text-dark font-weight-bold">Set & Get Functions</span>.
+        </p>
+        <p class="p-color p-size pl-3 font-italic">
+            Let's add these functions to our class <span
+                class="font-italic font-weight-bold text-danger">Person</span> <strong>:</strong>
+        </p>
+        <p class="command p-size text-dark">
+            <span class="text-danger">class </span>&nbsp;Person ( &nbsp;) : <br> <br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Defining simple class 'Person' </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;<span class="text-info">__init__ </span>
+            ( <span class="text-success">self</span> , name , surname ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.name &nbsp;=&nbsp;
+            name <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.surname &nbsp;=&nbsp;
+            surname
+            <br><br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Defining set function </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span> &nbsp;set ( <span
+                class="text-success">self</span> , rename ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.name &nbsp;=&nbsp;
+            rename
+            <br><br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Defining get function </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span> &nbsp;get ( <span
+                class="text-success">self</span> ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print </span> ( <span
+                class="text-danger">f</span><span class="text-info font-italic">" Name: <span class="text-dark">{<span
+                class="text-success">self</span>.name}</span>  and Surname: <span class="text-dark">{<span
+                class="text-success">self</span>.surname}</span> "</span>&nbsp; )
+            <br><br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Creating some instances of a class </span><br>
+            mike &nbsp;=&nbsp;<span class="text-danger">Person</span> ( name &nbsp;=&nbsp;<span
+                class="text-info">"Mike"</span> , surname &nbsp;=&nbsp;<span class="text-info">"Ross"</span> )
+            <br>
+
+        </p>
+        <p class="p-color p-size my-3 pl-3">
+            Now , let's access class attributes using <span class="text-danger font-weight-bold font-italic">set</span>
+            and <span class="text-danger font-weight-bold font-italic">get</span> functions :
+        </p>
+
+
+        <p class="command p-size text-dark">
+            <span class="text-danger">print </span> ( mike.name ) <span class="text-secondary font-italic pl-3">#&nbsp;&nbsp; Mike</span><br>
+            mike.<span class="text-danger">set</span> ( <span class="text-info">"Mikeee"</span> ) <span
+                class="text-secondary font-italic pl-3">#&nbsp;&nbsp; setting name</span><br>
+            mike.<span class="text-danger">get</span> ( &nbsp;) <span class="text-secondary font-italic pl-3">#&nbsp;&nbsp; Name: Mikeee and Surname: Ross </span>
+        </p>
+        <br>
+        <hr>
+        <br>
+        <div class="h5 text-info mb-3"><strong>Section 2.3</strong>: <strong>Property</strong> Overview</div>
+        <p class="p-color p-size pl-3">An <span class="text-danger font-weight-bold">Attribute Access</span> can be also
+            achieved by defining <span class="text-dark font-weight-bold">property</span>.
+        </p>
+
+        <div class="row">
+            <div class="col"><p class="p-color p-size mt-2 font-italic pl-3">
+                The syntax of <span class="text-danger font-weight-bold">property</span> <strong>:</strong>
+            </p></div>
+            <div class="col"><p class="p-color p-size  font-weight-bold"
+                                style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+           <span class="text-dark"> <span class="text-info">@</span>
+             Attribute_Name.<span class="text-danger">setter</span>
+           </span>
+            </p></div>
+        </div>
+        <br>
+        <p class="p-color p-size  font-weight-bold"
+           style="padding: 5px; border: 1px solid lightslategray; border-radius: 5px; padding-left: 20px;">
+            <span class="text-dark"> <span
+                    class="text-info">@</span>radius.<span class="text-danger">setter</span>  is a setter function that stores the value in <span
+                    class="text-success">self</span>.<span class="text-danger">__name</span>. &nbsp;&nbsp;&nbsp;Executes every time when value is set.</span>
+        </p>
+
+        <p class="command p-size text-dark">
+            <span class="text-danger">class </span>&nbsp;Person ( &nbsp;) : <br> <br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Defining simple class 'Person' </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;<span class="text-info">__init__ </span>
+            ( <span class="text-success">self</span> , name ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.name &nbsp;=&nbsp;
+            name
+            <br><br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Defining property </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">@</span><span class="text-dark">property</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span> &nbsp;name ( <span
+                class="text-success">self</span> ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">return </span> &nbsp;<span
+                class="text-success">self</span>.__name
+            <br><br>
+
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;applying property to set a name </span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">@</span><span class="text-dark">name.</span><span
+                class="text-danger">setter</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span> &nbsp;name ( <span
+                class="text-success">self</span> , name ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.__name &nbsp;=&nbsp;
+            name <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print </span> ( <span
+                class="text-info">"Success!"</span> )
+
+            <br><br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Creating some instances of a class </span><br>
+            mike &nbsp;=&nbsp;<span class="text-danger">Person</span> ( name &nbsp;=&nbsp;<span
+                class="text-info">"Mike"</span> )
+
+        </p>
+        <p class="p-color p-size my-3 pl-3">
+            Now , let's access <em><strong>name</strong></em> of instances using
+            <span
+                    class="text-danger font-weight-bold">property</span>:
+        </p>
+
+
+        <p class="command p-size text-dark">
+            <span class="text-danger">print </span> ( mike.name ) <br>
+            <span class="text-secondary font-italic pl-1">#&nbsp;&nbsp; Success! </span> <br>
+            <span class="text-secondary font-italic pl-1">#&nbsp;&nbsp; Mike </span> <br><br>
+            <span class="text-danger">mike</span>.name &nbsp;=&nbsp; <span class="text-info">"Harvey"</span><span
+                class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Rename attribute </span> <br>
+            <span class="text-danger">print </span> ( mike.name )<br>
+            <span class="text-secondary font-italic pl-1">#&nbsp;&nbsp; Success! </span> <br>
+            <span class="text-secondary font-italic pl-1">#&nbsp;&nbsp; Harvey </span>
+
+
+        </p>
+       <br>
+       <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_mixins' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_design_patterns' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+
+    </div>
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

@@ -1,0 +1,422 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Class</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_decorator' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:date_time' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Class Overview</div>
+
+        <ul class="my-3">
+            <li><p class="p-color p-size"> Python is so well-known not only for being a scripting language, but also it
+                supports object-oriented paradigm.
+            </p></li>
+            <li><p class="p-color p-size"><span class="text-danger font-weight-bold">class</span> keyword is used to
+                create a class in Python.
+            </p></li>
+            <li><p class="p-color p-size">In this section, we'll learn more about how to create and use a <span
+                    class="text-danger font-weight-bold font-italic">class</span> on a
+                deep level.</p></li>
+        </ul>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 1.2</strong>: Creating Simple Class</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    In this example, we'll create a simple <span class="text-danger">class</span> called
+                    <strong>Person</strong> along with a name attribute.
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size text-dark">
+            <span class="text-danger">class </span>&nbsp;&nbsp;Person : <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;creating class 'Person'</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name &nbsp;=&nbsp; <span class="text-info font-italic">'John'</span>
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    Once we created simple <span class="text-danger">class</span>, it's time to learn how to access it:
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size text-dark">
+            obj &nbsp;=&nbsp; <span class="text-danger">Person</span> ( )
+            <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;creating object referencing to class 'Person'</span>
+            <br>
+            <span class="text-danger">print </span> ( obj.name ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;John</span>
+            <br> <span class="text-danger">print </span> ( Person.name ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;John</span>
+            <br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info mb-3 text-capitalize"><strong>Section 2.1</strong>: Defining function within a Class
+        </div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    Let's <u>define a function</u> within a class and see simple usage of a function:
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size text-dark">
+            <span class="text-danger">class </span>&nbsp;&nbsp;Person : <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;creating class 'Person'</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name &nbsp;=&nbsp; <span class="text-info font-italic">'John'</span> <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;surname &nbsp;=&nbsp; <span class="text-info font-italic">'Cooper'</span> <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;full_name ( <span class="text-danger">self</span>
+            ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print </span> ( f"Hello, {<span
+                class="text-danger">self</span>.name} &nbsp;&nbsp;{<span class="text-danger">self</span>.surname}" )
+            <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;using f-string</span> <br>
+
+
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    Once we created function based <span class="text-danger">class</span>, it's time to learn how to
+                    access it:
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size text-dark">
+            obj &nbsp;=&nbsp; <span class="text-danger">Person</span> ( )
+            <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;creating object referencing to class 'Person'</span>
+            <br><br>
+            <span class="text-danger">print </span> ( obj.name ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;John</span>
+            <br>
+            <span class="text-danger">print </span> ( obj.surname ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Cooper</span>
+            <br><br>
+            <span class="text-danger">print </span> ( Person.name ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;John</span>
+            <br>
+            <span class="text-danger">print </span> ( Person.surname ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Cooper</span>
+            <br>
+            <br>
+            <span class="text-danger">print </span> ( obj.full_name ( ) ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Hello, John  Cooper</span>
+            <br>
+
+        </p>
+
+        <hr>
+        <div class="h5 text-info mb-3 text-capitalize"><strong>Section 2.2</strong>: Defining Python Constructors
+        </div>
+
+        <p class="p-color p-size mt-3 pl-3">
+            It's good practice to define constructors within a class. </p>
+        <p class="p-color p-size mt-3 pl-3">
+            Almost in all classes, we define <span class="text-danger font-weight-bold">__init__</span> function which
+            will be automatically executed once class is initialized.
+        </p>
+        <ul>
+            <li><p class="p-color p-size mt-2 pl-3">
+                <span class="text-danger font-weight-bold">__init__</span> function is called
+                <strong><em>initializer</em></strong>. This function runs first, once object referencing class is
+                created.
+            </p></li>
+            <li><p class="p-color p-size mt-2 pl-3">
+                <span class="text-danger font-weight-bold">__str__</span> function is sometimes called
+                <strong><em>string representation</em></strong>. This function returns <span
+                    class="text-danger font-weight-bold">string data type</span>.
+            </p></li>
+        </ul>
+        <hr>
+        <p class="command p-size text-dark">
+            <span class="text-danger">class </span>&nbsp;&nbsp;Person : <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;creating class 'Person'</span><br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;<span class="text-info">__init__</span> (
+            <span class="text-success">self</span> , name ) : <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;initializer</span>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.name &nbsp;=&nbsp;
+            name
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;<span class="text-info">__str__</span> (
+            <span class="text-success">self</span> ) : <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;returns string </span>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">return </span> &nbsp;<span
+                class="text-success">self</span>.name
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;<span class="text-info">rename</span> (
+            <span class="text-success">self</span> , rename ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.name &nbsp;=&nbsp;
+            rename
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print </span>( <span
+                class="text-danger">f</span>" My name: { <span class="text-success">self</span>.name } " )
+
+        </p>
+        <ul class="my-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    Once we created constructor based <span class="text-danger">class</span>, it's time to learn how to
+                    access it:
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size text-dark">
+            alex &nbsp;=&nbsp; <span class="text-danger">Person</span> ( <span
+                class="text-info font-italic"> "Alex" &nbsp;</span>)
+            <br>
+            john &nbsp;=&nbsp; <span class="text-danger">Person</span> ( <span
+                class="text-info font-italic"> "John" &nbsp;</span>)
+            <br><br>
+
+
+            <span class="text-danger">print </span> ( alex.name ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Alex</span>
+            <br>
+            <span class="text-danger">print </span> ( john.name ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;John</span>
+            <br><br>
+
+            <span class="text-danger">print </span> ( alex.<span class="text-info">__str__</span> ( ) ) <span
+                class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Alex</span>
+            <br>
+            <span class="text-danger">print </span> ( john.<span class="text-info">__str__</span> ( ) ) <span
+                class="text-secondary font-italic pl-4"># &nbsp;&nbsp;John</span>
+            <br><br>
+
+            alex.<span class="text-danger">rename </span>( <span class="text-info font-italic">"Amanda"</span> ) <br>
+            john.<span class="text-danger">rename </span>( <span class="text-info font-italic">"Joseph"</span> ) <br>
+            <br>
+
+
+            <span class="text-danger">print </span> ( alex.name ) <span
+                class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Amanda</span>
+            <br>
+            <span class="text-danger">print </span> ( john.name ) <span
+                class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Joseph</span>
+
+        </p>
+
+        <hr>
+        <div class="h5 text-info mb-3 text-capitalize"><strong>Section 2.3</strong>: Class Manipulation Practice
+        </div>
+
+        <p class="p-color p-size mt-3 pl-3">
+            Let's do some exercise to learn about <span class="text-danger font-weight-bold">class</span> on a deep
+            level:
+        </p>
+        <ul style="list-style-type: square;" class="ml-3">
+            <li><p class="p-color p-size mt-2 pl-3 font-italic">Defining class <span class="text-dark font-weight-bold">constructor</span>
+            </p></li>
+            <li><p class="p-color p-size mt-2 pl-3 font-italic"><span
+                    class="text-dark font-weight-bold">Modifying</span> class properties</p></li>
+            <li><p class="p-color p-size mt-2 pl-3 font-italic"><span class="text-dark font-weight-bold">Deleting</span>
+                class properties</p></li>
+        </ul>
+
+        <p class="command p-size text-dark">
+            <span class="text-danger">class </span>&nbsp;&nbsp;Person : <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;creating class 'Person'</span><br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;<span class="text-info">__init__</span> (
+            <span class="text-success">self</span> , name , surname ) : <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;initializer</span>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.name &nbsp;=&nbsp;
+            name <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.surname &nbsp;=&nbsp;
+            surname
+            <br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;<span class="text-info">hello</span> (
+            <span class="text-success">self</span> ) :
+            <br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print </span>( <span
+                class="text-danger">f</span>" My name: { <span class="text-success">self</span>.name } { <span
+                class="text-success">self</span>.surname } " )
+
+        </p>
+        <ul class="my-3 ml-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">
+                    Let's play with our class:
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size text-dark">
+            mike &nbsp;=&nbsp; <span class="text-danger">Person</span> ( <span
+                class="text-info font-italic"> "Mike" <span class="text-dark"> , </span> "Ross" &nbsp;</span>)
+            <br>
+            harvey &nbsp;=&nbsp; <span class="text-danger">Person</span> ( <span
+                class="text-info font-italic"> "Harvey" <span class="text-dark"> , </span> "Specter" &nbsp;</span>)
+            <br><br>
+
+
+            <span class="text-danger">print </span> ( mike.name ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Mike</span>
+            <br>
+            <span class="text-danger">print </span> ( mike.surname ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Ross</span>
+            <br><br>
+
+            <span class="text-danger">print </span> ( harvey.name ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Harvey</span>
+            <br>
+            <span class="text-danger">print </span> ( harvey.surname ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Specter</span>
+            <br><br>
+
+            mike.<span class="text-danger">name </span> &nbsp;=&nbsp; <span class="text-info font-italic">"Mikee"</span>
+            <br>
+            mike.<span class="text-danger">surname </span> &nbsp;=&nbsp; <span
+                class="text-info font-italic">"Rosamaxa"</span> <br>
+            <br> <br>
+
+
+            mike.<span class="text-danger">hello</span> ( ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;My name:&nbsp; Mikee Rosamaxa </span>
+            <br>
+            harvey.<span class="text-danger">hello</span> ( ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;My name:&nbsp; Harvey Specter </span>
+            <br> <br>
+            <span class="text-danger">del </span>&nbsp;mike.name <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp; Deleting class property</span><br>
+
+        </p>
+
+        <hr>
+        <div class="h5 text-info mb-3 text-capitalize"><strong>Section 3.1</strong>: Pass Argument</div>
+        <ul style="list-style-type: square" class="font-italic">
+            <li><p class="p-color p-size mt-3 pl-3">
+                <span class="text-danger font-weight-bold">class</span> &nbsp;block can never be empty, otherwise
+                <em><strong>Error</strong></em> raises.
+            </p></li>
+            <li><p class="p-color p-size mt-3 pl-3">
+                <span class="text-danger font-weight-bold">pass</span> &nbsp;statement is used to avoid this Error.
+            </p></li>
+        </ul>
+
+        <p class="command p-size text-dark">
+            <span class="text-danger">class </span>&nbsp;&nbsp;Person : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">pass</span><span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;To avoid Error</span>
+        </p>
+       <br>
+         <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_decorator' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:date_time' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

@@ -1,0 +1,283 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+
+{% block body %}
+    <div class="custom-cursor">
+        <!--Header-->
+        {% include 'main/header.html' %}
+        <!-- #header -->
+
+        <!--==========================
+          Intro Section
+        ============================-->
+        <section id="intro" style="background-image: url('{% static 'images/gallery/7.jpg' %}')">
+            <div class="intro-container wow fadeIn">
+                <h1 class="mb-4 pb-0">The Complete<br><span>Python</span> Programming Course </h1>
+                <p class="mb-4 pb-0">Stay Hungry. Stay Foolish! - Steve Jobs</p>
+
+                <a href="{% url 'main:python' %}" class="about-btn scrollto">Start Learning</a>
+            </div>
+        </section>
+
+        <main id="main">
+
+            <!--==========================
+              About Section
+            ============================-->
+            <section id="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p class="text-capitalize" style="font-size: 1.8em;">Making every student unstoppable!</p>
+                            <p>"If you want to teach people a new way of thinking, don't bother
+                                trying to teach them. Instead, give them a tool,the use of which will lead to new ways
+                                of
+                                thinking."<strong><br>- R.Buckminster Fuller</strong></p>
+                        </div>
+                        <div class="col-lg-3"></div>
+                        <div class="col-lg-3">
+                            <h3>Contact us</h3>
+                            <p>Mail : <span class="text-danger font-weight-bold">nodira.org@gmail.com</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==========================
+              Schedule Section
+            ============================-->
+            <section id="schedule" class="section-with-bg">
+                <div class=" mx-5 wow fadeInUp">
+                    <div class="section-header">
+                        <h2 style="color: rgb(14,27,77)">Complete Python Course</h2>
+                        <p class="text-capitalize">start learning now and get high paying jobs</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 wow fadeInUp" style="font-family:'Poppins', sans-serif; font-weight: 500;">
+                            <h3 style="color: rgb(16,42,67); font-weight: 700; font-size: 1.9em;" class="mb-4">Why should I learn Python?</h3>
+
+                            <ul class="list-nav list-unstyled mt-4" style="font-size: 1.05em; font-weight: 500;">
+                                <li class="my-3"><img style="height: 20px;width: 20px;"
+                                                      src="{% static 'images/gallery/output-onlinepngtools.png' %}" alt="">
+                                    <span>Easy to learn and clean syntax</span>
+                                </li>
+                                <li class="my-3"><img style="height: 20px;width: 20px;"
+                                                      src="{% static 'images/gallery/output-onlinepngtools.png' %}" alt="">
+                                    <span>Open source and great community support</span>
+                                </li>
+                                <li class="my-3"><img style="height: 20px;width: 20px;"
+                                                      src="{% static 'images/gallery/output-onlinepngtools.png' %}" alt="">
+                                    <span>High Salary <strong>$ 120K</strong> per year</span>
+                                </li>
+                                <li class="my-3"><img style="height: 20px;width: 20px;"
+                                                      src="{% static 'images/gallery/output-onlinepngtools.png' %}" alt="">
+                                    <span>Good start for learning <span class="text-dark font-weight-bold">AI</span> and <span
+                                            class="text-dark font-weight-bold">Data Science</span></span>
+                                </li>
+                                <li class="my-3"><img style="height: 20px;width: 20px;"
+                                                      src="{% static 'images/gallery/output-onlinepngtools.png' %}" alt="">
+                                    <span>Cross-Platform and Versatile language</span>
+                                </li>
+
+                            </ul>
+                            <button class="next" style="float: left"><span><a class="text-white"
+                                                                              href="{% url 'main:python' %}"
+                                                                              target="_blank">Learn </a></span></button>
+                        </div>
+                        <div class="col-md-8 wow fadeInUp">
+                            <img class="img-responsive img-thumbnail"
+                                 src="{% static 'images/gallery/article.jpg' %}" alt="Python Programming">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8 wow fadeInUp">
+                            <img class="img-responsive img-thumbnail"
+                                 src="{% static 'images/gallery/starting.jpg    ' %}" alt="Python Programming">
+                        </div>
+                        <div class="col-md-4 wow fadeInUp" style="font-family:'Poppins', sans-serif;">
+                            <h3 style="color: rgb(16,42,67); font-weight: 700; font-size: 1.9em;" class="mb-4">Where to start ? </h3>
+                            <p style="font-size: 1.1em;">The key to advancing your coding skills is having a good attitude towards it. Start with
+                                basics and practice a lot! </p>
+                            <ul class="list-nav list-unstyled mt-4" style="font-size: 1.05em; font-weight: 500;">
+                                <li class="my-3"><img style="height: 20px;width: 20px;"
+                                                      src="{% static 'images/gallery/output-onlinepngtools.png' %}" alt="">
+                                    <span>Start Full Python Course with us</span>
+                                </li>
+                                <li class="my-3"><img style="height: 20px;width: 20px;"
+                                                      src="{% static 'images/gallery/output-onlinepngtools.png' %}" alt="">
+                                    <span>Keep Practicing Online</span>
+                                </li>
+                                <li class="my-3"><img style="height: 20px;width: 20px;"
+                                                      src="{% static 'images/gallery/output-onlinepngtools.png' %}" alt="">
+                                    <span>Don't Hesitate To Ask</span>
+                                </li>
+                                <li class="my-3"><img style="height: 20px;width: 20px;"
+                                                      src="{% static 'images/gallery/output-onlinepngtools.png' %}" alt="">
+                                    <span>Start Keeping Daily Notes</span>
+                                </li>
+                                <li class="my-3"><img style="height: 20px;width: 20px;"
+                                                      src="{% static 'images/gallery/output-onlinepngtools.png' %}" alt="">
+                                    <span>Be Part Of Our Community</span>
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+
+            <div style="background-color: rgb(246,247,253)">
+                <br>
+                <br>
+                <br><br>
+            </div>
+            <!--=====  GIANT COMPANIES USING PYTHON  =====-->
+            <section id="speakers" class="wow fadeInUp" style="background-color: rgb(246,247,253)">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 style="color: rgb(14,27,77)">Companies Using Python</h2>
+                        <p>Python is everywhere!</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="speaker">
+                                <img src="{% static 'images/python_companies/google.png' %}" alt="Speaker 1"
+                                     class="img-fluid" style="height: 220px;">
+                                <div class="details">
+                                    <h3><a href="https://www.google.org/">Google</a></h3>
+                                    <p>Net Worth : <strong>$1 T</strong></p>
+                                    <div class="social">
+                                        <p><a href="https://www.google.org/" data-toggle="tooltip"
+                                              data-placement="bottom"
+                                              title="Visit Google Website">Visit Google Website</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="speaker">
+                                <img src="{% static 'images/python_companies/nasa.png' %}" alt="Speaker 2"
+                                     class="img-fluid"
+                                     style="height: 220px;">
+                                <div class="details">
+                                    <h3><a href="https://www.nasa.gov/">Nasa</a></h3>
+                                    <p>Net Worth : <strong>$22.6 B</strong></p>
+                                    <div class="social">
+                                        <p><a href="https://www.nasa.gov/" data-toggle="tooltip" data-placement="bottom"
+                                              title="Visit Nasa Website">Visit Nasa Website</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="speaker">
+                                <img src="{% static 'images/python_companies/ibm.png' %}" alt="Speaker 3"
+                                     class="img-fluid"
+                                     style="height: 220px;">
+                                <div class="details">
+                                    <h3><a href="https://www.ibm.com/">IBM</a></h3>
+                                    <p>Net Worth : <strong>$104.05 B</strong></p>
+                                    <div class="social">
+                                        <p><a href="https://www.ibm.com/" data-toggle="tooltip" data-placement="bottom"
+                                              title="Visit IBM Website">Visit IBM Website</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="speaker">
+                                <img src="{% static 'images/python_companies/instagram.png' %}" alt="Speaker 4"
+                                     class="img-fluid" style="height: 220px;">
+                                <div class="details">
+                                    <h3><a href="https://www.instagram.com/">Instagram</a></h3>
+                                    <p>Net Worth : <strong>$102 B</strong></p>
+                                    <div class="social">
+                                        <p><a href="https://www.instagram.com/" data-toggle="tooltip"
+                                              data-placement="bottom"
+                                              title="Visit Instagram Website">Visit Instagram Website</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="speaker">
+                                <img src="{% static 'images/python_companies/facebook.jpg' %}" alt="Speaker 5"
+                                     class="img-fluid" style="height: 220px;">
+                                <div class="details">
+                                    <h3><a href="https://www.facebook.com/">Facebook</a></h3>
+                                    <p>Net Worth : <strong>$615.63 B</strong></p>
+                                    <div class="social">
+                                        <p><a href="https://www.facebook.com/" data-toggle="tooltip"
+                                              data-placement="bottom"
+                                              title="Visit Facebook Website">Visit Facebook Website</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="speaker">
+                                <img src="{% static 'images/python_companies/netflix.jpg' %}" alt="Speaker 6"
+                                     class="img-fluid" style="height: 220px;">
+                                <div class="details">
+                                    <h3><a href="https://www.netflix.com/">Netflix</a></h3>
+                                    <p>Net Worth : <strong>$195.01 B</strong></p>
+                                    <div class="social">
+                                        <p><a href="https://www.netflix.com/" data-toggle="tooltip"
+                                              data-placement="bottom"
+                                              title="Visit Netflix Website">Visit Netflix Website</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div style="background-color: rgb(246,247,253)">
+                <br>
+                <br>
+                <br><br> <br>
+                <br>
+                <br><br>
+            </div>
+
+        </main>
+
+
+        <!--Footer-->
+        {% include 'main/footer.html' %}
+
+        <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+    </div>
+    <!-- JavaScript Libraries -->
+    <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/superfish/hoverIntent.js' %}"></script>
+    <script src="{% static 'lib/superfish/superfish.min.js' %}"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/venobox/venobox.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+
+    <!-- Template Main Javascript File -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+{% endblock %}

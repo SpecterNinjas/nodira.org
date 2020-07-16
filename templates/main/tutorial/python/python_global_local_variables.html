@@ -1,0 +1,383 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Global / Local / Nonlocal</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_operator' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_if_elif_else' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python <strong>Variable Categories</strong></div>
+        <p class="p-color p-size ml-3">In this chapter, we'll cover <span class="text-dark font-weight-bold">python variables</span>. <br> Basically, python variables are
+            divided into 3 categories:
+            <strong>Global,</strong> <strong>Local</strong> and <strong>Nonlocal</strong></p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Python - <strong>Global Variable</strong></div>
+        <ul>
+            <li>
+                <p class="p-color p-size">In this example, <span class="text-danger font-weight-bold">a</span> is
+                    considered as a global variable, since
+                    it was declared <em>outside</em> the function. </p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            <span class="text-danger">a</span> = "Hello World - Python!"<span class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>global variable</em></span><br>
+            def <span class="text-info">abc</span>( ):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">a</span>)<br>
+            <span class="text-info">abc</span>( ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; Hello World - Python!</span>
+        </p>
+
+        <ul>
+            <li>
+                <p class="p-color p-size">In this example, <span class="text-danger font-weight-bold">a</span> is
+                    considered as a local variable, since
+                    it was declared <em>inside</em> the function. </p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            def <span class="text-info">abc</span>( ):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">a</span> = " I'm local variable - Python! "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>local variable</em></span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">a</span>)<br>
+            <span class="text-info">abc</span>( ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; I'm local variable - Python!</span>
+        </p>
+
+        <ul>
+            <li>
+                <p class="p-color p-size">Assigning both global and local variable with the same name <span
+                        class="text-danger font-weight-bold">a</span>. </p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            <span class="text-danger">a</span> = " Global variable - Python! "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>global variable</em></span><br><br>
+            def <span class="text-info">abc</span>( ):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">a</span> = " Local variable - Python! "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>local variable</em></span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">a</span>)<br><br>
+            <span class="text-info">abc</span>( ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; Local variable - Python!</span><br>
+            print(<span class="text-danger">a</span>)<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; Global variable - Python!</span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.2</strong>: Python - <strong>Global Keyword</strong></div>
+        <ul>
+            <li><p class="p-color p-size "><span class="text-danger font-weight-bold">global</span> keyword is used to
+                inform that any
+                change will
+                occur at that specified global variable.</p></li>
+        </ul>
+
+        <p class="command p-color mb-3">
+            <span class="text-danger">a</span> = " Hello! "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>global variable</em></span><br><br>
+            def <span class="text-info">abc</span>( ):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">global</span> a <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">a</span> = " Bye! "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>local variable overrides global variable</em></span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">a</span>)<br><br>
+            <span class="text-info">abc</span>( ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; Bye!</span><br>
+            print(<span class="text-danger">a</span>)<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; Bye!</span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 3.1</strong>: Python - <strong>Local Variable</strong></div>
+        <ul>
+            <li>
+                <p class="p-color p-size">In this example, <span class="text-danger font-weight-bold">a</span> is
+                    considered as a global variable, since
+                    it was declared <em>outside</em> the function. </p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            def <span class="text-info">abc</span>( ):<br>
+            <span class="text-danger">a</span> = " Hello World! "<span class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>local variable</em></span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">a</span>)<br>
+            <span class="text-info">abc</span>( ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; Hello World!</span><br>
+
+        </p>
+        <ul>
+            <li>
+                <p class="p-color p-size">Since <span class="text-danger font-weight-bold">a</span>
+                    is declared only inside the function, you can use it only inside the function block, otherwise
+                    <strong>NameError</strong> raises.
+                </p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            def <span class="text-info">abc</span>( ):<br>
+            <span class="text-danger">a</span> = " Hello World! "<span class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>local variable</em></span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">a</span>)<br><br>
+            print(<span class="text-danger">a</span>)<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; NameError: name 'a' is not defined   </span><br>
+
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 3.2</strong>: Global vs Local variable</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size"><strong>Global variable </strong> - accessible inside and outside the
+                    function.</p>
+            </li>
+            <li>
+                <p class="p-color p-size"><strong>Local variable </strong> - accessible only inside the function.</p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            <span class="text-danger">a</span> = " hi "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>global variable</em></span><br>
+            def <span class="text-info">abc</span>( ):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">a</span> = " hello "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>local variable</em></span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">a</span>)<br><br>
+            <span class="text-info">abc</span>( ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; hello</span><br>
+            print(<span class="text-danger">a</span>)<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; hi</span><br>
+        </p>
+
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size"><strong><span class="text-danger">globals</span>( ).keys( )</strong> -
+                    displays
+                    all global variables.</p>
+            </li>
+            <li>
+                <p class="p-color p-size"><strong><span class="text-danger">locals</span>( ).keys( )</strong> - displays
+                    all
+                    local variables.</p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            <span class="text-danger">a</span> = " hi "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>global variable</em></span><br>
+            def <span class="text-info">abc</span>( ):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">a</span> = " hello "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>local variable</em></span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">globals</span>( ).keys( ))<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; shows a list of all global variables</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">locals</span>( ).keys( ))<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; shows a list of all local variables</span><br>
+        </p>
+        <p class="command p-color mb-3">
+            <span class="text-danger">a</span> = " hi "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>global variable</em></span><br>
+            def <span class="text-info">abc</span>( ):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">a</span> = " hello "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>local variable</em></span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">globals</span>( ).['a'])<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; hi</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">locals</span>( ).['a'])<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; hello</span><br>
+        </p>
+        <p class="command p-color mb-3">
+            <span class="text-danger">a</span> = " hi "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>global variable</em></span><br>
+            def <span class="text-info">abc</span>( ):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">b</span> = " hello "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>local variable</em></span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">a</span> in <span class="text-danger">globals</span>(
+            ).keys( ))<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; True</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">b</span> not in <span
+                class="text-danger">locals</span>( ).keys( ))<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; False</span><br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 4.1</strong>: Python - <strong>Nonlocal Variable</strong></div>
+        <ul>
+            <li>
+                <p class="p-color p-size"><span class="text-danger font-weight-bold">Nonlocal variables</span> are only used in nested
+                    functions, where a variable is neither in the local nor the global scope.</p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            def <span class="text-info">abc</span>( ):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">a</span> = " hi "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>local variable</em></span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;def <span class="text-info">ab</span>( ):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+                class="text-danger">nonlocal </span> a<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="text-danger">a</span>
+            = " hello "<span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Nonlocal variable</em></span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print(<span
+                class="text-danger">a</span>)
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">ab</span>(
+            ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; hello</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print(<span class="text-danger">a</span>)<br><br>
+            <span class="text-info">abc</span>( ) <span
+                class="text-secondary">&nbsp;&nbsp; &nbsp; #&nbsp;&nbsp; &nbsp;<em>Output:</em>&nbsp; &nbsp; hello</span>
+
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 5.1</strong>: <strong>Summary</strong></div>
+        <ul>
+            <li>
+                <p class="p-color p-size"><strong><span class="text-danger">global</span> a</strong> : meaning that it's
+                    referencing to a global variable.</p>
+            </li>
+            <li>
+                <p class="p-color p-size"><strong><span class="text-danger">nonlocal</span> a</strong> : meaning that
+                    it's referencing to a nonlocal variable (only used in nested functions). </p>
+            </li>
+            <li>
+                <p class="p-color p-size"><strong><span class="text-danger">Local variable</span> </strong> : if
+                    variable is declared inside the function.</p>
+            </li>
+        </ul>
+
+        <br>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_operator' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_if_elif_else' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

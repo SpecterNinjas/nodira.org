@@ -1,0 +1,409 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Conditions</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_local_global' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_loop' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python <strong>Conditions</strong></div>
+        <p class="p-color p-size ml-3">Basically, python uses <span class="text-danger">if</span>, <span class="text-danger">elif</span>
+            and <span class="text-danger">else</span> statements to create conditions.</p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: If Statement</div>
+        <ul>
+            <li>
+                <p class="p-color p-size">The body of <span class="text-danger">if</span> statement needs to be
+                    indented. </p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            age = <span class="text-danger">10</span><br>
+            <span class="text-danger">if</span> age < <span class="text-danger">18</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ("You are still kid.")
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; Don't forget indentation</em></span>
+            <br>
+        </p>
+        <ul>
+            <li>
+                <p class="p-color p-size">Error raises when you forget to indent the body of if statement. </p>
+            </li>
+            <li>
+                <p class="p-color p-size">In general, many programming languages (C/C++, Java) uses curly braces { } to
+                    define its contents. But, python breaks this golden rule and uses indentation instead. </p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            age = <span class="text-danger">10</span><br>
+            <span class="text-danger">if</span> age < <span class="text-danger">18</span>:<br>
+            <span class="text-danger">print</span> ("You are still kid.")
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; IndentationError: expected an indented block</em></span>
+            <br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.2</strong>: Elif Statement</div>
+        <ul>
+            <li>
+                <p class="p-color p-size">The body of <span class="text-danger">elif</span> statement also needs to be
+                    indented. </p>
+            </li>
+            <li>
+                <p class="p-color p-size">Some programming languages like (C/C++, Java) call this statement as <span
+                        class="text-danger">else if</span> statement. But, in python this has been renamed as <span
+                        class="text-danger">elif</span> statement.</p>
+
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            age = <span class="text-danger">10</span><br>
+            <span class="text-danger">if</span> age < <span class="text-danger">18</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("You are still kid.")
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; Don't forget indentation</em></span>
+            <br>
+            <span class="text-danger">elif</span> age == <span class="text-danger">18</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("You'r exactly 18 years old.")
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; Don't forget indentation</em></span>
+            <br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.3</strong>: Else Statement</div>
+        <ul>
+            <li>
+                <p class="p-color p-size">The body of <span class="text-danger">else</span> statement also needs to be
+                    indented. </p>
+            </li>
+            <li>
+                <p class="p-color p-size"><span class="text-danger">else</span> statement doesn't accepts any condition.
+                    It'll get the opposite condition of <span class="text-danger">if</span> statement.</p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            age = <span class="text-danger">10</span><br>
+            <span class="text-danger">if</span> age < <span class="text-danger">18</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("You are still kid.")
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; Don't forget indentation</em></span>
+            <br>
+            <span class="text-danger">else</span>:<span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; age >= 18 </em></span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("You are mature, that's cool:)")
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; Don't forget indentation</em></span>
+            <br>
+        </p>
+        <hr>
+        <p class="command p-color mb-3">
+            age = <span class="text-danger">10</span><br>
+            <span class="text-danger">if</span> age < <span class="text-danger">18</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("You are still kid.")
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; Don't forget indentation</em></span>
+            <br>
+            <span class="text-danger">elif</span> age == <span class="text-danger">18</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("You'r exactly 18 years old.")
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; Don't forget indentation</em></span>
+            <br>
+            <span class="text-danger">else</span>:<span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; age > 18 </em></span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("You are mature, that's cool:)")
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; Don't forget indentation</em></span>
+            <br>
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.4</strong>: Nested if/else statements</div>
+        <ul>
+            <li>
+                <p class="p-color p-size"><em><span class="text-danger">Nested if/else statements</span></em> - if
+                    condition is given under certain condition. Simply, if you provide <span
+                            class="text-danger">if/else</span> statement inside another <span class="text-danger">if/else</span>
+                    statement, this means you have used so called <em><strong>Nested if/else conditions</strong></em>.
+                </p>
+            </li>
+
+        </ul>
+        <p class="command p-color mb-3">
+            age = <span class="text-danger">15</span><br>
+            <span class="text-danger">if</span> age < <span class="text-danger">18</span>:<br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">if</span> age > <span class="text-danger">10</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("You're between 10 and
+            18")
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; Don't forget indentation</em></span>
+            <br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">else</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("Your age is less than
+            10")
+
+            <br>
+
+            <span class="text-danger">else</span>:<span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; age >= 18 </em></span><br>
+
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">if</span> age < <span class="text-danger">50</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("You're between 18 and
+            50")<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">else</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("Your age 50+")
+
+        </p>
+
+
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 3.1</strong>: Inline Conditional Statements</div>
+        <ul>
+            <li>
+                <p class="p-color p-size"><em>Inline Conditional Statement </em> - widely used in many languages. This
+                    feature can only be used when the body of conditional statements consists of a single line code.
+                </p>
+            </li>
+            <li>
+                <p class="p-color p-size"> if the body of <span class="text-danger">if</span>, <span
+                        class="text-danger">elif</span>
+                    or <span class="text-danger">else</span> statements only consist of 1 line of code, then you don't
+                    need indentation and their condition needs to added next to them.
+                </p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            age = <span class="text-danger">10</span><br>
+            <span class="text-danger">if</span> age < <span class="text-danger">18</span>:
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("You are still kid.")
+            <br>
+            <span class="text-danger">elif</span> age == <span class="text-danger">18</span>:
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("You'r exactly 18 years old.")
+            <br>
+            <span class="text-danger">else</span>:
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-info">print</span> ("You are mature, that's cool:)")
+            <br>
+        </p>
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 4.1</strong>: The Ternary Expression</div>
+        <ul>
+            <li>
+                <p class="p-color p-size"><em>The Ternary Expression </em> - like Inline Conditional Statements
+                    can only be used when the body of conditional statements consists of a single line code.
+                </p>
+            </li>
+            <li>
+                <p class="p-color p-size"> The syntax of Ternary Expression might seem a little bit weird, but can be
+                    really helpful.</p>
+                <span class="text-danger font-weight-bold">Syntax</span><strong> : </strong> <span
+                    style="padding: 3px;border-radius: 4px; border: 1px solid lightslategrey; ">condition_if_true <strong>if</strong> condition <strong>else</strong> condition_if_false</span>
+            </li>
+
+        </ul>
+        <p class="command p-color mb-3">
+            age = <span class="text-danger">10</span><br>
+            <span class="text-info">print</span> ("You are still kid")&nbsp;&nbsp; <span class="text-danger">if</span> age
+            < <span class="text-danger">18</span>
+
+            <span class="text-danger">&nbsp;&nbsp;else</span>
+            &nbsp;<span class="text-info">print</span> ("You are mature, that's cool:)")
+            <br>
+        </p>
+
+        <ul>
+            <li>
+                <p class="p-color p-size">As we said, syntax might be weird and sometimes confusing. So let's start one
+                    by one.</p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            <em> <span class="text-secondary"># &nbsp;&nbsp;if statement</span></em><br>
+            age = <span class="text-danger">10</span><br>
+            <span class="text-info">print</span> ("You are still kid.")<span class="text-danger pl-2">if</span> age <
+            <span class="text-danger">18</span><br>
+        </p>
+        <hr>
+        <p class="command p-color mb-3">
+            <em> <span class="text-secondary"># &nbsp;&nbsp;if/else statement</span></em><br>
+            age = <span class="text-danger">10</span><br>
+            <span class="text-info">print</span> ("Less than 10")<span class="text-danger pl-2">if</span> age <
+            <span class="text-danger">18</span><span class="text-danger pl-2">else</span>
+            <span class="text-info">print</span> ("Higher or equal to 10")<br>
+        </p>
+        <ul class="my-3">
+            <li>
+                <p class="p-color p-size"><em>The if/else statements</em> can also be written as <span
+                        class="text-danger">nested ternary operators</span>, but
+                    make sure that the body of if/else statement consists of <strong><em>a single line of
+                        code</em></strong>.</p>
+            </li>
+            <li>
+                <p class="p-color p-size"><strong>Intentionally</strong>, we didn't provide the <em>syntax of nested
+                    ternary operators</em>,
+                    because it is too long and more confusing. It's much better and easy to understand the syntax in
+                    practise.</p>
+            </li>
+        </ul>
+        <p class="command p-color mb-3">
+            <em> <span class="text-secondary"># &nbsp;&nbsp;nested ternary operator</span></em><br>
+            a = <span class="text-danger">10</span><br>
+            <span class="text-info">print</span> ("Less than 18")<span class="text-danger pl-2">if</span> a <
+            <span class="text-danger">18</span><span class="text-danger pl-2">else&nbsp;</span>
+            <span class="text-info">print</span> ("Between 18 and 50")<span class="text-danger pl-2">if</span> a <
+            <span class="text-danger">50</span><span class="text-danger pl-2">else &nbsp;</span> <span
+                class="text-info">print</span> ("Higher than 50")<br>
+        </p>
+
+        <p class="p-color p-size font-weight-bold font-italic ml-3">Detailed step by step explanation of nested ternary operators:</p>
+        <ol class="ml-3">
+            <li>
+                <p class="p-color p-size">Checks if <span class="text-danger font-weight-bold">a</span> is less than 18, simply prints <em><strong>"Less than 18"</strong></em></p>
+        </li>
+        <li>
+            <p class="p-color p-size">if <span class="text-danger font-weight-bold">a</span> is higher or equal to 18, it'll start checking 2 conditions</p>
+        </li>
+            <li>
+                <p class="p-color p-size">if <span class="text-danger font-weight-bold">a</span> is less than 50, prints <em><strong>"Between 18 and 50"</strong></em></p>
+        </li>
+            <li>
+                <p class="p-color p-size">if <span class="text-danger font-weight-bold">a</span> is higher or equal to 50, prints <em><strong>"Higher than 50"</strong></em></p>
+        </li>
+        </ol>
+        <br>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_local_global' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_loop' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+
+    </div>
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

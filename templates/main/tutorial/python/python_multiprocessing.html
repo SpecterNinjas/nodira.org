@@ -1,0 +1,319 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: 0.9em;
+            font-weight: 500;
+
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Multiprocessing</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_hints' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_multithreading' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Multiprocessing Overview</div>
+        <p class="p-color p-size pl-3">
+            This section focuses on <span class="text-danger font-weight-bold">Python Multiprocessing</span> and how to
+            implement in Python projects.
+        </p>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">Multiprocessing </span> is a feature that allows a <span
+                class="text-dark font-weight-bold">computer</span>
+            has more than one processing engine combined with an operating system that is capable of dispatching work on
+            them such that a <span class="text-dark font-weight-bold">computer</span> is actually executing more than
+            one machine instruction at the same instant in
+            time.</p>
+        <p class="p-color p-size pl-3">
+            Let's do some practice and learn about <span
+                class="text-dark font-weight-bold"> Python Multiprocessing </span>
+            and how to implement & understand them on a deep level.
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Python Multiprocessing - Pool</div>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">Pool</span> object which offers a convenient means of
+            parallelizing the execution of a function across multiple input values, distributing the input data across
+            processes (data parallelism) : </p>
+
+        <p class="command p-size my-3">
+            from &nbsp;&nbsp; <span class="text-info">multiprocessing</span>&nbsp;&nbsp; import&nbsp;&nbsp; <span
+                class="text-danger">Pool</span>
+            <br>
+
+            <span class="text-danger">def &nbsp;&nbsp;</span> func ( <span class="text-info">x</span> ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">return</span>&nbsp;&nbsp; x + 2 <br>
+            <br>
+            <span class="text-danger">if</span>&nbsp;&nbsp; <span class="text-info">__name__</span> &nbsp;==&nbsp;
+            '__main__' :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">with</span>&nbsp;&nbsp; Pool ( 5 )&nbsp;&nbsp; <span
+                class="text-danger">as</span>&nbsp;&nbsp;
+            p :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span>&nbsp; ( p.<span
+                class="text-success">map</span> ( func , [ <span
+                class="text-danger">1</span> , <span class="text-danger">2</span> , <span class="text-danger">3</span> ]
+            ) )<br>
+        </p>
+        <p class="p-color p-size pl-3">
+            By allowing a computer has more than one processing engine to execute this code, we obtain :
+        </p>
+        <p class="command p-size my-3">
+            <span class="text-secondary"># &nbsp;&nbsp; Output:&nbsp;&nbsp;<span class="text-dark font-weight-bold">  [ 3 , 4 , 5 ]</span></span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.2</strong>: Python Multiprocessing - Process</div>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">Process </span> object provides activity that is run in a
+            separate process.
+            <br>
+            <span class="text-danger font-weight-bold">Process</span> object provides <span
+                class="text-dark font-weight-bold">2</span> main functions for a trivial example of multiprocessing :
+        </p>
+
+
+        <p class="command p-size my-3">
+            from &nbsp;&nbsp; <span class="text-info">multiprocessing</span>&nbsp;&nbsp; import&nbsp;&nbsp; <span
+                class="text-danger">Process</span>
+            <br>
+
+            <span class="text-danger">def &nbsp;&nbsp;</span> func ( name ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">return</span>&nbsp;&nbsp; "Hello " + <span
+                class="text-danger">str </span> ( name ) <br>
+            <br>
+            <span class="text-danger">if</span>&nbsp;&nbsp; <span class="text-info">__name__</span> &nbsp;==&nbsp;
+            '__main__' :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;p &nbsp;=&nbsp; <span class="text-danger">Process</span> ( <span
+                class="text-success">target</span> &nbsp;=&nbsp;
+            func , <span class="text-success">args</span> &nbsp;=&nbsp; ( <span class="text-info">"James"</span> , <span
+                class="text-info">"Selena"</span> , <span class="text-info">"John"</span> ) )<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;p.<span class="text-danger">start</span> ( &nbsp;) <span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;starts the process's activity </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;p.<span class="text-danger">join</span> ( &nbsp;)<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;allows processes to join </span><br>
+        </p>
+
+
+        <hr>
+        <div class="h5 text-info my-3 text-capitalize"><strong>Section 2.3</strong>: Exchanging objects between
+            processes
+        </div>
+        <div class="h5 text-info my-3">Queues</div>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">Queue</span> - a kind of abstract data type called as
+            <span class="text-dark font-weight-bold">First-In-First-Out</span> (FIFO) data structure meaning that the
+            element that enters the queue first , leaves the
+            queue first while deleting the elements in the queue. </p>
+        <p class="command p-size my-3">
+            from &nbsp;&nbsp; <span class="text-info">multiprocessing</span>&nbsp;&nbsp; import&nbsp;&nbsp; <span
+                class="text-danger">Process</span> , <span class="text-danger">Queue</span>
+            <br>
+
+            <span class="text-danger">def &nbsp;&nbsp;</span> func ( names ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;names.<span class="text-danger">put </span> ( [ <span
+                class="text-info">'James'</span> , <span class="text-info">'Alex'</span> , <span class="text-info">'Selena'</span>
+            ] )<br>
+            <br>
+            <span class="text-danger">if</span>&nbsp;&nbsp; <span class="text-info">__name__</span> &nbsp;==&nbsp;
+            '__main__' :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;names &nbsp;=&nbsp; <span class="text-danger">Queue</span> ( &nbsp;)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;process &nbsp;=&nbsp; <span class="text-danger">Process</span> ( <span
+                class="text-success">target</span> &nbsp;=&nbsp;
+            func , <span class="text-success">args</span> &nbsp;=&nbsp; ( names , ) )<br>
+
+
+            &nbsp;&nbsp;&nbsp;&nbsp;process.<span class="text-danger">start</span> ( &nbsp;) <span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;starts the process's activity </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( names.<span class="text-danger">get</span>
+            ( &nbsp;) ) <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;[ 'James' , 'Alex' , 'Selena' ]</span>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;process.<span class="text-danger">join</span> ( &nbsp;)<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;allows processes to join </span><br>
+        </p>
+        <div class="h5 text-info my-3">Pipes</div>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">Pipes</span> - a technique for passing information from one
+            program process to another. Unlike other forms of <span class="text-dark font-weight-bold">interprocess communication</span>
+            (IPC), it is one-way
+            communication only. </p>
+        <p class="command p-size my-3">
+            from &nbsp;&nbsp; <span class="text-info">multiprocessing</span>&nbsp;&nbsp; import&nbsp;&nbsp; <span
+                class="text-danger">Process</span> , <span class="text-danger">Pipe</span>
+            <br>
+
+            <span class="text-danger">def &nbsp;&nbsp;</span> func ( names ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;names.<span class="text-danger">send </span> ( [ <span
+                class="text-info">'James'</span> , <span class="text-info">'Alex'</span> , <span class="text-info">'Selena'</span>
+            ] )<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;names.<span class="text-danger">close </span> (&nbsp; )<br>
+            <br>
+            <span class="text-danger">if</span>&nbsp;&nbsp; <span class="text-info">__name__</span> &nbsp;==&nbsp;
+            '__main__' :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;first , last &nbsp;=&nbsp; <span class="text-danger">Pipe</span> ( &nbsp;)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;process &nbsp;=&nbsp; <span class="text-danger">Process</span> ( <span
+                class="text-success">target</span> &nbsp;=&nbsp;
+            func , <span class="text-success">args</span> &nbsp;=&nbsp; ( last , ) )<br>
+
+
+            &nbsp;&nbsp;&nbsp;&nbsp;process.<span class="text-danger">start</span> ( &nbsp;) <span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;starts the process's activity </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( first.<span class="text-danger">recv</span>
+            ( &nbsp;) ) <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;[ 'James' , 'Alex' , 'Selena' ]</span>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;process.<span class="text-danger">join</span> ( &nbsp;)<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp;allows processes to join </span><br>
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 3.1</strong>: Multiprocessing Conclusion</div>
+        <p class="p-color p-size pl-3 my-3">
+            In Python <span class="text-danger font-weight-bold">Multiprocessing</span> is easy to write and
+            understand because every process is on its own. A crash in one process does not affect other processes. </p>
+        <div class="h5 text-info my-3">Advantages of Multiprocessing</div>
+        <ul>
+            <li><p class="p-color p-size pl-3 my-3">Easy to understand & implement in your Python programs.</p></li>
+            <li><p class="p-color p-size pl-3 my-3">Process Parallelism can be achieved by the kernel through scheduling
+                all the processes simultaneously. </p></li>
+            <li><p class="p-color p-size pl-3 my-3">Creating several processes can consume time and even exhaust the system resources.</p></li>
+        </ul>
+        <div class="h5 text-info my-3">Disadvantages of Multiprocessing</div>
+        <ul>
+            <li><p class="p-color p-size pl-3 my-3">Sometimes it might slower the program speed, because switching
+                between processes makes it much slower comparatively. </p>
+            </li>
+            <li><p class="p-color p-size pl-3 my-3">Hard to maintain, whereas in new scenarios you need write more and
+                more new logical algorithms.</p></li>
+            <li><p class="p-color p-size pl-3 my-3">In some scenarios, it requires lots of effort to debug the code, especially in big projects.</p></li>
+        </ul>
+<br>
+          <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_hints' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_multithreading' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

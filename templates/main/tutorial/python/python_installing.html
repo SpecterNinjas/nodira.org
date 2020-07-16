@@ -1,0 +1,412 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 10px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+    <h2 class="text-center body-color font-italic">Installing Python!</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python' %}"
+                                          target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:data_types' %}"
+                                          target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Installing Python Overview</div>
+
+        <p class="p-color p-size ml-3">Nowadays, installing Python is quite easy, and many Linux and UNIX distributions
+            include a
+            recent
+            Python. Even some Windows computers (notably those from HP) now come with Python already installed. </p>
+        <p class="p-color p-size ml-3">Currently, global enterprises are widely using <span
+                class="text-danger font-weight-bold">2</span> main versions
+            of
+            Python:</p>
+
+        <div class="row ml-3">
+            <div class="col-md-6">
+                <p class="p-color p-size"><strong>Python 3.x</strong> - new version and under active development</p>
+                <p class="p-color p-size"><strong>Python 2.x</strong> - old version with low security updates</p>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <ul class="python-version list-unstyled">
+                    <li class="body-color"><strong>Python 3.x all versions:</strong></li>
+                    <li><a href="https://www.python.org/downloads/release/python-370/">3.7&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2018-06-27</span></a>
+                    </li>
+                    <li><a href="https://www.python.org/downloads/release/python-360/">3.6&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2016-12-23</span></a>
+                    </li>
+                    <li><a href="https://www.python.org/downloads/release/python-350/">3.5&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2015-09-13</span></a>
+                    </li>
+                    <li><a href="https://www.python.org/download/releases/3.4.0/">3.4&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2014-03-17</span></a></li>
+                    <li><a href="https://www.python.org/download/releases/3.3.0/">3.3&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2012-09-29</span></a></li>
+                    <li><a href="https://www.python.org/download/releases/3.2/">3.2&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2011-02-20</span></a></li>
+                    <li><a href="https://www.python.org/download/releases/3.1/">3.1&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2009-06-26</span></a></li>
+                    <li><a href="https://www.python.org/download/releases/3.0/">3.0&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2008-12-03</span></a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <ul class="python-version list-unstyled">
+                    <li class="body-color"><strong>Python 2.x all versions:</strong></li>
+                    <li><a href="https://www.python.org/download/releases/2.7/">2.7&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2010-07-03</span></a></li>
+                    <li><a href="https://www.python.org/download/releases/2.6/">2.6&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2008-10-02</span></a></li>
+                    <li><a href="https://www.python.org/download/releases/2.5/">2.5&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2006-09-19</span></a></li>
+                    <li><a href="https://www.python.org/download/releases/2.4/">2.4&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2004-11-30</span></a></li>
+                    <li><a href="https://www.python.org/download/releases/2.3/">2.3&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2003-07-29</span></a></li>
+                    <li><a href="https://www.python.org/download/releases/2.2/">2.2&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2001-12-21</span></a></li>
+                    <li><a href="https://www.python.org/download/releases/2.1/">2.1&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2001-04-15</span></a></li>
+                    <li><a href="https://www.python.org/download/releases/2.0/">2.0&nbsp;&nbsp;&nbsp; <span
+                            class="text-dark">2000-10-16</span></a></li>
+
+                </ul>
+            </div>
+        </div>
+        <p class="p-color p-size ml-3">You can download and install either version of Python <a
+                href="https://www.python.org/downloads/">here</a> . See Python 3 vs. Python 2 for a comparison between
+            them. In addition, some third-parties offer re-packaged versions of Python that add commonly used libraries
+            and
+            other features to ease setup for common use cases, such as math, data analysis or scientiﬁc use. See the
+            list at
+            the <a href="https://www.python.org/download/alternatives/">official site</a>.</p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.2</strong>: How to know whether Python is installed or not ?!
+        </div>
+
+        <p class="p-color p-size ml-3">
+            To verify that Python was installed correctly, you just need open your terminal and run below mentioned
+            command
+            :</p>
+        <p class="command p-color">$ &nbsp; python&nbsp; <span class="text-danger">--version</span></p>
+        <hr>
+        <p class="h4">Output:</p>
+        <p class="p-color p-size my-3">Your output needs to be either :</p>
+        <div class="row">
+            <div class="col-md-6"><p class="command">$ &nbsp; python&nbsp; <span class="text-danger">--version</span>
+                <br><span class="text-info">Python 3.6.0 </span></p></div>
+            <div class="col-md-6"><p class="command">$ &nbsp; python&nbsp; <span
+                    class="text-danger">--version</span><br><span class="text-info">Python 2.7.13</span></p>
+            </div>
+        </div>
+
+
+        <p class="p-color p-size my-3 ml-3">Based on the version you have installed, your output will be one of
+            this.</p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.3</strong>: How to upgrade Python 2.x to Python 3.x ?</div>
+
+        <p class="p-color p-size ml-3">Every minor version of Python, that is any 3.x and 2.x version, will install
+            side-by-side
+            with
+            other versions on
+            your computer. Only patch versions will upgrade existing installations <br><br>
+
+            So if you want to keep your installed Python 2.7 around, then just let it and install a new version using
+            the
+            installer. If you want to get rid of Python 2.7, you can uninstall it before or after installing a newer
+            version—there is no difference to this.</p>
+
+        <p class="p-color p-size ml-3">Using the launcher, you can also run Python 2 scripts ( which are often syntax
+            incompatible
+            to
+            Python 3 ), if you
+            decide to keep your Python 2.7 installation. Just use <span class="command text-dark">py -2 script.py</span>
+            to
+            launch
+            a
+            script.</p>
+        <hr>
+        <p class="p-color p-size ml-3 my-3">
+            As for PyPI packages, every Python installation comes with its own folder where modules are installed into.
+            So
+            if you install a new version and you want to use modules you installed for a previous version, you will have
+            to
+            install them first for the new version. Current versions of the installer also offer you to <strong>install
+            pip</strong>; it’s
+            enabled by default, so you already have pip for every installation. Unless you explicitly add a Python
+            installation to the PATH, you cannot just use pip though. Luckily, you can also simply use the
+            <span><strong>py.exe</strong></span>
+            launcher
+            for this: <span class="command text-dark">py&nbsp; -m&nbsp; pip&nbsp; runs&nbsp; pip</span>.</p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Installing PIP</div>
+
+        <p class="p-color p-size ml-3">You might wonder why we need PIP package ?&nbsp;<a data-toggle="tooltip"
+                                                                                          data-placement="bottom"
+                                                                                          title="Go to our section"
+                                                                                          href="{% url 'main:python_pip' %}">Learn
+            more</a><br>
+            Well, PIP is python package which is intended to install other python packages. But, first we need to <span><a
+                    href="#install_pip">install pip</a></span>.</p>
+
+        <p class="p-color p-size ml-3 my-3">To install the latest version of "SomeProject" : <span
+                class="command text-dark">pip&nbsp; <span class="text-danger">install</span>&nbsp; "SomeProject"</span>
+        </p>
+
+        <p class="p-color p-size ml-3 my-3">To install a specific version : <span
+                class="command text-dark">pip&nbsp; <span class="text-danger">install</span>&nbsp; "SomeProject &nbsp;==&nbsp; 1.4"</span>
+        </p>
+
+        <p id="install_pip" class="p-color p-size ml-3 my-3">To install greater than or equal to one version and less
+            than
+            another :
+            <span class="command text-dark">pip&nbsp; <span class="text-danger">install</span>&nbsp; "SomeProject&nbsp; >=&nbsp; 1.2"</span>
+        </p>
+
+        <p class="p-color p-size ml-3 my-3">To install a version that’s <a
+                href="https://www.python.org/dev/peps/pep-0440#compatible-release">“compatible”</a> with a certain
+            version :
+            <span class="command text-dark">pip&nbsp; <span class="text-danger">install</span>&nbsp; "SomeProject&nbsp; ~=&nbsp; 1.4.2"</span>
+        </p>
+
+        <p class="p-color p-size ml-3 my-3">In this case, this means to install any version "==1.4.*" version that’s
+            also
+            ">=1.4.2".</p>
+        <p class="p-color p-size ml-3 my-3">
+            Once you’ve confirmed that Python is correctly installed, you can proceed with installing Pip.
+        </p>
+        <ol class="my-3 ml-3">
+            <li>Download <a href="https://bootstrap.pypa.io/get-pip.py">get-pip.py</a> to a folder on your computer.
+            </li>
+            <li>Open a command prompt and navigate to the folder containing get-pip.py</li>
+            <li>Run the following command: <span class="command text-dark">python&nbsp; get-pip.py</span></li>
+            <li>Pip is successfully installed!</li>
+        </ol>
+        <p class="p-color p-size my-3 ml-3">You can verify that Pip was installed correctly through :
+
+            <span class="command text-dark">pip&nbsp; -V</span></p>
+        <h5 class="my-3 ml-3">Output :</h5>
+        <p class="command ml-3"><span class="text-danger">pip</span>&nbsp; 18.0&nbsp; <span
+                class="text-danger">from</span>
+            <br>
+            c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\pip (python 3.7)</p>
+        <hr>
+        <p class="p-color p-size my-3 ml-3">Now that Pip is installed and configured, you can begin using it to manage
+            your
+            Python
+            packages. For a brief
+            overview of the available commands and syntax for Pip, open a command prompt and enter : <span
+                    class="command text-dark">pip&nbsp; <span class="text-danger">help</span></span>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.2</strong>: Installing Python - Key Terms</div>
+
+        <ul class="my-3">
+            <li><p class="p-color p-size my-3 ml-3"><code>pip</code> is the preferred installer program. Starting with
+                Python 3.4, it is included by default
+                with the Python
+                binary installers.</p>
+            </li>
+            <li><p class="p-color p-size my-3 ml-3">A <em>virtual environment</em> is a semi-isolated Python environment
+                that allows packages to be
+                installed
+                for use by
+                a particular application, rather than being installed system wide.</p>
+            </li>
+            <li><p class="p-color p-size my-3 ml-3"><code>venv</code> is the standard tool for creating virtual
+                environments, and has been part of Python
+                since
+                Python 3.3.
+                Starting with Python 3.4, it defaults to installing <code>pip</code> into all created virtual
+                environments.</p>
+            </li>
+            <li><p class="p-color p-size my-3 ml-3"><code>virtualenv</code> is a third party alternative (and
+                predecessor)
+                to <code>venv</code>. It allows
+                virtual environments to be used
+                on versions of Python prior to 3.4, which either don’t provide <code>venv</code> at all, or aren’t able
+                to
+                automatically
+                install <code>pip</code> into created environments.</p>
+            </li>
+            <li><p class="p-color p-size my-3 ml-3">The <a href="https://pypi.org/">Python Packaging Index</a> is a
+                public
+                repository of open source
+                licensed
+                packages made available for use by
+                other Python users.</p>
+            </li>
+            <li><p class="p-color p-size my-3 ml-3">The <a href="https://www.pypa.io/">Python Packaging Authority</a> is
+                the
+                group of developers and
+                documentation authors responsible for the
+                maintenance and evolution of the standard packaging tools and the associated metadata and file format
+                standards. They maintain a variety of tools, documentation, and issue trackers on both <a
+                        href="https://github.com/pypa">GitHub</a> and
+                <a href="https://bitbucket.org/pypa/">Bitbucket</a>. </p>
+            </li>
+            <li><p class="p-color p-size my-3 ml-3"><code>distutils</code> is the original build and distribution system
+                first added to the Python standard
+                library in 1998.
+                While direct use of <code>distutils</code> is being phased out, it still laid the foundation for the
+                current
+                packaging
+                and distribution infrastructure, and it not only remains part of the standard library, but its name
+                lives on
+                in other ways ( such as the name of the mailing list used to coordinate Python packaging standards
+                development ).</p>
+            </li>
+        </ul>
+        <br>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python' %}"
+                                          target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:data_types' %}"
+                                          target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========================
+                 Schedule Section
+               ============================-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;">
+                        <!-- add the button! -->
+
+                    </p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--END OF CONTENT -->
+
+
+
+
+
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

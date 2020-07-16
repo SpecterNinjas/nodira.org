@@ -1,0 +1,536 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Array</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_loop' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_i&o' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Array Overview</div>
+        <p class="p-color p-size ml-3">An <span class="text-danger">array</span> is a data structure that stores values of
+            same
+            data type. In Python, this is the main difference between arrays and lists.</p>
+        <p class="p-color p-size ml-3">While python <span class="text-danger">lists</span> can contain values corresponding
+            to different data types, <span class="text-danger">arrays</span> in
+            python can only contain
+            values corresponding to same data type. In this section, we will understand the <span class="text-danger">Python arrays</span>
+            with few
+            examples.</p>
+        <p class="command p-color">
+            <span class="text-danger">from</span> &nbsp;array&nbsp; <span class="text-danger">&nbsp;import&nbsp;</span>
+            &nbsp;*
+        </p>
+        <ul class="mt-3">
+            <li><p class="p-color p-size mt-2">Once we defined our library for using <span
+                    class="text-danger">array</span>, here is syntax:</p>
+            </li>
+        </ul>
+        <p class="command p-color">
+            <span
+                class="text-info">array_name&nbsp;</span> =&nbsp; <span class="text-danger">array</span> <span class="text-dark">(&nbsp;<em>parameter</em>&nbsp;, &nbsp;<em>iterable</em>&nbsp;)</span>
+
+        </p>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered ">
+                <thead>
+                <tr>
+
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    <td><span class="text-danger">b</span></td>
+                    <td><span class="text-dark">Represents signed integer of size 1 byte</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">B</span></td>
+                    <td><span class="text-dark">Represents unsigned integer of size 1 byte</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">c</span></td>
+                    <td><span class="text-dark">Represents character of size 1 byte</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">u</span></td>
+                    <td><span class="text-dark">Represents unicode character of size 2 bytes</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">w</span></td>
+                    <td><span class="text-dark">Represents unicode character of size 4 bytes</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger serif">l</span></td>
+                    <td><span class="text-dark">Represents signed integer of size 4 bytes</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">L</span></td>
+                    <td><span class="text-dark">Represents unsigned integer of size 4 bytes</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">i</span></td>
+                    <td><span class="text-dark"> Represents signed integer of size 2 bytes</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger serif">I</span></td>
+                    <td><span class="text-dark">Represents unsigned integer of size 2 bytes</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">f</span></td>
+                    <td><span class="text-dark">Represents floating point of size 4 bytes</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">d</span></td>
+                    <td><span class="text-dark"> Represents floating point of size 8 bytes</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">h</span></td>
+                    <td><span class="text-dark">Represents signed integer of size 2 bytes</span></td>
+                </tr>
+                <tr>
+                    <td><span class="text-danger">H</span></td>
+                    <td><span class="text-dark">Represents unsigned integer of size 2 bytes</span></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="h5 text-info"><strong>Section 2.1</strong>: Accessing Array Elements</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2">Note that in arrays indexing starts with 0.</p>
+            </li>
+            <li>
+                <p class="p-color p-size mt-2"><strong><span class="text-danger">my_arr</span>[0]</strong> returns 1st
+                    element of an array, while <strong><span class="text-danger">my_arr</span>[-1]</strong> returns last
+                    element.</p>
+            </li>
+            <li>
+                <p class="p-color p-size mt-2"><strong><span class="text-danger">len</span>(my_arr)</strong> returns
+                    total number of elements of an array.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;array&nbsp; <span
+                class="text-danger">&nbsp;import&nbsp;</span>&nbsp; *<span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; importing array library  </em></span><br>
+            my_arr &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ 1 , 2 , 3 ] )<span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; ' i ' :&nbsp; Represents signed integer of size 2 bytes  </em></span><br>
+            <span class="text-danger">print</span> ( my_arr [ 0 ] ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 1  </em></span><br>
+            <span class="text-danger">print</span> ( my_arr [ 1 ] ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 2  </em></span><br>
+            <span class="text-danger">print</span> ( my_arr [ -1 ] ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 3  </em></span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">len</span> ( my_arr ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 3  </em></span>
+
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2">Accessing array elements using <span class="text-danger">loop</span>:</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;array&nbsp; <span
+                class="text-danger">&nbsp;import&nbsp;</span>&nbsp; *<span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; importing array library  </em></span><br>
+            my_arr &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ 1 , 2 , 3 ] )<span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; ' i ' :&nbsp; Represents signed integer of size 2 bytes  </em></span><br>
+            <span class="text-danger">for&nbsp;</span>&nbsp; x&nbsp; <span class="text-danger">&nbsp;in&nbsp;</span>&nbsp;
+            my_arr&nbsp;:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">print</span> ( my_arr [ x ] ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; Output:&nbsp;&nbsp; 1&nbsp; 2&nbsp; 3   </em></span><br>
+
+        </p>
+        <hr>
+        <div class="h5 text-info"><strong>Section 3.1</strong>: Appending Value To Array</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2">With the help of <strong><span class="text-danger">append</span>(
+                    )</strong>, you can add any value :</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;array&nbsp; <span
+                class="text-danger">&nbsp;import&nbsp;</span>&nbsp; *<span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; importing array library  </em></span><br>
+            my_arr &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ 1 , 2 , 3 ] )<span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; ' i ' :&nbsp; Represents signed integer of size 2 bytes  </em></span><br>
+            my_arr.<span class="text-danger">append</span>(6) <br>
+            <span class="text-danger">print</span> ( my_arr ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 1 , 2 , 3 , 6  </em></span>
+
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2">With the help of <strong><span class="text-danger">insert</span> (<span
+                        class="text-info">&nbsp;index&nbsp;</span>, value ),</strong> you can insert value on specified
+                    index:</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;array&nbsp; <span
+                class="text-danger">&nbsp;import&nbsp;</span>&nbsp; *<span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; importing array library  </em></span><br>
+            my_arr &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ 1 , 2 , 3 ] )<span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; ' i ' :&nbsp; Represents signed integer of size 2 bytes  </em></span><br>
+            my_arr.<span class="text-danger">insert</span> (&nbsp;1 , 5&nbsp;) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; inserts 5 to the index of 2  </em></span> <br>
+            <span class="text-danger">print</span> ( my_arr ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 1 , 5 , 2 , 3  </em></span>
+
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2">With the help of <strong><span class="text-danger">extend</span> (<span
+                        class="text-info">&nbsp;my_arr2&nbsp;</span>),</strong> you can merge 2 array elements.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;array&nbsp; <span
+                class="text-danger">&nbsp;import&nbsp;</span>&nbsp; *<br>
+            my_arr1 &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ 1 , 2 , 3 ] )<br>
+            my_arr2 &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ 4 , 5 , 6 ] )<br>
+            my_arr1.<span class="text-danger">extend</span> (&nbsp;my_arr2&nbsp;) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; Merges 2 arrays </em></span> <br>
+            <span class="text-danger">print</span> ( my_arr1 ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 1 , 2 , 3 , 4 , 5 , 6  </em></span>
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2">With the help of <strong><span class="text-danger">fromlist</span> (<span
+                        class="text-info">&nbsp;my_list&nbsp;</span>),</strong> you can merge list elements to the
+                    array.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;array&nbsp; <span
+                class="text-danger">&nbsp;import&nbsp;</span>&nbsp; *<br>
+            my_arr &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ 1 , 2 , 3 ] )<br>
+            my_list &nbsp;=&nbsp;[ 4 , 5 , 6 ] <br>
+            my_arr.<span class="text-danger">fromlist</span> (&nbsp;my_list&nbsp;) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; Merges list elements to array </em></span> <br>
+            <span class="text-danger">print</span> ( my_arr ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 1 , 2 , 3 , 4 , 5 , 6  </em></span>
+        </p>
+        <hr>
+        <div class="h5 text-info"><strong>Section 2.2</strong>: Removing Array Elements</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2">With the help of <strong><span class="text-danger">remove</span> (<span
+                        class="text-info">&nbsp;value&nbsp;</span>),</strong> you can remove specified value
+                    <from></from>
+                    array.
+                </p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;array&nbsp; <span
+                class="text-danger">&nbsp;import&nbsp;</span>&nbsp; *<br>
+            my_arr &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ 1 , 2 , 3 ] )<br>
+            my_arr.<span class="text-danger">remove</span>(2) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; removes 2 from the array  </em></span><br>
+            <span class="text-danger">print</span> ( my_arr ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 1 , 3   </em></span>
+
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2"><strong><span class="text-danger">pop</span> (
+                    )</strong> removes last element of an array.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;array&nbsp; <span
+                class="text-danger">&nbsp;import&nbsp;</span>&nbsp; *<br>
+            my_arr &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ 1 , 2 , 3 ] )<br>
+            my_arr.<span class="text-danger">pop</span>( ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; removes last element of an array  </em></span><br>
+            <span class="text-danger">print</span> ( my_arr ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 1 , 2   </em></span>
+
+        </p>
+        <hr>
+        <div class="h5 text-info"><strong>Section 3.1</strong>: Applying <strong>index( ) method</strong></div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2"><strong><span class="text-danger">index</span> (<span
+                        class="text-info">&nbsp;value&nbsp;</span>)</strong> returns the index position of a specified
+                    value from the array.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;array&nbsp; <span
+                class="text-danger">&nbsp;import&nbsp;</span>&nbsp; *<br>
+            my_arr &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ 1 , 2 , 3 ] )<br>
+            my_arr.<span class="text-danger">index</span>( &nbsp;3&nbsp; ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; returns the index position of 3  </em></span><br>
+            <span class="text-danger">print</span> ( my_arr ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 2   </em></span>
+
+        </p>
+        <hr>
+        <div class="h5 text-info"><strong>Section 3.2</strong>: Reversing The Order Of Array Elements</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2"><strong><span class="text-danger">reverse</span>( )</strong> function
+                    will reverse the order of array elements.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;array&nbsp; <span
+                class="text-danger">&nbsp;import&nbsp;</span>&nbsp; *<br>
+            my_arr &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ 1 , 2 , 3 ] )<br>
+            my_arr.<span class="text-danger">reverse</span>( ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp;reverses the order of array elements  </em></span><br>
+            <span class="text-danger">print</span> ( my_arr ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp; 3 , 2 , 1   </em></span>
+
+        </p>
+        <hr>
+        <div class="h5 text-info"><strong>Section 3.3</strong>: Finding The Occurrence Of Array Elements</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2"><strong><span class="text-danger">count</span> (<span
+                        class="text-info">&nbsp;value&nbsp;</span>)</strong> function will count how many times
+                    specified element occurred in an array.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;array&nbsp; <span
+                class="text-danger">&nbsp;import&nbsp;</span>&nbsp; *<br>
+            my_arr &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ <span class="text-danger">1</span> , <span class="text-danger">2</span> , <span
+                class="text-danger">3</span> , <span class="text-danger">3</span> , <span class="text-danger">2</span> ,
+            <span class="text-danger">3</span> , <span class="text-danger">3</span> ] )<br>
+            <span
+                    class="text-secondary"><em># &nbsp;&nbsp;count how many times 3 occurred in an array </em></span><br>
+            <span class="text-danger">print</span> ( my_arr.<span class="text-danger">count</span>( &nbsp;3&nbsp; ) )
+            <span
+                    class="text-secondary pl-3"><em># &nbsp;&nbsp; 4   </em></span>
+        </p>
+        <hr>
+        <div class="h5 text-info"><strong>Section 3.4</strong>: Converting Array To List</div>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2"><strong><span class="text-danger">tolist</span> ( )</strong> function will
+                    convert an array to a list.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-danger">from&nbsp;</span> &nbsp;array&nbsp; <span
+                class="text-danger">&nbsp;import&nbsp;</span>&nbsp; *<br>
+            my_arr &nbsp;=&nbsp; <span class="text-danger">array</span> (<span class="text-info">&nbsp;'i'&nbsp;</span>,&nbsp;
+            [ 1 , 2 , 3 ] )<br>
+            my_list &nbsp;=&nbsp; my_arr.<span class="text-danger">tolist</span>( ) <span
+                class="text-secondary pl-3"><em># &nbsp;&nbsp;converts array to list </em></span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">type</span> ( my_list ) ) <span
+                class="text-secondary pl-3"># &nbsp;&nbsp;Data type :&nbsp;  '&nbsp;list&nbsp;'   </span>
+        </p>
+        <hr>
+        <div class="h5 text-info"><strong>Section 4.1</strong>: Accessing Multidimensional Arrays</div>
+
+        <p class="command p-size mt-3">
+            <span class="text-dark">my_list</span> &nbsp;=&nbsp; [ [ <span class="text-danger">1</span> , <span
+                class="text-danger">2</span> , <span
+                class="text-danger">3</span> ] , [ <span class="text-danger">2</span> , <span
+                class="text-danger">3</span> , <span class="text-danger">3</span> ] , [ <span
+                class="text-danger">4</span> , <span class="text-danger">2</span> , <span class="text-danger">3</span> ]
+            ]
+            <br>
+            <span class="text-danger">print</span> ( <span class="text-dark">my_list</span> [ <span class="text-danger">0</span>
+            ] ) <span
+                class="text-secondary font-italic pl-3"> &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;[ 1 , 2 , 3 ]</span><br>
+            <span class="text-danger">print</span> ( <span class="text-dark">my_list</span> [ <span class="text-danger">1</span>
+            ] ) <span
+                class="text-secondary font-italic pl-3"> &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;[ 2 , 3 , 3 ]</span><br>
+            <span class="text-danger">print</span> ( <span class="text-dark">my_list</span> [ <span class="text-danger">2</span>
+            ] ) <span
+                class="text-secondary font-italic pl-3"> &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;[ 4 , 2 , 3 ]</span><br>
+        </p>
+        <ul class="mt-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic">Accessing certain elements of a list :</p>
+            </li>
+        </ul>
+        <p class="command p-size mt-3">
+            <span class="text-dark">my_list</span> &nbsp;=&nbsp; [ [ <span class="text-danger">1</span> , <span
+                class="text-danger">2</span> , <span
+                class="text-danger">3</span> ] , [ <span class="text-danger">2</span> , <span
+                class="text-danger">3</span> , <span class="text-danger">3</span> ] , [ <span
+                class="text-danger">4</span> , <span class="text-danger">2</span> , <span class="text-danger">3</span> ]
+            ]
+            <br>
+            <span class="text-danger">print</span> ( <span class="text-dark">my_list</span> [ <span class="text-danger">0</span>
+            ] &nbsp;[ <span class="text-danger">0</span>
+            ] ) <span
+                class="text-secondary font-italic pl-3"> &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;1</span><br>
+            <span class="text-danger">print</span> ( <span class="text-dark">my_list</span> [ <span class="text-danger">1</span>
+            ] &nbsp;[ <span class="text-danger">2</span>
+            ] ) <span
+                class="text-secondary font-italic pl-3"> &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;3</span><br>
+            <span class="text-danger">print</span> ( <span class="text-dark">my_list</span> [ <span class="text-danger">2</span>
+            ] &nbsp;[ <span class="text-danger">1</span>
+            ] ) <span
+                class="text-secondary font-italic pl-3"> &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;2</span><br>
+        </p>
+
+               <br>
+       <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_loop' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_i&o' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

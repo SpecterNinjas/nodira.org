@@ -1,0 +1,367 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+.bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: 0.9em;
+            font-weight: 500;
+
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Unit Testing</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_virtual_environments' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_speed' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python Unit Testing Overview</div>
+        <p class="p-color p-size pl-3">
+            This section focuses on <span class="text-danger font-weight-bold">Python Unit Testing</span> and how to
+            implement in Python projects.
+        </p>
+        <p class="p-color p-size pl-3">
+            <span class="text-dark font-weight-bold">Unit Test </span> is a feature that exercises a single behavior
+            of a software module. That module is usually a class, and the behavior is usually a public method of the
+            class.
+        </p>
+        <p class="p-color p-size pl-3">
+            <span class="text-dark font-weight-bold">Unit Tests </span> are low level tests, but they force a small
+            piece of application to perform some action and they check the final result. This action is very simple and
+            the results are independent of other pieces of application. Failure in a unit test shows without a doubt
+            which part of the code doesn’t work.
+        </p>
+        <p class="p-color p-size pl-3">
+            Let's do some practice and learn about <span
+                class="text-dark font-weight-bold"> Python Unit Tests </span>
+            and how to implement & understand them on a deep level.
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 1.2</strong>: Unit Testing Concepts</div>
+
+        <ul class="my-3">
+            <li><p class="p-color p-size pl-3"><span class="text-dark font-weight-bold">Test Fixture</span> &nbsp;-&nbsp;
+                is something used to consistently test some item, device, or piece of software. While in-line setup
+                is the simplest test fixture to create, it leads to duplication when multiple tests require the same
+                initial data. </p>
+            </li>
+            <li><p class="p-color p-size pl-3"><span class="text-dark font-weight-bold">Test Case</span> &nbsp;-&nbsp;
+                is a specification of the inputs, execution conditions, testing procedure, and expected results that
+                define a single test to be executed to achieve a particular software testing objective, such as to
+                exercise a particular program path or to verify compliance with a specific requirement. </p>
+            </li>
+            <li><p class="p-color p-size pl-3"><span class="text-dark font-weight-bold">Test Suite </span> &nbsp;-&nbsp;
+                is a collection of test cases that are intended to be used to test a software program to show that it
+                has some specified set of behaviours. </p>
+            </li>
+            <li><p class="p-color p-size pl-3"><span class="text-dark font-weight-bold">Test Runner </span> &nbsp;-&nbsp;
+                is a tool that picks up a source code directory that contains unit tests. </p>
+            </li>
+        </ul>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Unit Test Practice - Part 1</div>
+        <p class="p-color p-size pl-3 my-3">
+            We have covered enough theory, let's start with a simple practice :
+        </p>
+        <p class="command p-size my-3">
+            <span class="text-danger">import</span>&nbsp;&nbsp; unittest <br><br>
+
+            <span class="text-danger">class</span>&nbsp;&nbsp; <span
+                class="text-dark font-weight-bold">TestUppercase</span> ( <span class="text-danger">unittest</span>.TestCase
+            ) : <br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; test_upper ( <span
+                class="text-success">self</span> ) : <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; method name must start with 'test'</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.assertEqual ( <span
+                class="text-info">'python'</span>.<span class="text-danger">upper</span> ( &nbsp;) , <span
+                class="text-info">'PYTHON'</span> )<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; test_isupper ( <span
+                class="text-success">self</span> )
+            :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; method name must start with 'test'</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.assertTrue ( <span
+                class="text-info">'PYTHON'</span>.<span class="text-danger">isupper</span> ( &nbsp;) )<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.assertFalse ( <span
+                class="text-info">'Python'</span>.<span class="text-danger">islower</span> ( &nbsp;) )<br><br>
+
+
+            <span class="text-danger">if</span>&nbsp;&nbsp;<span class="text-info"> __name__</span> == '__main__' :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">unittest</span>.main ( &nbsp;)<br>
+        </p>
+        <p class="p-color p-size pl-3 my-3">
+            Once we run our <span class="text-dark font-weight-bold ">Unit Test</span> we should get output like this :
+        </p>
+        <p class="command p-size my-3">
+            <span class="text-secondary">
+                # &nbsp;&nbsp;&nbsp; Output : <br>
+
+test_isupper ( __main__.TestUppercase ) . . . ok <br>
+test_upper ( __main__.TestUppercase ) . . . ok <br>
+<br>
+                -----------------------------------------<br>
+
+                    Ran 2 tests in 0.0005s  <br>
+                    OK
+                </span>
+        </p>
+
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.2</strong>: Unit Test Practice - Part 2</div>
+        <p class="p-color p-size pl-3 my-3">
+            Let's create our own <span class="text-danger font-weight-bold">Unit Test</span> for <span
+                class="text-dark font-weight-bold">DivisionByZero</span> Error :
+        </p>
+        <p class="command p-size my-3">
+            <span class="text-danger">import</span>&nbsp;&nbsp; unittest <br><br>
+
+            <span class="text-danger">def</span>&nbsp;&nbsp; division ( a , b ) : <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; creation our function</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">return</span> &nbsp;&nbsp;a / b <br><br>
+
+
+            <span class="text-danger">class</span>&nbsp;&nbsp; <span
+                class="text-dark font-weight-bold">TestDivision</span> ( <span class="text-danger">unittest</span>.TestCase
+            ) : <br><br>
+
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; test_division ( <span
+                class="text-success">self</span> ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; method name must start with 'test'</span><br>
+
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.assertRaises ( <span
+                class="text-info">ZeroDivisionError</span> , <span class="text-danger">division</span> , 1 , 0 )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; ZeroDivisionError occurs if divisor is 0. </span><br>
+
+            <br>
+            <span class="text-danger">if</span>&nbsp;&nbsp;<span class="text-info"> __name__</span> == '__main__' :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">unittest</span>.main ( &nbsp;)<br>
+        </p>
+
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.3</strong>: Unit Test Practice - Part 3</div>
+        <p class="p-color p-size pl-3 my-3">
+            Now, we are going to implement <span class="text-dark font-weight-bold">3<sup>rd</sup> example</span> on
+            Unit Test :
+        </p>
+        <p class="command p-size my-3">
+            <span class="text-danger">import</span>&nbsp;&nbsp; unittest <br><br>
+
+            <span class="text-danger">class</span>&nbsp;&nbsp; <span
+                class="text-dark font-weight-bold">TestPractice</span> ( <span class="text-danger">unittest</span>.TestCase
+            ) : <br><br>
+
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; <span
+                class="text-dark font-weight-bold">test_equality</span> ( <span
+                class="text-success">self</span> ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; method name must start with 'test'</span><br>
+
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.assertEqual (
+            <span class="text-danger">1</span> + <span class="text-danger">2</span> , <span class="text-danger">3</span>)<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; Defining Equality Test. </span><br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; <span
+                class="text-dark font-weight-bold">test_not_equality</span> ( <span
+                class="text-success">self</span> ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; method name must start with 'test'</span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.assertNotEqual (
+            <span class="text-danger">1</span> + <span class="text-danger">2</span> , <span class="text-danger">4</span>)<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; Defining Not Equality Test. </span><br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; <span
+                class="text-dark font-weight-bold">test_for_True</span> ( <span
+                class="text-success">self</span> ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; method name must start with 'test'</span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.assertTrue (
+            <span class="text-danger">1</span> + <span class="text-danger">2</span> &nbsp;==&nbsp; <span
+                class="text-danger">3</span> , <span
+                class="text-info">"This text appears in False condition"</span>)<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; Defining Assert True Test. </span><br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; <span
+                class="text-dark font-weight-bold">test_for_in</span> ( <span
+                class="text-success">self</span> ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; method name must start with 'test'</span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.assertIn (
+            <span class="text-info">1</span> <span class="text-danger">&nbsp;&nbsp;in&nbsp;&nbsp;</span> [ 1 , 2 , 3 ] )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; Defining In Test. </span><br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; <span
+                class="text-dark font-weight-bold">test_for_Not_in</span> ( <span
+                class="text-success">self</span> ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; method name must start with 'test'</span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.assertNotIn (
+            <span class="text-info">1</span> <span class="text-danger">&nbsp;&nbsp;in&nbsp;&nbsp;</span> [ 1 , 2 , 3 ] )<span
+                class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; Defining Not In Test. </span><br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; <span
+                class="text-dark font-weight-bold">test_almost_equal</span> ( <span
+                class="text-success">self</span> ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; method name must start with 'test'</span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.assertAlmostEqual (
+            <span class="text-danger">1</span> / <span class="text-danger">3</span> , <span
+                class="text-danger">0.3</span> )
+            <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; Defining Almost Equal Test. </span><br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def</span>&nbsp;&nbsp; <span
+                class="text-dark font-weight-bold">test_not_almost_equal</span> ( <span
+                class="text-success">self</span> ) :<span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; method name must start with 'test'</span><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.assertNotAlmostEqual
+            (
+            <span class="text-danger">5</span> / <span class="text-danger">3</span> , <span class="text-danger">2</span>
+            )
+            <span class="text-secondary pl-4"># &nbsp;&nbsp;&nbsp; Defining Not Almost Equal Test. </span><br>
+            <br>
+
+
+            <span class="text-danger">if</span>&nbsp;&nbsp;<span class="text-info"> __name__</span> == '__main__' :<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">unittest</span>.main ( &nbsp;)<br>
+        </p>
+
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 3.1</strong>: Python Unit Test Conclusion</div>
+        <p class="p-color p-size pl-3 my-3">
+            <span class="text-danger font-weight-bold">Python Unit Test</span> supports test automation, sharing of
+            setup and shutdown code for tests, aggregation of tests into collections, and independence of the tests from
+            the reporting framework. </p>
+        <div class="h5 text-info my-3">Advantages of Python Unit Test</div>
+        <ul>
+            <li><p class="p-color p-size pl-3 my-3">Unit Tests will help to reduce the cost of bugs.</p></li>
+            <li><p class="p-color p-size pl-3 my-3">Main feature of a program to form complete version of
+                documentation.</p></li>
+
+            <li><p class="p-color p-size pl-3 my-3">It forces a small piece of application to perform some action and
+                they check the final result.</p></li>
+        </ul>
+<br>
+         <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_virtual_environments' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_speed' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+
+    </div>
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

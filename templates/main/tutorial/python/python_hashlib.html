@@ -1,0 +1,288 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Hashlib</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_design_patterns' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_virtual_environments' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: <strong>Hashlib</strong> Overview</div>
+        <p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">Hashlib</span> module provides
+            secure hash and message digest algorithms. </p>
+        <p class="p-color p-size pl-3">
+            <span class="font-weight-bold text-danger">Hashlib</span>&nbsp; provides <u>FIPS secure hash algorithms</u>
+            <span class="font-weight-bold text-dark">SHA1</span>, <span class="font-weight-bold text-dark">SHA224</span>,
+            <span class="font-weight-bold text-dark">SHA256</span>, <span
+                class="font-weight-bold text-dark">SHA384</span>, and <span
+                class="font-weight-bold text-dark">SHA512</span> and <u>RSA’s</u> <span
+                class="font-weight-bold text-dark">MD5</span> algorithm.
+        </p>
+
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 2.1</strong>: <strong>FIPS</strong> Hash Algorithm</div>
+        <p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">FIPS</span> hashing are used to
+            provide secure message encryption.</p>
+        <p class="p-color p-size pl-3"><span class="text-danger font-weight-bold">FIPS</span> hashing provides
+            constructors to create each hashing objects:
+            <span class="font-weight-bold text-dark">sha1( ) ,</span> <span class="font-weight-bold text-dark">sha224( ) ,</span>
+            <span class="font-weight-bold text-dark">sha256( ) ,</span> <span class="font-weight-bold text-dark">sha384( )</span>
+            and <span class="font-weight-bold text-dark">sha512( )</span>.
+        </p>
+        <p class="command p-size text-dark my-3">
+            <span class="text-danger">import </span>&nbsp; hashlib <br>
+            security &nbsp;=&nbsp; hashlib.<span class="text-danger">sha256</span> ( &nbsp;) <br>
+            security.<span class="text-danger">update</span> ( <span class="text-dark">b</span><span class="text-info">"Secure text!"</span>
+            ) <br>
+            security.<span class="text-danger">digest</span> (&nbsp; ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Output: <br>b'\x15\x0ee\xf4\xabne\xf9\xbe\x8f\x95\xb2\xa5\x94\xdd\x94\xdf\xd2\xe9%\x9bn'</span><br>
+            security.<span class="text-danger">hexdigest</span> (&nbsp; ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;Output: <br>b'\x15\x0ee\xf4\xabne\xf9\xbe\x8f\x95\xb2\xa5\x94\xdd\x94\xdf\xd2\xe9%\x9bn'</span><br>
+            security.<span class="text-danger">digest_size</span> <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;32</span><br>
+            security.<span class="text-danger">block_size</span> <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;64</span><br>
+        </p>
+        <hr>
+        <div class="row my-4">
+
+            <div class="col-md-6 col-sm-12">
+                <p class="p-color h5 pl-3 font-weight-bold text-info mb-3">Attributes</p>
+                <p class="p-color p-size pl-3 font-weight-bold text-dark">hashlib.<span
+                        class="text-danger">sha256</span> ( &nbsp;)</p>
+                <p class="p-color p-size pl-3 font-weight-bold text-dark">hashlib.<span
+                        class="text-danger">update</span> ( text )</p>
+                <p class="p-color p-size pl-3 font-weight-bold text-dark">hashlib.<span
+                        class="text-danger">digest</span> ( &nbsp;)</p>
+                <p class="p-color p-size pl-3 font-weight-bold text-dark">hashlib.<span
+                        class="text-danger">hexdigest</span> ( &nbsp;)</p>
+                <p class="p-color p-size pl-3 font-weight-bold text-dark">hashlib.<span
+                        class="text-danger">digest_size</span></p>
+                <p class="p-color p-size pl-3 font-weight-bold text-dark">hashlib.<span
+                        class="text-danger">block_size</span></p>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <p class="p-color h5 p-size pl-3 font-weight-bold text-info mb-3">Description</p>
+                <p class="p-color p-size pl-3 text-dark font-italic">FIPS hashing algorithm</p>
+                <p class="p-color p-size pl-3 text-dark font-italic">Inserting binary text for hashing</p>
+                <p class="p-color p-size pl-3 text-dark font-italic">Secure hashed message</p>
+                <p class="p-color p-size pl-3 text-dark font-italic">Secure hexadecimal hashed message</p>
+                <p class="p-color p-size pl-3 text-dark font-italic">The size of the resulting hash in bytes</p>
+                <p class="p-color p-size pl-3 text-dark font-italic">The internal block size of the hash algorithm in
+                    bytes.</p>
+
+            </div>
+
+        </div>
+        <hr>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">FIPS</span> hashing short code ( the same as above example) :
+
+        </p>
+        <p class="command p-size text-dark my-3">
+            <span class="text-danger">import </span>&nbsp; hashlib <br>
+            hashlib.<span class="text-danger">sha256</span> ( b <span class="text-info">"Secure text!"</span> ).hexdigest (&nbsp; )
+            <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Output: &nbsp;&nbsp;b'\x15\x0ee\xf4\xabne\xf9\xbe\x8f\x95\xb2\xa5\x94\xdd\x94\xdf\xd2\xe9%\x9bn'</span>
+        </p>
+        <br>
+        <hr>
+        <br>
+     <div class="h5 text-info mb-3"><strong>Section 2.2</strong>: <strong>RSA - md5( )</strong>  Algorithm</div>
+        <p class="p-color p-size pl-3 my-3"><span class="text-danger font-weight-bold">RSA</span> MD5 algorithm ( defined in Internet RFC 1321 ).</p>
+        <p class="p-color p-size pl-3 my-3"><span class="text-danger font-weight-bold">RSA</span> hashing provides
+            constructors to create each hashing objects:
+            <span class="font-weight-bold text-dark">md5( ) </span>.
+        </p>
+    <p class="command p-size text-dark my-3">
+            <span class="text-danger">import </span>&nbsp; hashlib <br>
+            security &nbsp;=&nbsp; hashlib.<span class="text-danger">md5</span> ( &nbsp;) <br>
+            security.<span class="text-danger">update</span> ( <span class="text-dark">b</span><span class="text-info">"Secure text!"</span>
+            ) <br>
+            security.<span class="text-danger">digest</span> (&nbsp; ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;b'\x89\x10(\xd7#R\x81]cw\xc8\x01&Z6\xc3'</span><br>
+            security.<span class="text-danger">hexdigest</span> (&nbsp; ) <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;891028d72352815d6377c801265a36c3</span><br>
+            security.<span class="text-danger">digest_size</span> <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;16</span><br>
+            security.<span class="text-danger">block_size</span> <span class="text-secondary font-italic pl-4"># &nbsp;&nbsp;64</span><br>
+        </p>
+        <hr>
+     <div class="row my-4">
+
+            <div class="col-md-6 col-sm-12">
+                <p class="p-color h5 pl-3 font-weight-bold text-info mb-3">Attributes</p>
+                <p class="p-color p-size pl-3 font-weight-bold text-dark">hashlib.<span
+                        class="text-danger">md5</span> ( &nbsp;)</p>
+                <p class="p-color p-size pl-3 font-weight-bold text-dark">hashlib.<span
+                        class="text-danger">update</span> ( text )</p>
+                <p class="p-color p-size pl-3 font-weight-bold text-dark">hashlib.<span
+                        class="text-danger">digest</span> ( &nbsp;)</p>
+                <p class="p-color p-size pl-3 font-weight-bold text-dark">hashlib.<span
+                        class="text-danger">hexdigest</span> ( &nbsp;)</p>
+                <p class="p-color p-size pl-3 font-weight-bold text-dark">hashlib.<span
+                        class="text-danger">digest_size</span></p>
+                <p class="p-color p-size pl-3 font-weight-bold text-dark">hashlib.<span
+                        class="text-danger">block_size</span></p>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <p class="p-color h5 p-size pl-3 font-weight-bold text-info mb-3">Description</p>
+                <p class="p-color p-size pl-3 text-dark font-italic">RSA MD5 hashing algorithm</p>
+                <p class="p-color p-size pl-3 text-dark font-italic">Inserting binary text for hashing</p>
+                <p class="p-color p-size pl-3 text-dark font-italic">Secure hashed message</p>
+                <p class="p-color p-size pl-3 text-dark font-italic">Secure hexadecimal hashed message</p>
+                <p class="p-color p-size pl-3 text-dark font-italic">The size of the resulting hash in bytes</p>
+                <p class="p-color p-size pl-3 text-dark font-italic">The internal block size of the hash algorithm in
+                    bytes.</p>
+
+            </div>
+
+        </div>
+        <hr>
+        <p class="p-color p-size pl-3">
+            <span class="text-danger font-weight-bold">RSA</span> MD5 hashing short code ( the same as above example) :
+
+        </p>
+        <p class="command p-size text-dark my-3">
+            <span class="text-danger">import </span>&nbsp; hashlib <br>
+            hashlib.<span class="text-danger">md5</span> ( b<span class="text-info">"Secure text!"</span> ).hexdigest (&nbsp; )
+            <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Output: &nbsp;&nbsp;891028d72352815d6377c801265a36c3</span>
+        </p>
+       <br>
+       <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_design_patterns' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_virtual_environments' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

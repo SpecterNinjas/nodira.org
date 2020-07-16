@@ -1,0 +1,68 @@
+.next, .prev {
+    border-radius: 40px;
+    background-color: rgb(248, 34, 73);
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    padding: 9px 17px;
+    width: 130px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    outline: none;
+
+}
+
+
+.next {
+    float: right;
+}
+
+.prev {
+    float: left;
+}
+
+.next span, .prev span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.next span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.prev span:after {
+    content: '\00ab';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
+
+}
+
+.next:hover span {
+    padding-right: 25px;
+}
+
+.prev:hover span {
+    padding-left: 25px;
+}
+
+.next:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.prev:hover span:after {
+    opacity: 1;
+    left: 0;
+}
+

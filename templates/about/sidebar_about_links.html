@@ -1,0 +1,24 @@
+<ul class="list-unstyled components">
+    <p>Quick Reference List</p>
+
+    <li {% if 'company' in request.path %} class="active" {% endif %}>
+        <a href="{% url 'about:company' %}">About Company</a>
+    </li>
+
+    <li {% if 'privacy_policy' in request.path %} class="active" {% endif %}>
+        <a href="{% url 'about:privacy_policy' %}">Privacy Policy</a>
+    </li>
+
+    <li {% if 'terms_of_use' in request.path %} class="active" {% endif %}>
+        <a href="{% url 'about:terms_of_use' %}">Terms & Conditions</a>
+    </li>
+ <li {% if 'contribute' in request.path %} class="active" {% endif %}>
+        <a href="{% url 'about:contribute' %}">Guest Writing</a>
+    </li>
+    <li {% if 'advertising' in request.path %} class="active" {% endif %}>
+        <a href="{% url 'about:advertising' %}">Advertising & Sponsorship</a>
+    </li>
+    <li {% if 'contact' in request.path %} class="active" {% endif %}>
+        <a href="{% url 'about:contact' %}">Contact us</a>
+    </li>
+</ul>

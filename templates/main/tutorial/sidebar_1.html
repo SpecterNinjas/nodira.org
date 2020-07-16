@@ -1,0 +1,55 @@
+{% load static %}
+
+
+<br>
+<div class="wrapper mt-5">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar" style="background-color: rgb(4,9,25);">
+        {% include 'main/tutorial/python/sidebar_python_links.html' %}
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content" style="background-color:rgb(249,250,252)">
+        <br>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="navbar-btn" data-toggle="tooltip"
+                        data-placement="bottom"
+                        title="Close Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+
+                <ul class="nav navbar-nav" id="left-menu-nav">
+
+
+                    <li class="">
+                        <a class="bmc-button nav-link" target="_blank"
+                           href="https://www.buymeacoffee.com/Specter"
+                           data-toggle="tooltip" data-placement="bottom"
+                           title="Support Our Community">
+                            <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
+                                 alt="Buy me a coffee">
+                            <span style="font-size:22px !important;"><strong>Buy me a coffee</strong></span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a class="nav-link" onclick="window.print(); return false;"><img
+                                src="{% static 'images/print.png' %}"
+                                style="height: 34px; width: 34px;" alt="print this page"
+                                data-toggle="tooltip" data-placement="bottom"
+                                title="Print this page"></a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </nav>
+
+

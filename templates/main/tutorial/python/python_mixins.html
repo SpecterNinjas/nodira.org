@@ -1,0 +1,279 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python Mixins</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_zip_unzip_files' %}"
+                                          target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_attribute_access' %}"
+                                          target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python <strong>Mixin</strong> Overview</div>
+        <p class="p-color p-size pl-3">A <span class="text-danger font-weight-bold">Mixin</span> is a special kind of
+            <u>functionality or properties</u> that can be used in various classes, but
+            <strong><em>don't</em></strong> come from a <em><strong>base</strong></em> class.
+        </p>
+        <p class="p-color p-size pl-3">It's very similar to <span
+                class="text-danger font-weight-bold">inheritance</span>, where same functionality or property is
+            inherited from <strong>base</strong> class. </p>
+        <hr>
+
+        <div class="h5 text-info mb-3"><strong>Section 1.2</strong>: Python <strong>Mixin</strong> Practice</div>
+
+        <p class="p-color p-size my-3 pl-3">
+            Let's create a class called <span class="text-danger font-weight-bold">Person</span> and do some practice:
+        </p>
+        <p class="command p-size text-dark">
+            <span class="text-danger">class </span>&nbsp;Person ( &nbsp;) : <br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Defining simple class 'Person' </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;<span class="text-info">__init__ </span>
+            ( <span class="text-success">self</span> , name ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.name &nbsp;=&nbsp;
+            name
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;<span class="text-info">rename </span> (
+            <span class="text-success">self</span> , rename ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.name &nbsp;=&nbsp;
+            rename
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">return </span>&nbsp;&nbsp;<span
+                class="text-success">self</span>.name
+            <br>
+        </p>
+
+        <p class="p-color p-size my-3 pl-3">
+            Let's create other classes that share similarity with base class <span class="text-danger font-weight-bold">Person</span>
+            <strong>:</strong>
+        </p>
+        <p class="command p-size text-dark">
+            <span class="text-danger">class </span>&nbsp;Selena ( Person ) : <br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Defining simple class 'Selena' </span><br>
+            <br>
+            <span class="text-danger">class </span>&nbsp;Alex ( Person ) : <br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Defining simple class 'Alex' </span><br>
+            <br> <span class="text-danger">class </span>&nbsp;John ( Person ) : <br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Defining simple class 'John' </span>
+            <br>
+
+        </p>
+        <p class="p-color p-size my-3 pl-3">
+            But, what if some similarity does not exist in a base class <span class="text-danger font-weight-bold">Person</span>
+            <strong>???</strong>
+            <br>
+            -----------> HERE IT COMES <strong> MIXINS !</strong>
+        </p>
+        <p class="p-color p-size my-3 pl-3">
+            <span class="text-danger font-weight-bold">Mixins </span> can be inherited simply with
+            <strong><em>commas</em></strong> :
+        </p>
+        <p class="command p-size text-dark">
+            <span class="text-danger">class </span>&nbsp;<span style="color: black">MyMixin</span> ( base_class ,
+            <span class="text-info">mixin</span>
+            )
+        </p>
+        <p class="p-color p-size my-3 pl-3">
+            Let's create our simple <span class="text-danger font-weight-bold">Mixin </span> :
+        </p>
+        <p class="command p-size text-dark">
+            <span class="text-danger">class </span>&nbsp;MiddleNameMixin ( &nbsp;) : <br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Defining simple mixin  </span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;<span class="text-info">__init__ </span>
+            ( <span class="text-success">self</span> ) :
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.middle_name &nbsp;=&nbsp;
+            MiddleName ( &nbsp;)
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">def </span>&nbsp;<span
+                class="text-info">set_ability </span> (
+            <span class="text-success">self</span> , ability ) : <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.middle_name.has_ability
+            ( ability )
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success">self</span>.middle_name.change_ability
+            ( )
+            <br>
+        </p>
+        <p class="p-color p-size my-3 pl-3">
+            Let's inherit base class <span class="text-danger font-weight-bold">Person</span> and mixin <span
+                class="text-danger font-weight-bold">MiddleNameMixin</span> that share similarity with other classes :
+        </p>
+        <p class="command p-size text-dark">
+            <span class="text-danger">class </span>&nbsp;Selena ( Person , <span
+                class="text-info">MiddleNameMixin</span> ) : <br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Inheriting base class and mixin </span><br>
+            <br>
+            <span class="text-danger">class </span>&nbsp;Alex ( Person , <span class="text-info">MiddleNameMixin</span>
+            ) : <br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Inheriting base class and mixin </span><br>
+            <br> <span class="text-danger">class </span>&nbsp;John ( Person , <span
+                class="text-info">MiddleNameMixin</span> ) : <br>
+            <span class="text-secondary font-italic pl-1"># &nbsp;&nbsp;Inheriting base class and mixin </span>
+        </p>
+        <p class="p-color p-size my-3 pl-3">
+            Accessing inherited base class <span class="text-danger font-weight-bold">Person</span> and mixin <span
+                class="text-danger font-weight-bold">MiddleNameMixin</span> that share similarity with other classes :
+        </p>
+        <p class="command p-size text-dark">
+            selena.<span class="text-danger font-italic">set_ability</span> ( <span class="text-info font-italic">"Singing"</span>
+            &nbsp;) <br>
+            alex.<span class="text-danger font-italic">set_ability</span> ( <span class="text-info font-italic">"Running"</span>
+            &nbsp;)<br>
+            john.<span class="text-danger font-italic">set_ability</span> ( <span class="text-info font-italic">"Dancing"</span>
+            &nbsp;)<br>
+        </p>
+        <hr>
+
+        <div class="h5 text-info mb-3"><strong>Section 1.3</strong>: Python <strong>Mixin</strong> Conclusion</div>
+        <p class="p-color p-size pl-3 font-italic">A <strong><em>mixin</em></strong> can basically be thought of as a
+            set of code or
+            functionality that can be added to one or
+            more classes to add additional capabilities without using inheritance. <br>
+        </p>
+        <p class="p-color p-size pl-3 font-italic">
+            In Python, a <strong><em>mixin</em></strong> is code wrapped up
+            in a module that a class can include or extend. In fact, a single class can have many mixins.
+        </p>
+        <br>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_zip_unzip_files' %}"
+                                          target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_attribute_access' %}"
+                                          target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

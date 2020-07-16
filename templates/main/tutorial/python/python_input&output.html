@@ -1,0 +1,348 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
+    <style>
+        #header {
+            background: rgb(6, 12, 34);
+        }
+
+        p {
+            font-weight: 400;
+        }
+
+        .serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+        .bmc-button img {
+            height: 34px !important;
+            width: 35px !important;
+            margin-bottom: 1px !important;
+            box-shadow: none !important;
+            border: none !important;
+            vertical-align: middle !important;
+        }
+        .bmc-button {
+            padding: 7px 15px 7px 10px !important;
+            line-height: 35px !important;
+            height: 51px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            color: #ffffff !important;
+            background-color: #FF5F5F !important;
+            border-radius: 5px !important;
+            border: 1px solid transparent !important;
+            font-size: 26px !important;
+            box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5) !important;
+            -webkit-box-shadow: 0 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
+            margin: 0 auto !important;
+            letter-spacing: 1px;
+            font-family: 'Cookie', cursive !important;
+            -webkit-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+
+
+        .p-size {
+            font-size: 1em;
+        }
+
+        .command {
+            border: 1px solid lightslategrey;
+            padding-left: 20px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(6, 12, 34);
+            background: #fff;
+            transition: color 0.7s;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: rgb(6, 12, 34);
+            background: white;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <!--HEADER -->
+    {% include 'main/header.html' %}
+
+    <!--SIDEBAR1 -->
+    {% include 'main/tutorial/sidebar_1.html' %}
+
+    <!--CONTENT -->
+
+    <h2 class="text-center body-color font-italic">Python User Input/Output</h2>
+    <div class="container">
+        <hr>
+        <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_array' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_files_folders' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br>
+        <br>
+        <div class="h5 text-info my-3"><strong>Section 1.1</strong>: User Input/Output Overview</div>
+        <p class="p-color p-size ml-3">In general, we use <span class="text-danger">input</span> function to get an
+            <strong> <em>input</em> </strong>and <span class="text-danger">print</span> function to show the <strong>
+                <em>output</em> </strong> of a user.
+        </p>
+        <hr>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2">Note that in Python 2.x <span class="text-danger">raw_input</span>
+                    function was used to get an input :</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+            <span class="text-secondary font-italic">Python 2.x:</span><br>
+            hello &nbsp;=&nbsp; <span class="text-danger">raw_input</span> ( <span class="text-info">" What's up buddy ? "</span>
+            )<br>
+            <span class="text-danger">print</span> ( <span class="text-info">" What's up buddy ? "</span> <span
+                class="text-danger">+</span> hello &nbsp;)<br>
+            <br>
+
+            <span class="text-secondary font-italic">Python 3.x:</span><br>
+            hello &nbsp;=&nbsp; <span class="text-danger">input</span> ( <span
+                class="text-info">" What's up buddy ? "</span> )<br>
+            <span class="text-danger">print</span> ( <span class="text-info">" What's up buddy ? "</span> <span
+                class="text-danger">+</span> hello &nbsp;)<br>
+
+        </p>
+
+        <hr>
+        <div class="h5 text-info mb-3"><strong>Section 1.2</strong>: Casting Errors</div>
+        <p class="p-color p-size ml-3">If you're new to Python, then you will have casting errors when you try to merge <em>2
+            different data types</em> inside the <span class="text-danger">print</span> function. </p>
+        <hr>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"><span class="text-danger">print</span> function is always
+                    <em>string</em> data type.</p>
+            </li>
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Here is some examples :</p>
+            </li>
+        </ul>
+
+        <p class="command p-size">
+
+            age &nbsp;=&nbsp; <span class="text-danger">input</span> ( <span
+                class="text-info">" How old are you ? "</span> )<br>
+            <span class="text-danger">print</span> ( <span class="text-info">" How old are you ? "</span> <span
+                class="text-danger">+</span> age &nbsp;)<br>
+            next_year &nbsp;=&nbsp; age + <span class="text-danger">1</span> <span
+                class="text-secondary font-italic pl-3"># &nbsp;&nbsp; TypeError :&nbsp; unsupported operand type(s) for 'str' and 'int' &nbsp; </span><br>
+            <br>
+            <span class="text-danger">print</span> ( <span class="text-info">" How old are you ? "</span> <span
+                class="text-danger">+</span> <span class="text-danger">int</span> (age) + <span
+                class="text-danger">1</span> &nbsp;)<br>
+
+
+        </p>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Literally, we can't combine <span
+                        class="text-danger">str</span> with other data types. In order to avoid error, we need to change
+                    other data types to <span class="text-danger">str</span>. </p>
+            </li>
+
+        </ul>
+        <p class="command p-size">
+
+            number &nbsp;=&nbsp; <span class="text-danger">10.99</span> <br>
+            <span class="text-danger">print</span> ( <span class="text-info">" My number is : "</span> <span
+                class="text-danger">+</span> number &nbsp;) <span class="text-secondary font-italic pl-3"># &nbsp;&nbsp; TypeError :&nbsp; unsupported operand type(s) for 'str' and 'float' &nbsp;</span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">" My number is : "</span> <span
+                class="text-danger">+</span> <span class="text-danger">str </span>( number ) &nbsp;) <span
+                class="text-secondary font-italic pl-3"># &nbsp;&nbsp; Output :&nbsp;  My number is : &nbsp; 10.99</span><br>
+
+
+        </p>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Remember that <span class="text-danger">input</span> is
+                    always <span class="text-danger">str</span> data type. </p>
+            </li>
+
+        </ul>
+
+        <p class="command p-size">
+
+            score &nbsp;=&nbsp; <span class="text-danger">input</span> ( <span class="text-info">" What's your score from exam ? "</span>
+            )<br>
+            <span class="text-danger">print</span> (&nbsp; <span class="text-info">  type </span>( score )&nbsp;) <span
+                class="text-secondary font-italic pl-3"># &nbsp;&nbsp; Output :&nbsp;  "str" </span> <br>
+
+        </p>
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Converting <span class="text-danger">str</span> to <span
+                        class="text-danger">float</span> to do some mathematical operations.</p>
+            </li>
+        </ul>
+        <p class="command p-size">
+
+            score1 &nbsp;=&nbsp; <span class="text-info">float </span>( <span class="text-danger">input</span> ( <span
+                class="text-info">" What's your score from History ? "</span>&nbsp;)</span>
+            &nbsp;)<br>
+            score2 &nbsp;=&nbsp; <span class="text-info">float </span>( <span class="text-danger">input</span> ( <span
+                class="text-info">" What's your score from Calculus ? "</span>&nbsp;)</span>
+            &nbsp;)<br>
+            avg_score &nbsp;=&nbsp; <span class="text-danger">0.5 </span>* ( score1 + score2 ) <br>
+            <span class="text-danger">print</span> ( <span class="text-info">" My Average Score : "</span> <span
+                class="text-danger">+</span> <span class="text-danger">str </span>( avg_score ) &nbsp;) <span
+                class="text-secondary font-italic pl-3"># &nbsp;  You can't merge 'str' with 'float', hence you need to convert 'float' to 'str'</span><br>
+
+
+        </p>
+        <hr>
+        <div class="h5 text-info my-3"><strong>Section 2.1</strong>: Applying <strong>format( )</strong> function</div>
+        <p class="p-color p-size ml-3"><span class="text-danger font-weight-bold">str.format( )</span> is one of the widely
+            used <em>string formatting methods</em>, through <span
+                    class="text-danger font-weight-bold">str.format( )</span> method you're able to insert multiple
+            values (regardless of data type) within a string through
+            positional formatting.
+        </p>
+        <ul class="mt-3 font-italic ml-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> In <span
+                        class="text-danger font-weight-bold">str.format( )</span> method, braces and values are regarded
+                    respectively. </p></li>
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> No space allowed inside <span
+                        class="text-dark font-weight-bold">{}</span> (curly braces), otherwise <strong>KeyError</strong>
+                    raises. </p></li>
+        </ul>
+        <p class="command p-size">
+
+            number &nbsp;=&nbsp; <span class="text-danger">10.99</span> <br>
+            my_str &nbsp;=&nbsp; <span class="text-danger">"Hello World"</span> <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp; 1st brace takes 1st value, 2nd brace takes 2nd value.</span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">" My number is <span
+                class="text-dark">{}</span> and my string is <span class="text-dark">{}</span> "<span class="text-dark">.</span><span
+                class="text-danger">format</span><span class="text-dark"> ( number , my_str ) &nbsp;)</span></span><br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Output:&nbsp;&nbsp; My number is 10.99 and my string is Hello World   </span><br>
+        </p>
+        <hr>
+        <ul class="mt-3 font-italic ml-3">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"><span
+                        class="text-danger font-weight-bold">str.format( )</span> method can also be used by assigning
+                    variable names. </p></li>
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Variable name is defined inside <span
+                        class="text-dark font-weight-bold">{}</span> (curly braces).</p></li>
+        </ul>
+        <p class="command p-size">
+
+            number &nbsp;=&nbsp; <span class="text-danger">10.99</span> <br>
+            my_str &nbsp;=&nbsp; <span class="text-danger">"Hello World"</span> <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp; 1st brace takes 1st value, 2nd brace takes 2nd value.</span><br>
+            <span class="text-danger">print</span> ( <span class="text-info">" My number is <span
+                class="text-dark">{<span class="text-secondary">first</span>}</span> and my string is <span
+                class="text-dark">{<span class="text-secondary">second</span>}</span> "<span
+                class="text-dark">.</span><span
+                class="text-danger">format</span><span class="text-dark"> ( <span class="text-secondary">first</span> = number , <span
+                class="text-secondary">second</span> = my_str ) &nbsp;)</span></span><br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Output:&nbsp;&nbsp; My number is 10.99 and my string is Hello World   </span><br>
+        </p>
+
+        <hr>
+
+        <div class="h5 text-info my-3"><strong>Section 2.2</strong>: Applying <strong>f-strings</strong></div>
+        <p class="p-color p-size ml-3"><span class="text-danger font-weight-bold">f-strings</span> does exactly the same job
+            as <span class="text-danger">format(&nbsp;)</span> method
+            , but <em><strong>f-string</strong></em> comes with much easier syntax. They're new in Python 3.
+        </p>
+
+        <ul class="mt-3 font-italic">
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Variable name is defined inside <span
+                        class="text-dark font-weight-bold">{}</span> (curly braces).</p>
+            </li>
+            <li>
+                <p class="p-color p-size mt-2 font-italic"> Put <span class="text-danger">f</span> letter before the
+                    string, in this case compiler knows that you're going to use <span class="text-danger">f-string format</span>.
+                </p>
+            </li>
+            <li>
+                <p class="p-color p-size mt-2 font-italic">No space allowed between <strong>f</strong> and <strong>"</strong>.&nbsp; <strong><span class="text-info">E.x:</span> f"{hello}"</strong></p>
+            </li>
+        </ul>
+ <p class="command p-size">
+
+            number &nbsp;=&nbsp; <span class="text-danger">10.99</span> <br>
+            my_str &nbsp;=&nbsp; <span class="text-danger">"Hello World"</span> <br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp; Don't even bother about different data types</span><br>
+            <span class="text-danger">print</span> ( <span class="text-info"><span class="text-dark">f</span>" My number is <span
+                class="text-dark">{<span class="text-dark">number</span>}</span> and my string is <span
+                class="text-dark">{<span class="text-dark">my_str</span>}</span> " &nbsp;</span>)<br>
+            <span class="text-secondary font-italic"># &nbsp;&nbsp;Output:&nbsp;&nbsp; My number is 10.99 and my string is Hello World   </span><br>
+        </p>
+
+                      <br>
+      <div class="mt-3 mb-4">
+            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_array' %}" target="_blank"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_files_folders' %}" target="_blank">Next </a></span></button>
+        </div>
+        <br> <br> <br>
+        <!--==========Schedule Section==============-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+
+                <div class="tab-content row justify-content-center">
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <div class="speaker">
+                                    <img src="{% static 'images/contributors/aziko.jpg' %}" alt="author image">
+                                </div>
+                                <h4>Written By : <span class="text-danger font-weight-bold">Azam Nurullaev</span></h4>
+                                <p class="p-size"><span class="text-dark font-weight-bold">Quote : </span>Programming is
+                                    the
+                                    main bridge towards your future goals and I'm happy to help you achieve them.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="section-header my-3">
+                    <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
+                        <img
+                                src="{% static 'images/heart.ico' %}" alt="love" style="width: 25px; height: 25px;"></p>
+                </div>
+
+                <h3 class="sub-heading mt-5">
+                    Be part of our super family by sharing your articles to <span class="text-danger font-weight-bold">nodira.org@gmail.com</span>
+                    <br>
+                    Your contributions are very important for us!
+                    <br>
+                    <br>
+                    <strong>*</strong>Articles can be written on any topic
+                </h3>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--SIDEBAR2 -->
+    {% include 'main/tutorial/sidebar_2.html' %}
+
+
+    <!--FOOTER -->
+    {% include 'main/footer.html' %}
+{% endblock %}

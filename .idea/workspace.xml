@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1f0b0574-d115-4508-8693-a4f9aa4c9fa9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodira/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/nodira/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +142,7 @@
       <workItem from="1594057567798" duration="23723000" />
       <workItem from="1594207815040" duration="41652000" />
       <workItem from="1594636949439" duration="636000" />
-      <workItem from="1594877145691" duration="11498000" />
+      <workItem from="1594877145691" duration="11820000" />
     </task>
     <servers />
   </component>

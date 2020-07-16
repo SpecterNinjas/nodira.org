@@ -25,7 +25,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = '*th67n$_yc2+^%8y!o!*n9_i&a#tp^dumte*57^1(d99qmr2t$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['nodira.org', '164.90.220.69']
 
@@ -83,12 +83,8 @@ WSGI_APPLICATION = 'nodira.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'million',
-        'USER': 'million',
-        'PASSWORD': 'Shilpildoq99#',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

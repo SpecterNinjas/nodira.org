@@ -25,9 +25,9 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = '*th67n$_yc2+^%8y!o!*n9_i&a#tp^dumte*57^1(d99qmr2t$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['nodira.org', '164.90.220.69']
+ALLOWED_HOSTS = ['nodira.org', '164.90.220.69', '127.0.0.1']
 
 # Application definition
 
@@ -81,13 +81,23 @@ WSGI_APPLICATION = 'nodira.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
+DATABASES = {
+       'default': {
+          'ENGINE': 'django.db.backends.postgresql',
+          'NAME': 'nodira.org',
+          'USER': 'dadakhon',
+          'PASSWORD': '1',
+          'HOST': 'localhost',
+          # 'PORT': '5432'
+       }
+}
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 

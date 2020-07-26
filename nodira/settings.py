@@ -27,7 +27,7 @@ SECRET_KEY = '*th67n$_yc2+^%8y!o!*n9_i&a#tp^dumte*57^1(d99qmr2t$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nodira.org', '164.90.220.69', '127.0.0.1']
+ALLOWED_HOSTS = ['nodira.org', '46.101.107.238', '127.0.0.1']
 
 # Application definition
 

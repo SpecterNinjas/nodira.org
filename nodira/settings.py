@@ -88,16 +88,16 @@ WSGI_APPLICATION = 'nodira.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-       'default': {
-          'ENGINE': 'django.db.backends.postgresql',
-          'NAME': 'nodira.org',
-          'USER': 'dadakhon',
-          'PASSWORD': '1',
-          'HOST': 'localhost',
-          # 'PORT': '5432'
-       }
-}
+# DATABASES = {
+#        'default': {
+#           'ENGINE': 'django.db.backends.postgresql',
+#           'NAME': 'nodira.org',
+#           'USER': 'dadakhon',
+#           'PASSWORD': '1',
+#           'HOST': 'localhost',
+#           # 'PORT': '5432'
+#        }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -143,3 +143,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 LOGIN_URL = ''
 LOGIN_REDIRECT_URL = ''
 LOGOUT_URL = ''
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

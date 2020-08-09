@@ -1,5 +1,9 @@
 {% extends 'main/base.html' %}
 {% load static %}
+{% block title %}
+    <title>Python Copying Data (Examples & Guidance)</title>
+{% endblock %}
+
 {% block css_link %}
     <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
@@ -7,7 +11,7 @@
         #header {
             background: rgb(6, 12, 34);
         }
-        
+
 
         .bmc-button img {
             height: 34px !important;

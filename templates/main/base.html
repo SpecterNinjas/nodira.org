@@ -12,9 +12,10 @@
 
     <meta name="keywords"
           content="nodira, nodira.org, python, py, tutorial , source code, development, learning , programming , coding, references, free python, course ">
-    <meta name="description"
-          content="At nodira, we believe that anyone can learn coding! Start learning Python (World's Most Loved Programming Language) through following our tutorials, guidance and references. ">
-
+    {% block meta_description %}
+        <meta name="description"
+              content="At nodira, we believe that anyone can learn coding! Start learning Python (World's Most Loved Programming Language) through following our tutorials, guidance and references. ">
+    {% endblock %}
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173642979-1"></script>
@@ -42,7 +43,7 @@
 
 
     <!-- Favicons -->
-    <link href="{% static 'images/gallery/logo.jpg' %}" rel="icon" >
+    <link href="{% static 'images/gallery/logo.jpg' %}" rel="icon">
     <link href="{% static 'images/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
     <!-- jQuery library -->

@@ -3,6 +3,11 @@
 {% block title %}
     <title>About nodira - Quick Overview</title>
 {% endblock %}
+{% block meta_description %}
+    <meta name="description"
+          content="nodira.org - web development site that provides good programming resources and guidance step by step.
+At nodira, you can learn web development for free forever and it's our main goal to provide good quality content and step by step guidance for each and every user for free!">
+{% endblock %}
 {% block css_link %}
     <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
@@ -14,7 +19,8 @@
         p {
             font-weight: 400;
         }
-         .bmc-button img {
+
+        .bmc-button img {
             height: 34px !important;
             width: 35px !important;
             margin-bottom: 1px !important;
@@ -169,7 +175,8 @@
                 <div class="section-header my-3">
                     <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
                         <img
-                                src="{% static 'images/heart.ico' %}" alt="love icon - nodira" style="width: 25px; height: 25px;"></p>
+                                src="{% static 'images/heart.ico' %}" alt="love icon - nodira"
+                                style="width: 25px; height: 25px;"></p>
                 </div>
 
                 <h3 class="sub-heading mt-5">

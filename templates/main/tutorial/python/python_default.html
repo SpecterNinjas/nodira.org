@@ -3,6 +3,10 @@
 {% block title %}
     <title>Introduction to Python Programming at nodira</title>
 {% endblock %}
+{% block meta_description %}
+    <meta name="description"
+          content="Python is more popular than ever, and is being used everywhere from backend web servers to frontend game development. In this section, we'll learn about Python general concepts & usage on a deep level.">
+{% endblock %}
 {% block css_link %}
     <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
@@ -14,6 +18,7 @@
         p {
             font-weight: 400;
         }
+
         .bmc-button img {
             height: 34px !important;
             width: 35px !important;
@@ -22,6 +27,7 @@
             border: none !important;
             vertical-align: middle !important;
         }
+
         .bmc-button {
             padding: 7px 15px 7px 10px !important;
             line-height: 35px !important;
@@ -191,7 +197,8 @@
                             <img src="{% static 'images/python_companies/google.png' %}" alt="Google - using Python"
                                  class="img-fluid" style="height: 177px;">
                             <div class="details">
-                                <h3><a href="https://www.google.org/" style="height: 357px;" target="_blank">Google</a></h3>
+                                <h3><a href="https://www.google.org/" style="height: 357px;" target="_blank">Google</a>
+                                </h3>
                                 <p>Net Worth : <strong>$1 T</strong></p>
                                 <div class="social">
                                     <p><a href="https://www.google.org/" data-toggle="tooltip" data-placement="bottom"
@@ -202,7 +209,8 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="speaker">
-                            <img src="{% static 'images/python_companies/nasa.png' %}" alt="Nasa - using Python" class="img-fluid"
+                            <img src="{% static 'images/python_companies/nasa.png' %}" alt="Nasa - using Python"
+                                 class="img-fluid"
                                  style="height: 177px;">
                             <div class="details">
                                 <h3><a href="https://www.nasa.gov/" style="height: 357px;" target="_blank">Nasa</a></h3>
@@ -216,7 +224,8 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="speaker">
-                            <img src="{% static 'images/python_companies/ibm.png' %}" alt="IBM - using Python" class="img-fluid"
+                            <img src="{% static 'images/python_companies/ibm.png' %}" alt="IBM - using Python"
+                                 class="img-fluid"
                                  style="height: 177px;">
                             <div class="details">
                                 <h3><a href="https://www.ibm.com/" target="_blank">IBM</a></h3>
@@ -230,7 +239,8 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="speaker">
-                            <img src="{% static 'images/python_companies/instagram.png' %}" alt="Instagram - using Python"
+                            <img src="{% static 'images/python_companies/instagram.png' %}"
+                                 alt="Instagram - using Python"
                                  class="img-fluid" style="height: 177px;">
                             <div class="details">
                                 <h3><a href="https://www.instagram.com/" target="_blank">Instagram</a></h3>
@@ -238,7 +248,8 @@
                                 <div class="social">
                                     <p><a href="https://www.instagram.com/" data-toggle="tooltip"
                                           data-placement="bottom"
-                                          title="Visit Instagram Website" target="_blank">Visit Instagram Website</a></p>
+                                          title="Visit Instagram Website" target="_blank">Visit Instagram Website</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -284,7 +295,8 @@
             ideal language for scripting and rapid application development in many areas on most platforms.</p>
         <div class="h5 text-info my-3">Advantages of Python</div>
         <ul>
-            <li><p class="p-color p-size pl-3 my-3">Easy to learn & understand fundamental concepts. The most demanded language for productivity.</p></li>
+            <li><p class="p-color p-size pl-3 my-3">Easy to learn & understand fundamental concepts. The most demanded
+                language for productivity.</p></li>
             <li><p class="p-color p-size pl-3 my-3">Python is OOP driven, offers good support for objects, modules, and
                 other re-usability mechanisms.</p></li>
 
@@ -307,7 +319,7 @@
         </ul>
 
         <br>
-   <div class="mt-3 mb-4">
+        <div class="mt-3 mb-4">
             <button class="next"><span><a class="text-white" href="{% url 'main:python_installing' %}"
                                           target="_blank">Next </a></span></button>
         </div>

@@ -3,6 +3,10 @@
 {% block title %}
     <title>Python __name__ variable (Examples)</title>
 {% endblock %}
+{% block meta_description %}
+    <meta name="description"
+          content="Python  __name__ variable | In Python, the __name__ is a special variable that's used to check whether a python file is imported or running directly as a main file.">
+{% endblock %}
 {% block css_link %}
     <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
@@ -14,6 +18,7 @@
         p {
             font-weight: 400;
         }
+
         .bmc-button img {
             height: 34px !important;
             width: 35px !important;
@@ -22,6 +27,7 @@
             border: none !important;
             vertical-align: middle !important;
         }
+
         .bmc-button {
             padding: 7px 15px 7px 10px !important;
             line-height: 35px !important;
@@ -92,13 +98,16 @@
     <div class="container">
         <hr>
         <div class="mt-3 mb-4">
-            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_copy_function' %}" > Previous</a></span></button>
-            <button class="next"><span><a class="text-white" href="{% url 'main:python_pip' %}" >Next </a></span></button>
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_copy_function' %}"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_pip' %}">Next </a></span>
+            </button>
         </div>
         <br>
         <br>
         <div class="h5 text-info my-3"><strong>Section 1.1</strong>: Python "__name__" Overview</div>
-        <p class="p-color p-size ml-3">In Python, the <span class="text-danger">__name__</span> is a special variable that is
+        <p class="p-color p-size ml-3">In Python, the <span class="text-danger">__name__</span> is a special variable
+            that is
             used to check whether
             a python file is imported or running directly as a main file.
         </p>
@@ -203,17 +212,22 @@
             In the example above, when we run <em><strong>module2.py</strong></em>, our <em>if condition</em> becomes
             <em>True</em> since we did't imported any module.
             <br>
-            However, while running our second python file <em><strong>module1.py</strong></em>, we first obtain an output coming from imported module, then our compiler goes below and checks for <em>if/else condition</em> and obtains a result.
+            However, while running our second python file <em><strong>module1.py</strong></em>, we first obtain an
+            output coming from imported module, then our compiler goes below and checks for <em>if/else condition</em>
+            and obtains a result.
         </p>
         <hr>
-    <p class="p-color p-size ml-3">In Python, the <span class="text-danger">__name__</span> is a special variable that is
+        <p class="p-color p-size ml-3">In Python, the <span class="text-danger">__name__</span> is a special variable
+            that is
             used to check whether
             a python file is imported or running directly as a main file.
         </p>
-    <br>
-         <div class="mt-3 mb-4">
-            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_copy_function' %}" > Previous</a></span></button>
-            <button class="next"><span><a class="text-white" href="{% url 'main:python_pip' %}" >Next </a></span></button>
+        <br>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_copy_function' %}"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_pip' %}">Next </a></span>
+            </button>
         </div>
         <br> <br> <br>
         <!--==========Schedule Section==============-->

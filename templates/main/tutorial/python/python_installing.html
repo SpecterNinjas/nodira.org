@@ -3,6 +3,10 @@
 {% block title %}
     <title>Install Python (Source Code & Guide)</title>
 {% endblock %}
+{% block meta_description %}
+    <meta name="description"
+          content="Installing Python | Nowadays, installing Python is quite easy and many Linux/UNIX packages include a recent Python. Even some Windows computers come with Python already installed.">
+{% endblock %}
 {% block css_link %}
     <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
@@ -18,6 +22,7 @@
         .p-size {
             font-size: 1em;
         }
+
         .bmc-button img {
             height: 34px !important;
             width: 35px !important;
@@ -26,6 +31,7 @@
             border: none !important;
             vertical-align: middle !important;
         }
+
         .bmc-button {
             padding: 7px 15px 7px 10px !important;
             line-height: 35px !important;
@@ -89,9 +95,9 @@
         <hr>
         <div class="mt-3 mb-4">
             <button class="prev"><span><a class="text-white" href="{% url 'main:python' %}"
-                                          > Previous</a></span></button>
+            > Previous</a></span></button>
             <button class="next"><span><a class="text-white" href="{% url 'main:data_types' %}"
-                                          >Next </a></span></button>
+            >Next </a></span></button>
         </div>
         <br>
         <br>
@@ -348,9 +354,9 @@
         <br>
         <div class="mt-3 mb-4">
             <button class="prev"><span><a class="text-white" href="{% url 'main:python' %}"
-                                          > Previous</a></span></button>
+            > Previous</a></span></button>
             <button class="next"><span><a class="text-white" href="{% url 'main:data_types' %}"
-                                          >Next </a></span></button>
+            >Next </a></span></button>
         </div>
         <br> <br> <br>
         <!--==========================

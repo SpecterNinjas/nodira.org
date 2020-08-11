@@ -3,6 +3,10 @@
 {% block title %}
     <title>Python Date and Time (Examples & Source Code)</title>
 {% endblock %}
+{% block meta_description %}
+    <meta name="description"
+          content="Python Date & Time | This section focuses on datetime and timedelta objects in Python. Datetime package deals with all problems related to date & time.">
+{% endblock %}
 {% block css_link %}
     <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
@@ -19,6 +23,7 @@
             border: none !important;
             vertical-align: middle !important;
         }
+
         .bmc-button {
             padding: 7px 15px 7px 10px !important;
             line-height: 35px !important;
@@ -91,7 +96,8 @@
         <div class="mt-3 mb-4">
             <button class="prev"><span><a class="text-white" href="{% url 'main:python_class' %}"> Previous</a></span>
             </button>
-            <button class="next"><span><a class="text-white" href="{% url 'main:python_module_package' %}">Next </a></span></button>
+            <button class="next"><span><a class="text-white"
+                                          href="{% url 'main:python_module_package' %}">Next </a></span></button>
         </div>
         <br>
         <br>
@@ -231,7 +237,7 @@
             <button class="prev"><span><a class="text-white" href="{% url 'main:python_class' %}"> Previous</a></span>
             </button>
             <button class="next"><span><a class="text-white" href="{% url 'main:python_module_package' %}"
-                                          >Next </a></span></button>
+            >Next </a></span></button>
         </div>
         <br> <br> <br>
         <!--==========Schedule Section==============-->

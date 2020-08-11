@@ -3,6 +3,10 @@
 {% block title %}
     <title>Python Heapq and Count Function (Examples)</title>
 {% endblock %}
+{% block meta_description %}
+    <meta name="description"
+          content="Python Heapq and Count | The heapq() library is mainly used to find n-largest & n-smallest items from a collection. count() method is used to find frequency of an element in a collection.">
+{% endblock %}
 {% block css_link %}
     <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
@@ -14,6 +18,7 @@
         p {
             font-weight: 400;
         }
+
         .bmc-button img {
             height: 34px !important;
             width: 35px !important;
@@ -22,6 +27,7 @@
             border: none !important;
             vertical-align: middle !important;
         }
+
         .bmc-button {
             padding: 7px 15px 7px 10px !important;
             line-height: 35px !important;
@@ -92,8 +98,10 @@
     <div class="container">
         <hr>
         <div class="mt-3 mb-4">
-            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_search_filter' %}" > Previous</a></span></button>
-            <button class="next"><span><a class="text-white" href="{% url 'main:python_sort_min_max' %}" >Next </a></span></button>
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_search_filter' %}"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white"
+                                          href="{% url 'main:python_sort_min_max' %}">Next </a></span></button>
         </div>
         <br>
         <br>
@@ -311,8 +319,10 @@
         </p>
         <br>
         <div class="mt-3 mb-4">
-            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_search_filter' %}" > Previous</a></span></button>
-            <button class="next"><span><a class="text-white" href="{% url 'main:python_sort_min_max' %}" >Next </a></span></button>
+            <button class="prev"><span><a class="text-white" href="{% url 'main:python_search_filter' %}"> Previous</a></span>
+            </button>
+            <button class="next"><span><a class="text-white"
+                                          href="{% url 'main:python_sort_min_max' %}">Next </a></span></button>
         </div>
         <br> <br> <br>
         <!--==========Schedule Section==============-->

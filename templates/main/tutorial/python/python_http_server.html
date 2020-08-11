@@ -3,6 +3,10 @@
 {% block title %}
     <title>Python Http Server (Examples & Source Code)</title>
 {% endblock %}
+{% block meta_description %}
+    <meta name="description"
+          content="Python Http Server | The Http Server is a module that defines classes for implementing Python Web servers. http.server only implements basic security checks.">
+{% endblock %}
 {% block css_link %}
     <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
@@ -15,6 +19,7 @@
         p {
             font-weight: 400;
         }
+
         .bmc-button img {
             height: 34px !important;
             width: 35px !important;
@@ -23,6 +28,7 @@
             border: none !important;
             vertical-align: middle !important;
         }
+
         .bmc-button {
             padding: 7px 15px 7px 10px !important;
             line-height: 35px !important;
@@ -93,8 +99,10 @@
     <div class="container">
         <hr>
         <div class="mt-3 mb-4">
-            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_networking' %}" > Previous</a></span></button>
-            <button class="next"><span><a class="text-white" href="{% url 'main:python_descriptor' %}" >Next </a></span></button>
+            <button class="prev"><span><a class="text-white"
+                                          href="{% url 'main:python_networking' %}"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_descriptor' %}">Next </a></span>
+            </button>
         </div>
         <br>
         <br>
@@ -212,12 +220,15 @@
             &nbsp;)<br><br>
             host &nbsp;=&nbsp; <span class="text-info">' '</span> <br>
             port &nbsp;=&nbsp; <span class="text-danger">80</span> <br>
-            <span class="text-danger">HTTPServer</span> ( ( host , port ) , <span class="text-info">HandleRequests</span> ).server_forever ( ) <br>
+            <span class="text-danger">HTTPServer</span> ( ( host , port ) , <span
+                class="text-info">HandleRequests</span> ).server_forever ( ) <br>
         </p>
         <br>
-          <div class="mt-3 mb-4">
-            <button class="prev" ><span><a class="text-white" href="{% url 'main:python_networking' %}" > Previous</a></span></button>
-            <button class="next"><span><a class="text-white" href="{% url 'main:python_descriptor' %}" >Next </a></span></button>
+        <div class="mt-3 mb-4">
+            <button class="prev"><span><a class="text-white"
+                                          href="{% url 'main:python_networking' %}"> Previous</a></span></button>
+            <button class="next"><span><a class="text-white" href="{% url 'main:python_descriptor' %}">Next </a></span>
+            </button>
         </div>
         <br> <br> <br>
         <!--==========Schedule Section==============-->
@@ -257,8 +268,6 @@
 
             </div>
         </section>
-
-
 
 
     </div>

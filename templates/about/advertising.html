@@ -3,6 +3,10 @@
 {% block title %}
     <title>Advertising and Sponsorship</title>
 {% endblock %}
+{% block meta_description %}
+    <meta name="description"
+          content="Advertise & Sponsorship | Stopping Advertising to save money is like stopping your watch to save time! Become our Sponsor & Advertise services to boost business.">
+{% endblock %}
 {% block css_link %}
     <link rel="stylesheet" href="{% static 'main/tutorial/sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'main/tutorial/python/python_installing.css' %}">
@@ -10,7 +14,8 @@
         #header {
             background: rgb(6, 12, 34);
         }
-         .bmc-button img {
+
+        .bmc-button img {
             height: 34px !important;
             width: 35px !important;
             margin-bottom: 1px !important;
@@ -262,11 +267,13 @@
     </section>
     <!--=====END OF BANNER Section ============-->
     <div class="mt-4 mb-4">
-            <button class="prev"><span><a class="text-white" href="{% url 'about:contribute' %}" target="_blank"> Previous</a></span>
-            </button>
-            <button class="next"><span><a class="text-white" href="{% url 'about:contact' %}" target="_blank">Next </a></span>
-            </button>
-        </div>
+        <button class="prev"><span><a class="text-white" href="{% url 'about:contribute' %}"
+                                      target="_blank"> Previous</a></span>
+        </button>
+        <button class="next"><span><a class="text-white" href="{% url 'about:contact' %}"
+                                      target="_blank">Next </a></span>
+        </button>
+    </div>
     <br> <br> <br>
     <!--==========Schedule Section==============-->
     <section id="schedule" class="section-with-bg">
@@ -276,7 +283,8 @@
             <div class="section-header my-3">
                 <p class="text-dark font-weight-bold my-3">Be part of our supreme family and share your knowledge
                     <img
-                            src="{% static 'images/heart.ico' %}" alt="love icon - nodira" style="width: 25px; height: 25px;"></p>
+                            src="{% static 'images/heart.ico' %}" alt="love icon - nodira"
+                            style="width: 25px; height: 25px;"></p>
             </div>
 
             <h3 class="sub-heading mt-5">
